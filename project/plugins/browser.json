@@ -9,9 +9,6 @@
   "installed_plugins": {
     "cordova-plugin-googlemaps": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-android-support-v4-jar": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {}

@@ -15,16 +15,14 @@
   "devDependencies": {
     "cordova-android": "^10.1.2",
     "cordova-browser": "^6.0.0",
-    "cordova-plugin-android-support-v4-jar": "^23.2.1",
+    "cordova-ios": "^6.2.0",
     "cordova-plugin-googlemaps": "^2.7.1"
   },
   "cordova": {
     "platforms": [
       "android",
-      "browser"
-    ],
-    "plugins": {
-      "cordova-plugin-android-support-v4-jar": {}
-    }
+      "browser",
+      "ios"
+    ]
   }
 }

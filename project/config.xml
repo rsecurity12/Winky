@@ -8,5 +8,6 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyD5CSE5WLupswivyYw0_Qxb66R9rTi4gik" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyALWkSXFy1Ray1kksagnqBn8oUSz_l4MzM" />
+  <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyALWkSXFy1Ray1kksagnqBn8oUSz_l4MzM" />
 </widget>
