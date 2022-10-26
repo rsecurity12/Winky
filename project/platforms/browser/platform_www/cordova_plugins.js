@@ -317,7 +317,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-googlemaps": "2.7.1"
+    "cordova-plugin-googlemaps": "2.7.1",
+    "cordova-plugin-android-support-v4-jar": "23.2.1"
 }
 // BOTTOM OF METADATA
 });

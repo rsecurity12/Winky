@@ -231,6 +231,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-googlemaps": "2.7.1"
+    "cordova-plugin-googlemaps": "2.7.1",
+    "cordova-plugin-android-support-v4-jar": "23.2.1"
   };
 });
