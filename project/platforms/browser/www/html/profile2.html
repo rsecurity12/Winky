@@ -1,9 +1,7 @@
 <html>
 
 <head>
-    <title>
-        Profile
-    </title>
+    <title>Admin profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,20 +10,14 @@
 </head>
 
 <body>
-
     <div class="container">
         <h2>Profile</h2>
         <button onclick="Logout();" style="float: right;">Logout</button>
         <hr>
         <h3>Welcome</h3>
-        <h4>Name:
-            <script>
-                document.write(localStorage.getItem('name'));
-            </script>
+        <h4>Name: Admin</script>
         </h4>
-        <button onclick="window.location = 'html/AddNotification.html'">Add notification</button>
     </div>
-
 </body>
 <script>
     let name = localStorage.getItem('name') ? localStorage.getItem('name') : ''

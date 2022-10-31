@@ -7,5 +7,5 @@
   "description": "Sample Apache Cordova App",
   "author": "Apache Cordova Team",
   "icons": [],
-  "start_url": "login.html"
+  "start_url": "html/login.html"
 }

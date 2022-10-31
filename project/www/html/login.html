@@ -1,37 +1,30 @@
-<!-- 
- * Created by Jayant Bramhankar (www.sahyadritechnologies.com) 
- * Youtube Channel - https://www.youtube.com/channel/UCPSeFaxM6ni_HGpfkb3Kwbw;
- * License - Free to use -->
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-
-	<title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script>
-	   function callAnothePage()
-        {
-            window.location = "localstorage-part2.html";
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Login</title>
+    <script>
+        function callAnothePage() {
+            window.location = "registration.html";
         }
-        function loginPage()
-        {
+
+        function loginPage() {
             window.location = "index.html";
         }
-        function homePage()
-        {
+
+        function homePage() {
             window.location = "login.html";
         }
-
-	</script>
+    </script>
 </head>
+
 <body class="login_home">
-
-
+    <div class="logo">
+        <img src="../images/logo.png" width="250" height="250">
+    </div>
     <div class="div_buttons">
         <button type="button" class="button-submit2" onclick="loginPage()">Login</button>
         <br>
@@ -44,10 +37,7 @@
         <button class="loginBtn loginBtn--google">
             Login with Google
         </button>
-       
-       </div>	   
-    
-
-
+    </div>
 </body>
+
 </html>

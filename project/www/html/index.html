@@ -1,19 +1,17 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
         function homePage() {
             window.location = "login.html";
         }
 
         function registerPage() {
-            window.location = "localstorage-part2.html";
+            window.location = "registration.html";
         }
     </script>
 </head>
@@ -23,10 +21,9 @@
         <div class="app">
             <div class="shape-circle"></div>
             <center>
-                <h2 class="page-heading">Welcome Winky<i class="fas fa-sign-in-alt"></i></h2>
+                <h2 class="page-heading">Welcome Winky</h2>
             </center>
             <div class="login-container">
-
                 <h3>Login to your account</h3>
                 <form action="#">
                     <div class="form-control">
@@ -39,29 +36,19 @@
                 </form>
             </div>
         </div>
-
     </div>
     <button type="button" class="button-submit3" onclick="homePage()">Home</button>
     <button type="button" class="button-submit3" onclick="registerPage()">Register</button>
-
-
 </body>
 <script>
-    let name = localStorage.getItem('name') ? localStorage.getItem('name') : ''
-    console.log(name);
-    if (name != '') {
-        // alert('Please visit profile');
-        //window.location.href="profile.html";
-    }
+    let name = localStorage.getItem('name') ? localStorage.getItem('name') : '';
 
     function saveData() {
         let email, psw;
         email = document.getElementById("email").value;
-
         psw = document.getElementById("psw").value;
         let user_records = new Array();
         user_records = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
-
         if (email !== "admin@stadantwerpen.be") {
             if (user_records.some((v) => {
                     return v.email == email && v.psw == psw
@@ -72,16 +59,15 @@
                 })[0]
                 localStorage.setItem('name', current_user.name);
                 localStorage.setItem('email', current_user.email);
-                window.location.href = "profile.html"
+                window.location.href = "map.html";
+                // window.location.href = "profile.html"
             } else {
                 alert('Login Fail');
             }
         } else if (email == "admin@stadantwerpen.be") {
             alert("You will be redirected to the admin login page");
             window.location.href = "index2.html"
-
         }
-
     }
 </script>
 

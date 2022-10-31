@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Profile
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="app">
+            <h2>Add notification</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">Title:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter title" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="textarea" class="form-control" id="description" placeholder="Enter description" name="description">
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="red" name="notificationState" value="red">
+                    <label for="red" style="color:red;">red</label> <br>
+                    <input type="radio" id="orange" name="notificationState" value="orange">
+                    <label for="orange" style="color:orange;">orange</label><br>
+                    <input type="radio" id="green" name="notificationState" value="green">
+                    <label for="green" style="color:green;">green</label>
+                </div>
+                <button type="button" class="button-submit1" onclick="saveNotification()">Save notification</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function saveNotification() {
+        let name, description, notificationState, breedteLigging, lengteLigging;
+        name = document.getElementById("name").value;
+        description = document.getElementById("description").value;
+        notificationState = document.getElementById("notificationState").value;
+        if (green.checked) {
+            notificationState = "green";
+        } else if (red.checked) {
+            notificationState = "red";
+        } else if (orange.checked) {
+            notificationState = "red";
+        }
+        // Breedte en lengte moet uit huidige locatie opgehaald worden
+        //  let notification = new Notification(title, description, notificationState)
+        //  localStorage.setItem("notification ", notification)
+        //  localStorage.getItem()
+    }
+</script>
+
+</html>
