@@ -36,6 +36,11 @@
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/index.css">
     <title>aello World</title>
+    <script>
+        function testPage() {
+            window.location = "test.html";
+        }
+    </script>
 </head>
 
 <body>
@@ -46,6 +51,8 @@
             <p class="event received">Device is Ready</p>
         </div>
     </div>
+    <button onclick="testPage()">test</button>
+
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
 </body>
