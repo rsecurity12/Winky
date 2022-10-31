@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>
+            Profile Form Using local storage js-part5
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+
+        <h1 class="text-info text-center">Profile</h1>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <h3 class="text-warning">
+                                Gender
+                            </h3>
+
+                            <input type="radio" name="gen" value="Male"> Male<br>
+                            <input type="radio" name="gen" value="Female">Female
+                        </div>
+
+                        <div class="row">
+                            <h3 class="text-warning">
+                                Qualification
+                            </h3>
+                            <input type="checkbox" id="bt" value="B.Tech">B.Tech
+                    <br>
+                    <input type="checkbox" id="dp" value="Diploma">Diploma
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <h3 class="text-warning">
+                                Country
+                            </h3>
+                            <select id="ct">
+                                <option>Select Country</option>
+                                <option value="india">India</option>
+                                <option value="nepal">Nepal</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <h3 class="text-warning">
+                                Description
+                            </h3>
+                            <textarea id="des"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-danger" onclick="saveProfile()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function saveProfile()
+            {
+                var gender=document.querySelector('input[name="gen"]:checked').value
+                var bt=document.getElementById('bt').checked?document.getElementById('bt').value:'';
+                var dp=document.getElementById('dp').checked?document.getElementById('dp').value:''
+                var ct=document.getElementById('ct').value
+                var des=document.getElementById('des').value
+
+                let profile={
+                    gender:gender,
+                    btech:bt,
+                    diploma:dp,
+                    country:ct,
+                    description:des
+                }
+                console.log(profile)
+                localStorage.setItem("profile_data",JSON.stringify(profile))
+            }
+        </script>
+      </body>

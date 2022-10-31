@@ -1,56 +1,87 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
+
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <title>ADD</title>
+
+	<title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script>
-        function addNot() {
-            window.location = "html/AddNotification.html";
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script>
+	   function homePage()
+        {
+            window.location = "login.html";
         }
-    </script>
+		function registerPage()
+        {
+            window.location = "localstorage-part2.html";
+        }
+	</script>
 </head>
-
 <body>
-    <div class="app">
-        <h1>zpache Cordova</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
-    </div>
-    <button onclick="addNot()">test</button>
+	<div class="container">
+		<div class="app">	
+			<div class="shape-circle"></div>
+			<center><h2 class="page-heading">Welcome Winky<i class="fas fa-sign-in-alt"></i></h2></center>
+			<div class="login-container">
+                
+				<h3>Login to your account</h3>
+				<form action="#">
+					<div class="form-control">
+					  <input type="email" class="username" id="email" placeholder="Email" name="email" required="">
+					</div>
+					<div class="form-control">
+					  <input type="password" class="password" id="psw" placeholder="Password" name="pwd" required="">
+					</div>	   
+					<button type="button" onclick="saveData()" id="save_btn" class="button-submit">Submit</button>
+				  </form>
+			</div>
+		</div>
 
-    <script src="cordova.js"></script>
-    <script src="js/index.js"></script>
+	</div>
+	<button type="button" class="button-submit3" onclick="homePage()">Home</button>
+	<button type="button" class="button-submit3" onclick="registerPage()">Register</button>
+ 
+
 </body>
+<script>
+	let name=localStorage.getItem('name')?localStorage.getItem('name'):''
+   console.log(name);
+   if(name!='')
+   {
+	 alert('Please visit profile');
+	 //window.location.href="profile.html";
+   }
+function saveData()
+{
+let email,psw;
+email=document.getElementById("email").value;
 
+psw=document.getElementById("psw").value;
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+if(email !== "admin@stadantwerpen.be"){
+    if(user_records.some((v)=>{return v.email==email && v.psw==psw}))
+      {
+        alert("Login Pass");
+        let current_user=user_records.filter((v)=>{return v.email==email && v.psw==psw})[0]
+        localStorage.setItem('name',current_user.name);
+        localStorage.setItem('email',current_user.email);
+        window.location.href="profile.html"
+      }
+    else
+      {
+         alert('Login Fail');
+      }
+}
+else if(email =="admin@stadantwerpen.be"){
+  alert("You will be redirected to the admin login page");
+  window.location.href="index2.html"
+
+}
+
+}
+</script>
 </html>
