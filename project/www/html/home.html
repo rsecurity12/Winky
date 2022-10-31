@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Login</title>
+    <script>
+        function callAnothePage() {
+            window.location = "registration.html";
+        }
+
+        function loginPage() {
+            window.location = "login.html";
+        }
+    </script>
+</head>
+
+<body class="login_home">
+    <div class="logo">
+        <img src="../images/logo.png" width="250" height="250">
+    </div>
+    <div class="div_buttons">
+        <button type="button" class="button-submit2" onclick="loginPage()">Login</button>
+        <br>
+        <button type="button" class="button-submit2" onclick="callAnothePage()">Register</button>
+        <br>
+        <button class="loginBtn loginBtn--facebook">
+            Login with Facebook
+        </button>
+        <br>
+        <button class="loginBtn loginBtn--google">
+            Login with Google
+        </button>
+    </div>
+</body>
+
+</html>
