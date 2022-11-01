@@ -6,12 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
-        function homePage() {
-            window.location = "home.html";
-        }
-
-        function registerPage() {
-            window.location = "registration.html";
+        function locatePage(location) {
+            window.location = location + ".html";
         }
     </script>
 </head>
@@ -19,10 +15,7 @@
 <body>
     <div class="container">
         <div class="app">
-            <div class="shape-circle"></div>
-            <center>
-                <h2 class="page-heading">Welcome Winky</h2>
-            </center>
+            <h2 class="page-heading">Login</h2>
             <div class="login-container">
                 <h3>Login to your account</h3>
                 <form action="#">
@@ -32,13 +25,15 @@
                     <div class="form-control">
                         <input type="password" class="password" id="psw" placeholder="Password" name="pwd" required="">
                     </div>
-                    <button type="button" onclick="saveData()" id="save_btn" class="button-submit">Submit</button>
+                    <div class="shape-circle">
+                        <button type="button" onclick="saveData()" id="save_btn" class="button-submit">Login</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <button type="button" class="button-submit3" onclick="homePage()">Home</button>
-    <button type="button" class="button-submit3" onclick="registerPage()">Register</button>
+    <button type="button" class="button-submit3" onclick="locatePage('home')">Home</button>
+    <button type="button" class="button-submit3" onclick="locatePage('registration')">Registrate</button>
 </body>
 <script>
     let name = localStorage.getItem('name') ? localStorage.getItem('name') : '';
@@ -59,14 +54,13 @@
                 })[0]
                 localStorage.setItem('name', current_user.name);
                 localStorage.setItem('email', current_user.email);
-                window.location.href = "map.html";
-                // window.location.href = "profile.html"
+                locatePage("map");
             } else {
                 alert('Login Fail');
             }
         } else if (email == "admin@stadantwerpen.be") {
             alert("You will be redirected to the admin login page");
-            window.location.href = "index2.html"
+            locatePage("index2");
         }
     }
 </script>

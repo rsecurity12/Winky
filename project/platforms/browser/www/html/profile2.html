@@ -24,13 +24,13 @@
     console.log(name);
     if (name == '') {
         alert('You need to login first');
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
     function Logout() {
         localStorage.removeItem('name');
         localStorage.removeItem('email');
-        window.location.href = "index.html";
+        window.location.href = "home.html";
     }
 </script>
 

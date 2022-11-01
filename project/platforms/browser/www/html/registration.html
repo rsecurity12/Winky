@@ -7,12 +7,8 @@
     <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
-        function loginPage() {
-            window.location = "login.html";
-        }
-
-        function homePage() {
-            window.location = "home.html";
+        function locatePage(location) {
+            window.location = location + ".html";
         }
     </script>
 </head>
@@ -20,28 +16,28 @@
 <body>
     <div class="container">
         <div class="app">
-            <div class="shape-circle"></div>
-            <center>
-                <h2 class="page-heading">Registration Form</h2>
-            </center>
+            <h2 class="page-heading">Registration</h2>
             <div class="login-container">
+                <h3>Create your account</h3>
                 <form action="#">
                     <div class="form-control">
                         <input type="text" class="username" id="name" placeholder="Name" name="name" required="">
                     </div>
                     <div class="form-control">
-                        <input type="email" class="username" id="email" placeholder="Email" name="email" required="">
+                        <input type="email" class="email" id="email" placeholder="Email" name="email" required="">
                     </div>
                     <div class="form-control">
                         <input type="password" class="password" id="psw" placeholder="Enter password" name="pwd" required="">
                     </div>
-                    <button type="button" onclick="saveData()" id="save_btn" class="button-submit">Login</button>
+                    <div class="shape-circle">
+                        <button type="button" onclick="saveData()" id="save_btn" class="button-submit">Register</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <button type="button" class="button-submit3" onclick="homePage()">Home</button>
-    <button type="button" class="button-submit3" onclick="loginPage()">Login</button>
+    <button type="button" class="button-submit3" onclick="locatePage('home')">Home</button>
+    <button type="button" class="button-submit3" onclick="locatePage('login')">Login</button>
 </body>
 <script>
     function saveData() {
@@ -64,9 +60,9 @@
             localStorage.setItem("users", JSON.stringify(user_records));
             window.alert("Your login was successfully created. You can now return to the login page")
             if (email == "admin@stadantwerpen.be") {
-                window.location = "index2.html";
+                locatePage('index2')
             } else {
-                window.location = "index.html";
+                locatePage('index')
             }
         }
     }
