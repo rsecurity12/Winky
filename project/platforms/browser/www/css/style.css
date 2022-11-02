@@ -37,7 +37,6 @@ body {
 .app {
     background: #fff;
     min-height: 640px;
-    box-shadow: inset 20px 0px 00px rgba(244, 215, 66, 0.3);
     overflow: hidden;
     background: transparent;
 }
@@ -142,7 +141,7 @@ body {
     border-top: 0px;
 }
 
-.button-submit {
+.btn_submit {
     position: absolute;
     top: 50px;
     right: 10px;
@@ -154,30 +153,45 @@ body {
     font-weight: bold;
     border-radius: 20%;
     box-shadow: 4px 4px #f4c141;
-    color: #000000;
+    color: #555;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px;
+}
+
+#btn_saveNot {
+    position: absolute;
+    bottom: 1px;
+    left: 35%;
+    right: 35%;
+}
+
+#radioButtons {
+    margin: auto;
+    padding: 20px;
+}
+
+#addNotBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid rgba(244, 214, 65, 1);
+    background: rgba(244, 214, 65, 0.7);
+    width: 100px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 20%;
+    box-shadow: 4px 4px #f4c141;
+    color: #555;
+    font-size: 30px;
 }
 
 .button-submit:hover {
     box-shadow: 4px 4px #d1a740;
     color: #fff;
-}
-
-@keyframes shapeanimate {
-    0% {
-        background: rgba(244, 215, 66, 0.3);
-    }
-    25% {
-        background: rgba(244, 215, 66, 0.5);
-    }
-    50% {
-        background: rgba(244, 215, 66, 0.7);
-    }
-    75% {
-        background: rgba(244, 215, 66, 0.9);
-    }
-    100% {
-        background: rgba(244, 215, 66, 0.5);
-    }
 }
 
 @charset "utf-8";
@@ -188,7 +202,6 @@ body {
 
 body {
     background: white;
-    color: white;
     font: 87.5%/1.5em 'Open Sans', sans-serif;
     margin: 0;
 }
@@ -268,13 +281,9 @@ after {
     background: 4px 4px #ffee0681;
 }
 
-
-/* Shared */
-
 .loginBtn {
     box-sizing: border-box;
     position: relative;
-    /* width: 13em;  - apply for fixed size */
     margin: 0.2em;
     padding: 0 10px 0 30px;
     border: none;
@@ -355,7 +364,7 @@ after {
     top: 150px;
 }
 
-.button-submit2 {
+.btn_inverse {
     border: 1px solid rgba(244, 214, 65, 1);
     background: rgba(252, 252, 251, 0.988);
     width: 100px;
@@ -364,14 +373,14 @@ after {
     font-weight: bold;
     border-radius: 20%;
     box-shadow: 4px 4px #f4c141;
-    color: #000000;
+    color: #000;
 }
 
 button {
     margin: 5px;
 }
 
-.button-submit3 {
+.btn_normal {
     text-align: center;
     border: 1px solid rgba(244, 214, 65, 1);
     background: rgba(244, 214, 65, 0.7);
@@ -381,7 +390,7 @@ button {
     font-weight: bold;
     border-radius: 20%;
     box-shadow: 4px 4px #f4c141;
-    color: #000000;
+    color: #555;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');

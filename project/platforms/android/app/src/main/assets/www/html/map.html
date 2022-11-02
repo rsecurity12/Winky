@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <title>Map</title>
+    <script>
+        function locatePage(location) {
+            window.location = location + ".html";
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="app">
-            <h1>Hier komt de map</h1>
-            <button class="button-submit1" id="addButton" onclick="window.location = 'addNotification.html'">+ Add notification</button>
+            <h2>Hier komt de map</h2>
+            <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
         </div>
     </div>
 </body>

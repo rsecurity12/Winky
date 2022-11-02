@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
+  "name": "Winky",
+  "short_name": "Winky",
   "version": "io.cordova.hellocordova",
   "description": "Sample Apache Cordova App",
-  "author": "Apache Cordova Team",
+  "author": "Wannes, Max, Rodrigo and Koen",
   "icons": [],
   "start_url": "html/home.html"
 }
