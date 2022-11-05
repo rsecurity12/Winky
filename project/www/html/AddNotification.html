@@ -30,31 +30,15 @@
                     <input type="radio" id="green" name="notificationState" value="green">
                     <label for="green" style="color:green;">Green</label>
                 </div>
-                <button type="button" class="btn_normal" id="btn_saveNot" onclick="saveNotification()">Save notification</button>
+                <button type="button" class="btn_normal" id="btn_saveNot" onclick="getNot()">Save notification</button>
             </form>
         </div>
     </div>
 </body>
-<script>
-    // Loopt iets mis met de 'require' --> kan dit niet binnenhalen
-    const Notification = require('../js/Notification.js');
 
-    function saveNotification() {
-        let name, description, notificationState, breedteLigging, lengteLigging;
-        name = document.getElementById("title").value;
-        description = document.getElementById("description").value;
-        if (green.checked) {
-            notificationState = "green";
-        } else if (red.checked) {
-            notificationState = "red";
-        } else if (orange.checked) {
-            notificationState = "red";
-        }
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
-        // Breedte en lengte moet uit huidige locatie opgehaald worden
-        let notification = new Notification(title, description, notificationState)
-        console.log(notification);
-    }
-</script>
+<script src="../js/addNot.js"></script>
 
 </html>

@@ -12,14 +12,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // Initialize variables
 const auth = firebase.auth()
-const database = firebase.firestore();
+const database = firebase.database();
 // R E G I S T E R   H T M L  Set up our register function
 function register() {
     // Get all our input fields
     email = document.getElementById('email').value
     password = document.getElementById('password').value
-    first_name = document.getElementById('first_name').value;
-    // Validate input fields
+    first_name = document.getElementById('first_name').value
+        // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
         alert('Something went wrong! Try again!')
         return
@@ -35,22 +35,18 @@ function register() {
             // Declare user variable
             var user = auth.currentUser
                 // Add this user to Firebase Database
-            var database_ref = database.collection('UserRoles')
+            var database_ref = database.ref()
                 // Create User data
             var user_data = {
-                email: email,
-                first_name: first_name,
-                last_login: Date.now(),
-                userRole: "user"
-            }
-
-            // Push to Firebase Database
-            database_ref.doc(user.uid).set(user_data).then(() => {
+                    email: email,
+                    first_name: first_name,
+                    last_login: Date.now()
+                }
+                // Push to Firebase Database
+            database_ref.child('users/' + user.uid).set(user_data)
                 // DOne
-                alert('User created with success! You will be redirected to the login page!')
-                window.location = "../html/login.html";
-            })
-
+            alert('User created with success! You will be redirected to the login page!')
+            window.location = "../html/login.html";
         })
         .catch(function(error) {
             // Firebase will use this to alert of its errors
@@ -77,18 +73,16 @@ function login() {
                 // Declare user variable
                 var user = auth.currentUser
                     // Add this user to Firebase Database
-                var database_ref = database.collection('UserRoles')
+                var database_ref = database.ref()
                     // Create User data
                 var user_data = {
                         last_login: Date.now()
                     }
                     // Push to Firebase Database
-                    // Push to Firebase Database
-                database_ref.doc(user.uid).update(user_data).then(() => {
+                database_ref.child('users/' + user.uid).update(user_data)
                     // Done
-                    alert('Login success!')
-                    window.location = "../html/profile2.html"
-                })
+                alert('Login success!')
+                window.location = "../html/profile2.html"
             })
             .catch(function(error) {
                 // Firebase will use this to alert of its errors
@@ -109,24 +103,28 @@ function login() {
         auth.signInWithEmailAndPassword(email, password)
             .then(function() {
                 // Declare user variable
-                var user = auth.currentUser;
+                var user = auth.currentUser
+
                 // Add this user to Firebase Database
-                var database_ref = database.collection('UserRoles');
+                var database_ref = database.ref()
+
                 // Create User data
                 var user_data = {
                     last_login: Date.now()
-                };
+                }
+
                 // Push to Firebase Database
-                database_ref.doc(user.uid).update(user_data).then(() => {
-                    // Done
-                    alert('Login succceed!')
-                    window.location.href = "../html/map.html"
-                })
+                database_ref.child('users/' + user.uid).update(user_data)
+
+                // Done
+                alert('Login succceed!')
+                window.location.href = "../html/map.html"
             })
             .catch(function(error) {
                 // Firebase will use this to alert of its errors
                 var error_code = error.code
                 var error_message = error.message
+
                 alert(error_message)
             })
     }
@@ -156,6 +154,7 @@ function validate_field(field) {
     if (field == null) {
         return false
     }
+
     if (field.length <= 0) {
         return false
     } else {

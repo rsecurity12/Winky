@@ -30,11 +30,13 @@
                     <input type="radio" id="green" name="notificationState" value="green">
                     <label for="green" style="color:green;">Green</label>
                 </div>
-                <button type="button" class="btn_normal" id="btn_saveNot" onclick="saveNotification()">Save notification</button>
+                <button type="button" class="btn_normal" id="btn_saveNot" onclick="addNotification()">Save notification</button>
             </form>
         </div>
     </div>
 </body>
+<script src="../js/addNot.js"></script>
+
 <script>
     // Loopt iets mis met de 'require' --> kan dit niet binnenhalen
     const Notification = require('../js/Notification.js');
