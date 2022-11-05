@@ -9,12 +9,6 @@
             window.location = location + ".html";
         }
     </script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"; import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js"; // TODO:
-        Add SDKs for Firebase products that you want to use // https://firebase.google.com/docs/web/setup#available-libraries // Your web app's Firebase configuration const firebaseConfig = { apiKey: "AIzaSyD-yV8RDi1Ww3YpTmwkZpmQkS934s5RwxE", authDomain:
-        "winky-d52e8.firebaseapp.com", projectId: "winky-d52e8", storageBucket: "winky-d52e8.appspot.com", messagingSenderId: "289336849912", appId: "1:289336849912:web:0b04e4d7a6e5d921dd120d", }; // Initialize Firebase firebase.initializeApp(firebaseConfig);
-        // Initialize variables const auth = firebase.auth() const database = firebase.database()
-    </script>
 </head>
 
 <body>
@@ -43,14 +37,11 @@
     <button type="button" class="btn_normal" onclick="locatePage('home')">Home</button>
     <button type="button" class="btn_normal" onclick="locatePage('login')">Login</button>
 </body>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
-<script src="../js/database.js"></script>
+<script src="../js/userManager.js"></script>
 
 </html>

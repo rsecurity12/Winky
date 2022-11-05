@@ -20,14 +20,10 @@ function register() {
     password = document.getElementById('password').value
     first_name = document.getElementById('first_name').value;
     // Validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
+    if (validate_email(email) == false || validate_password(password) == false || validate_field(first_name) == false) {
         alert('Something went wrong! Try again!')
         return
         // Don't continue running the code
-    }
-    if (validate_field(first_name) == false) {
-        alert('Something went wrong! Try again!')
-        return
     }
     // Move on with Auth
     auth.createUserWithEmailAndPassword(email, password)
@@ -35,30 +31,25 @@ function register() {
             // Declare user variable
             var user = auth.currentUser
                 // Add this user to Firebase Database
-            var database_ref = database.collection('UserRoles')
-                // Create User data
+            var database_ref = database.collection('UserRoles');
+            // Create User data
             var user_data = {
                 email: email,
                 first_name: first_name,
                 last_login: Date.now(),
                 userRole: "user"
-            }
-
+            };
             // Push to Firebase Database
             database_ref.doc(user.uid).set(user_data).then(() => {
-                // DOne
+                // Done
                 alert('User created with success! You will be redirected to the login page!')
                 window.location = "../html/login.html";
             })
-
         })
         .catch(function(error) {
             // Firebase will use this to alert of its errors
-            var error_code = error.code
-            var error_message = error.message
-            alert(error_message)
+            alert(error.message)
         });
-    // Set user Role on user (Default user)
 }
 // Set up our login function
 function login() {
@@ -89,7 +80,6 @@ function login() {
                     alert('Login success!')
                     window.location = "../html/profile2.html"
                 })
-
             })
             .catch(function(error) {
                 // Firebase will use this to alert of its errors
@@ -110,30 +100,23 @@ function login() {
         auth.signInWithEmailAndPassword(email, password)
             .then(function() {
                 // Declare user variable
-                var user = auth.currentUser
-
+                var user = auth.currentUser;
                 // Add this user to Firebase Database
-                var database_ref = database.collection('UserRoles')
-
+                var database_ref = database.collection('UserRoles');
                 // Create User data
                 var user_data = {
                     last_login: Date.now()
-                }
-
+                };
                 // Push to Firebase Database
                 database_ref.doc(user.uid).update(user_data).then(() => {
                     // Done
                     alert('Login succceed!')
                     window.location.href = "../html/map.html"
                 })
-
             })
             .catch(function(error) {
                 // Firebase will use this to alert of its errors
-                var error_code = error.code
-                var error_message = error.message
-
-                alert(error_message)
+                alert(error.message)
             })
     }
 }
@@ -162,7 +145,6 @@ function validate_field(field) {
     if (field == null) {
         return false
     }
-
     if (field.length <= 0) {
         return false
     } else {

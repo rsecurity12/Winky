@@ -1,66 +1,69 @@
-
 <!DOCTYPE html>
+
 <head>
-  <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styleProfile.css">
+    <script>
+        function openNav() {
+            document.getElementById("sidenav").style.width = "300px";
+        }
 
-	<link rel="stylesheet" type="text/css" href="../css/styleProfile.css">
-<script>
-function openNav() {
-  document.getElementById("sidenav").style.width = "300px";
-}
-
-function closeNav() {
-  document.getElementById("sidenav").style.width = "0";
-}
-$(document).ready(function() {
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+        }
+        $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
-              items: 6,
-              loop: true,
-              margin: 10,
-              merge: true,
-              responsive: {
-                678: {
-                  mergeFit: true
-                },
-                1000: {
-                  mergeFit: false
+                items: 6,
+                loop: true,
+                margin: 10,
+                merge: true,
+                responsive: {
+                    678: {
+                        mergeFit: true
+                    },
+                    1000: {
+                        mergeFit: false
+                    }
                 }
-              }
             });
-          })
-</script>
+        })
+    </script>
 </head>
 
-      <body>
-        <div class="welcomeMessage">
-          <!--TODO  GET USER'S FIRST NAME-->
-        </div>
-       
-        <div class="container">    
-          <div class="app">
+<body>
+    <div class="welcomeMessage">
+        <!--TODO  GET USER'S FIRST NAME-->
+    </div>
+
+    <div class="container">
+        <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
             <ul class="menubar">
-              <li><a class="active"  href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
+                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
             </ul>
-      
-            <div class="sidenav" id="sidenav">
-              <div class="sidenavshape"></div>
-              <div class="profile">
-              </div>              
-                <h1><script>document.write();</script></h1>
 
-              <div class="clearfix"></div>
-              <ul>
-                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                <li><a href="">Profile</a></li>
-                <li class="active"><a href="">About</a></li>
-                <li><a href="map.html">Request</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-              </ul> 
+            <div class="sidenav" id="sidenav">
+                <div class="sidenavshape"></div>
+                <div class="profile">
+                </div>
+                <h1>
+                    <script>
+                        document.write();
+                    </script>
+                </h1>
+                <div class="clearfix"></div>
+                <ul>
+                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+                    <li><a href="">Profile</a></li>
+                    <li class="active"><a href="">About</a></li>
+                    <li><a href="map.html">Request</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
             </div>
-          </div>
         </div>
-      </body>
-      </html>
+    </div>
+</body>
+
+</html>

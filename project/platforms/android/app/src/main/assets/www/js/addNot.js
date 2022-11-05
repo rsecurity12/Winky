@@ -8,17 +8,32 @@ const firebaseConfig = {
     appId: "1:289336849912:web:0b04e4d7a6e5d921dd120d"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// Initialize variables
-const auth = firebase.auth()
-const database = firebase.database();
-var countDB = 0
+const database = firebase.firestore();
 
-function addNotification() {
+function addNotification(urgent) {
     description = document.getElementById('description').value
-    alert(description);
+    title = document.getElementById('title').value
+    var database_ref = database.collection('notifications')
+    alert(firebase.auth().currentUser.userId)
+    database_ref.add({
+        title: title,
+        discription: description,
+        urgent: urgent
+    });
+}
 
-    database_ref.child('notifications/' + countDB).add({ discription: "test" });
-    countDB++;
+function getNot() {
+    database.collection("notifications")
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            });
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+
 }

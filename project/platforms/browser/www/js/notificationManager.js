@@ -11,17 +11,33 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 
-function addNotification() {
-
+function save_notification() {
     description = document.getElementById('description').value
-    console.log(description);
-
-    var database_ref = database.collection('notifications')
-
+    title = document.getElementById('title').value
+    const radioButtons = document.querySelectorAll('input[name="notificationState"]');
+    var selectedRadioButton;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedRadioButton = radioButton.value;
+            break;
+        }
+    }
+    var database_ref = database.collection('notifications');
+    /* Toe te voegen -->
+        Current user id
+        huidige locatie
+    */
     database_ref.add({
-        discription: 'test',
-        urgent: "red"
-    });
+        title: title,
+        discription: description,
+        urgent: selectedRadioButton
+    }).then(() => {
+        alert('Danger notified')
+        window.location = "../html/map.html"
+    }).catch(function(error) {
+        alert(error.message)
+    });;
+
 }
 
 function getNot() {
@@ -36,5 +52,4 @@ function getNot() {
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
-
 }
