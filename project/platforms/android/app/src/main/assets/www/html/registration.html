@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/styleRegistration.css">
     <script>
         function locatePage(location) {
             window.location = location + ".html";
@@ -14,6 +15,7 @@
 <body>
     <div class="container">
         <div class="app">
+            <i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('login')"></i>
             <h2 class="page-heading">Registration</h2>
             <div class="login-container">
                 <h3>Create your account</h3>
@@ -34,14 +36,12 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn_normal" onclick="locatePage('home')">Home</button>
-    <button type="button" class="btn_normal" onclick="locatePage('login')">Login</button>
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
-<script src="../js/database.js"></script>
+<script src="../js/userManager.js"></script>
 
 </html>

@@ -27,6 +27,7 @@ function save_notification() {
         Current user id
         huidige locatie
     */
+    L.locate()
     database_ref.add({
         title: title,
         discription: description,
@@ -36,11 +37,11 @@ function save_notification() {
         window.location = "../html/map.html"
     }).catch(function(error) {
         alert(error.message)
-    });;
+    });
 
 }
 
-function getNot() {
+function getAllNotifications() {
     database.collection("notifications")
         .get()
         .then((querySnapshot) => {

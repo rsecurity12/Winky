@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <title>Map</title>
     <script>
         function locatePage(location) {
@@ -15,12 +17,29 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="app">
-            <h2>Hier komt de map</h2>
-            <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
+            <div id="map">
+                <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
+            </div>
         </div>
     </div>
 </body>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+<script>
+    // Map initialisation
+    let map = L.map('map').setView([51.260197, 4.402771], 11);
+    // Open street map layer
+    let osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map);
+    // Built in function to show the current location of the user
+    L.control.locate().addTo(map);
+</script>
 
 </html>
