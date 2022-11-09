@@ -32,15 +32,37 @@
 
 <script>
     // Map initialisation
-    let map = L.map('map').setView([51.260197, 4.402771], 11);
-    // Open street map layer
-    let osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    osm.addTo(map);
-    // Built in function to show the current location of the user
-    L.control.locate().addTo(map);
-
+    var loadMap = function (id) {
+        var Antwerpen = [51.2194475, 4.4024643];
+        var map = L.map(id);
+        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var layer = L.tileLayer(tile_url, {
+            attribution: 'OSM'
+        });
+        map.addLayer(layer);
+        map.setView(Antwerpen, 19);
+    
+        map.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
+            .on('locationfound', function(e){
+                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+                var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                    weight: 1,
+                    color: 'blue',
+                    fillColor: '#cacaca',
+                    fillOpacity: 0.2
+                });
+                console.log(e.latitude)
+                console.log(e.longitude)
+                map.addLayer(marker);
+                map.addLayer(circle);
+            })
+           .on('locationerror', function(e){
+                console.log(e);
+                alert("Location access denied.");
+            });
+    };
+    
+    loadMap('map');
     /* function onMapClick(e) {
         var name = prompt("gevaarnaam", "example");
         var markerOptions = {
