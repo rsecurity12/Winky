@@ -18,8 +18,8 @@
 
 <body>
 
-    <div class="container">
-        <div class="app">
+    <div class="container" id="container1" >
+        <div class="app" id="app1">
             <div id="map">
                 <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
             </div>
@@ -31,6 +31,9 @@
 <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
 <script>
+    var long;
+    var lat;
+    
     // Map initialisation
     let map = L.map('map').setView([51.260197, 4.402771], 11);
     // Open street map layer
@@ -40,6 +43,19 @@
     osm.addTo(map);
     // Built in function to show the current location of the user
     L.control.locate().addTo(map);
+
+    function onMapClick(e) {
+        var name = prompt("gevaarnaam", "example");
+        var markerOptions = {
+            title: name,
+            clickable: true,
+            draggable: true
+         }
+        var marker = L.marker(e.latlng, markerOptions);
+        marker.addTo(map);
+    }
+    
+    map.on('click', onMapClick);
 </script>
 
 </html>
