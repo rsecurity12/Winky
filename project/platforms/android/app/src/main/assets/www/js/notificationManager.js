@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 
-function save_notification() {
+async function save_notification(lat, long) {
     description = document.getElementById('description').value
     title = document.getElementById('title').value
     const radioButtons = document.querySelectorAll('input[name="notificationState"]');
@@ -25,31 +25,36 @@ function save_notification() {
     var database_ref = database.collection('notifications');
     /* Toe te voegen -->
         Current user id
-        huidige locatie
     */
     database_ref.add({
         title: title,
         discription: description,
-        urgent: selectedRadioButton
+        urgent: selectedRadioButton,
+        lat: lat,
+        long: long,
+        status: "Danger"
     }).then(() => {
         alert('Danger notified')
         window.location = "../html/map.html"
-    }).catch(function(error) {
-        alert(error.message)
-    });;
-
+    }).catch(() => {
+        alert('Danger not notified')
+    });
 }
 
-function getAllNotifications() {
-    database.collection("notifications")
+async function getAllNotifications() {
+    var listNotifications = []
+    await database.collection("notifications")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
+                listNotifications.push(doc.data())
                 console.log(doc.id, " => ", doc.data());
             });
         })
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
+    console.log(listNotifications);
+
+    return listNotifications;
 }

@@ -175,6 +175,7 @@ h2 {
 
 #addNotBtn {
     position: absolute;
+    z-index: 9;
     bottom: 20px;
     right: 20px;
     border: 1px solid rgba(244, 214, 65, 1);
