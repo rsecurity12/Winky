@@ -62,18 +62,15 @@
                 alert("Location access denied.");
             });
     };
-    var loadMap = function(id) {
-        /* var list = [getAllNotifications()];
-         console.log(list.length);
-         for (let index = 0; index < list.length; index++) {
-             //  var marker = L.marker([list[index].lat, list[index].long]).bindPopup(list[index].description);
-             //  map.addLayer(marker);
-
-             map.ma
-         }*/
-
-
-
+    async function placeTargets(map, layer) {
+        var list = await getAllNotifications();
+        console.log(list.length);
+        for (let index = 0; index < list.length; index++) {
+            var marker = L.marker([list[index].lat, list[index].long]).bindPopup(list[index].description);
+            map.addLayer(marker);
+        };
+    };
+    async function loadMap(id) {
         setTimeout(() => {
             var map = L.map(id);
             var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -81,6 +78,8 @@
                 attribution: 'OSM'
             });
             placeCurrentLocation(map, layer);
+            placeTargets(map, layer);
+
         }, 1000)
     };
     loadMap('map');
