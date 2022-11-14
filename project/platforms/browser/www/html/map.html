@@ -48,8 +48,7 @@
         map.locate({
                 setView: true,
                 watch: true
-            }) /* This will return map so you can do chaining */
-            .on('locationfound', function(e) {
+            }).on('locationfound', function(e) {
                 var Loc = [e.latitude, e.longitude];
                 map.setView(Loc, 10);
                 var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
@@ -60,11 +59,7 @@
                 alert("Location access denied.");
             });
     };
-
     loadMap('map');
-
-
-
     /* function onMapClick(e) {
         var name = prompt("gevaarnaam", "example");
         var markerOptions = {
