@@ -21,23 +21,23 @@
     <div class="container" id="container1">
         <div class="app" id="app1">
             <div id="map">
-                <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
+                <button class="btn_add" id="addNotBtn" onclick="locatePage('addnotification')">+</button>
             </div>
         </div>
     </div>
 </body>
-<script src="../js/notificationManager.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script> -->
+<script src="../js/notificationManager.js"></script>
 
 <script>
     // Map initialisation
     var loadMap = function(id) {
         var Antwerpen = [51.2194475, 4.4024643];
         var map = L.map(id);
-        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
         var layer = L.tileLayer(tile_url, {
             attribution: 'OSM'
         });
@@ -60,18 +60,6 @@
             });
     };
     loadMap('map');
-    /* function onMapClick(e) {
-        var name = prompt("gevaarnaam", "example");
-        var markerOptions = {
-            title: name,
-            clickable: true,
-            draggable: true
-         }
-        var marker = L.marker(e.latlng, markerOptions);
-        marker.addTo(map);
-    }
-    map.on('click', onMapClick); 
-    */
 </script>
 
 </html>

@@ -6,6 +6,11 @@
         Wannes, Max, Rodrigo and Koen
     </author>
     <content src="html/home.html" />
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <access origin="*" />
+    <allow-intent href="geo:*" />
+    <plugin name="cordova-plugin-geolocation" spec="*4.0.1" />
+    <allow-navigation origin="*" />
 </widget>
