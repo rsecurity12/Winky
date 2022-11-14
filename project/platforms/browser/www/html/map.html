@@ -48,7 +48,7 @@
                 // Creating a custom icon
                 var customIcon = L.icon(iconOptions);
                 var markerOptions = {
-                    title: "MyLocation",
+                    title: "Your current location",
                     clickable: true,
                     draggable: false,
                     icon: customIcon
@@ -65,9 +65,46 @@
     async function placeTargets(map, layer) {
         var list = await getAllNotifications();
         console.log(list.length);
+
         for (let index = 0; index < list.length; index++) {
-            var marker = L.marker([list[index].lat, list[index].long]).bindPopup(list[index].description);
-            map.addLayer(marker);
+
+            if (list[index].urgent == "green") {
+                var iconOptions = {
+                    iconUrl: '../images/green.svg',
+                    iconSize: [40, 40]
+                };
+                var customIcon = L.icon(iconOptions);
+                var markerOptions = {
+                    icon: customIcon
+                }
+                var marker = L.marker([list[index].lat, list[index].long],
+                    markerOptions).bindPopup(list[index].title);
+                map.addLayer(marker);
+            } else if (list[index].urgent == "red") {
+                var iconOptions = {
+                    iconUrl: '../images/red.svg',
+                    iconSize: [40, 40]
+                };
+                var customIcon = L.icon(iconOptions);
+                var markerOptions = {
+                    icon: customIcon
+                }
+                var marker = L.marker([list[index].lat, list[index].long],
+                    markerOptions).bindPopup(list[index].title);
+                map.addLayer(marker);
+            } else if (list[index].urgent == "orange") {
+                var iconOptions = {
+                    iconUrl: '../images/orange.svg',
+                    iconSize: [40, 40]
+                };
+                var customIcon = L.icon(iconOptions);
+                var markerOptions = {
+                    icon: customIcon
+                }
+                var marker = L.marker([list[index].lat, list[index].long],
+                    markerOptions).bindPopup(list[index].title);
+                map.addLayer(marker);
+            }
         };
     };
     async function loadMap(id) {
@@ -79,7 +116,6 @@
             });
             placeCurrentLocation(map, layer);
             placeTargets(map, layer);
-
         }, 1000)
     };
     loadMap('map');
