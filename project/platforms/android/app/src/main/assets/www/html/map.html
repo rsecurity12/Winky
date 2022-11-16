@@ -21,40 +21,37 @@
     <div class="container" id="container1">
         <div class="app" id="app1">
             <div id="map">
-                <button class="btn_add" id="addNotBtn" onclick="locatePage('addnotification')">+</button>
+                <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
             </div>
         </div>
     </div>
 </body>
+<script src="../js/notificationManager.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="../js/notificationManager.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
 <script>
     // Map initialisation
-    var placeCurrentLocation = function(map, layer) {
+    var loadMap = function(id) {
+        var Antwerpen = [51.2194475, 4.4024643];
+        var map = L.map(id);
+        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var layer = L.tileLayer(tile_url, {
+            attribution: 'OSM'
+        });
+        map.addLayer(layer);
+        map.setView(Antwerpen, 10);
+        // var list = getAllNotifications()
+        // console.log(list);
         map.locate({
-                setView: false,
-                watch: false
+                setView: true,
+                watch: true
             }).on('locationfound', function(e) {
                 var Loc = [e.latitude, e.longitude];
-                map.addLayer(layer);
-                map.setView(Loc, 20);
-                var iconOptions = {
-                    iconUrl: '../images/FullLogo.png',
-                    iconSize: [40, 40]
-                };
-                // Creating a custom icon
-                var customIcon = L.icon(iconOptions);
-                var markerOptions = {
-                    title: "MyLocation",
-                    clickable: true,
-                    draggable: false,
-                    icon: customIcon
-                }
-                var marker = L.marker([e.latitude, e.longitude],
-                    markerOptions);
+                map.setView(Loc, 10);
+                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
                 map.addLayer(marker);
             })
             .on('locationerror', function(e) {
@@ -62,26 +59,19 @@
                 alert("Location access denied.");
             });
     };
-    async function placeTargets(map, layer) {
-        var list = await getAllNotifications();
-        console.log(list.length);
-        for (let index = 0; index < list.length; index++) {
-            var marker = L.marker([list[index].lat, list[index].long]).bindPopup(list[index].description);
-            map.addLayer(marker);
-        };
-    };
-    async function loadMap(id) {
-        setTimeout(() => {
-            var map = L.map(id);
-            var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
-            var layer = L.tileLayer(tile_url, {
-                attribution: 'OSM'
-            });
-            placeCurrentLocation(map, layer);
-            placeTargets(map, layer);
-        }, 1000)
-    };
     loadMap('map');
+    /* function onMapClick(e) {
+        var name = prompt("gevaarnaam", "example");
+        var markerOptions = {
+            title: name,
+            clickable: true,
+            draggable: true
+         }
+        var marker = L.marker(e.latlng, markerOptions);
+        marker.addTo(map);
+    }
+    map.on('click', onMapClick); 
+    */
 </script>
 
 </html>

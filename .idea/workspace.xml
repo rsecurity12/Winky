@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dd447949-8101-4911-80a3-0063fb1a9d7a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/android.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/AddNotification.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/AddNotification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notificationManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notificationManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-name.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-name.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2HUvxRaDdNl8NHiVZTPx7StmIkK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/platforms/android/app/build/outputs/apk/debug/app-debug.apk" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd447949-8101-4911-80a3-0063fb1a9d7a" name="Changes" comment="" />
+      <created>1668352740906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668352740906</updated>
+    </task>
+    <servers />
+  </component>
+</project>

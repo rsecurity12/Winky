@@ -29,13 +29,13 @@
                     <label for="description">Description:</label>
                     <input type="textarea" class="form-control" id="description" placeholder="Enter description" name="description">
                 </div>
-                <div class="form-group" id="radioButtons" required>
+                <div class="form-group" id="radioButtons" required> <label for="description">What dangerous is this problem?</label>
                     <input type="radio" id="red" name="notificationState" value="red" required>
-                    <label for="red" style="color:red;">Red</label>
+                    <label for="red" style="color:red;">Very dangerous</label>
                     <input type="radio" id="orange" name="notificationState" value="orange" required>
-                    <label for="orange" style="color:orange;">Orange</label>
+                    <label for="orange" style="color:orange;">Dangerous</label>
                     <input type="radio" id="green" name="notificationState" value="green" required>
-                    <label for="green" style="color:green;">Green</label>
+                    <label for="green" style="color:green;">Anoying</label>
                 </div>
                 <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(tempLat, tempLong)">Save notification</button>
                 <div hidden="true">

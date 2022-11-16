@@ -31,14 +31,16 @@ async function save_notification(lat, long) {
         discription: description,
         urgent: selectedRadioButton,
         lat: lat,
-        long: long,
-        status: "Danger"
+        long: long
     }).then(() => {
         alert('Danger notified')
         window.location = "../html/map.html"
     }).catch(() => {
         alert('Danger not notified')
     });
+    // komt daar niet in
+    alert('azerty');
+
 }
 
 async function getAllNotifications() {
