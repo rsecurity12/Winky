@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 
-function save_notification() {
+async function save_notification(lat, long) {
     description = document.getElementById('description').value
     title = document.getElementById('title').value
     const radioButtons = document.querySelectorAll('input[name="notificationState"]');
@@ -30,13 +30,17 @@ function save_notification() {
     database_ref.add({
         title: title,
         discription: description,
-        urgent: selectedRadioButton
+        urgent: selectedRadioButton,
+        lat: lat,
+        long: long
     }).then(() => {
         alert('Danger notified')
         window.location = "../html/map.html"
-    }).catch(function(error) {
-        alert(error.message)
-    });;
+    }).catch(() => {
+        alert('Danger not notified')
+    });
+    // komt daar niet in
+    alert('azerty');
 
 }
 

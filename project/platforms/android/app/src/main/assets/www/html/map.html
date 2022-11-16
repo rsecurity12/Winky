@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <title>Map</title>
     <script>
         function locatePage(location) {
@@ -15,12 +17,61 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="app">
-            <h2>Hier komt de map</h2>
-            <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
+
+    <div class="container" id="container1">
+        <div class="app" id="app1">
+            <div id="map">
+                <button class="btn_add" id="addNotBtn" onclick="locatePage('addNotification')">+</button>
+            </div>
         </div>
     </div>
 </body>
+<script src="../js/notificationManager.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+<script>
+    // Map initialisation
+    var loadMap = function(id) {
+        var Antwerpen = [51.2194475, 4.4024643];
+        var map = L.map(id);
+        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var layer = L.tileLayer(tile_url, {
+            attribution: 'OSM'
+        });
+        map.addLayer(layer);
+        map.setView(Antwerpen, 10);
+        // var list = getAllNotifications()
+        // console.log(list);
+        map.locate({
+                setView: true,
+                watch: true
+            }).on('locationfound', function(e) {
+                var Loc = [e.latitude, e.longitude];
+                map.setView(Loc, 10);
+                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+                map.addLayer(marker);
+            })
+            .on('locationerror', function(e) {
+                console.log(e);
+                alert("Location access denied.");
+            });
+    };
+    loadMap('map');
+    /* function onMapClick(e) {
+        var name = prompt("gevaarnaam", "example");
+        var markerOptions = {
+            title: name,
+            clickable: true,
+            draggable: true
+         }
+        var marker = L.marker(e.latlng, markerOptions);
+        marker.addTo(map);
+    }
+    map.on('click', onMapClick); 
+    */
+</script>
 
 </html>
