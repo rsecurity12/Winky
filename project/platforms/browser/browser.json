@@ -6,8 +6,14 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {},
+  "installed_plugins": {
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    }
+  },
   "dependent_plugins": {},
   "modules": [],
-  "plugin_metadata": {}
+  "plugin_metadata": {
+    "cordova-plugin-geolocation": "4.0.1"
+  }
 }

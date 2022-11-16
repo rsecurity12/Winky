@@ -4,15 +4,20 @@
 <head>
     <title>Add a danger place</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
-
 </head>
 
 <body>
+
     <div class="container">
+        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='map.html'"></i>
         <div class="app">
             <h2>Add a danger place</h2>
             <form action="#">
@@ -24,13 +29,13 @@
                     <label for="description">Description:</label>
                     <input type="textarea" class="form-control" id="description" placeholder="Enter description" name="description">
                 </div>
-                <div class="form-group" id="radioButtons" required>
+                <div class="form-group" id="radioButtons" required> <label for="description">What dangerous is this problem?</label>
                     <input type="radio" id="red" name="notificationState" value="red" required>
-                    <label for="red" style="color:red;">Red</label>
+                    <label for="red" style="color:red;">Very dangerous</label>
                     <input type="radio" id="orange" name="notificationState" value="orange" required>
-                    <label for="orange" style="color:orange;">Orange</label>
+                    <label for="orange" style="color:orange;">Dangerous</label>
                     <input type="radio" id="green" name="notificationState" value="green" required>
-                    <label for="green" style="color:green;">Green</label>
+                    <label for="green" style="color:green;">Anoying</label>
                 </div>
                 <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(tempLat, tempLong)">Save notification</button>
                 <div hidden="true">
@@ -43,16 +48,15 @@
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script> -->
 <script src="../js/notificationManager.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 <script>
     var tempLat = "";
     var tempLong = ""
     var loadMap = function(id) {
         var map = L.map(id);
-        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
         var layer = L.tileLayer(tile_url, {
             attribution: 'OSM'
         });
@@ -72,7 +76,6 @@
                 alert("Location access denied.");
             });
     };
-
     loadMap('map');
 </script>
 

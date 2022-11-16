@@ -8,4 +8,7 @@
     <content src="html/home.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <access origin="*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation origin="*" />
 </widget>

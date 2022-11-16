@@ -25,7 +25,6 @@ async function save_notification(lat, long) {
     var database_ref = database.collection('notifications');
     /* Toe te voegen -->
         Current user id
-        huidige locatie
     */
     database_ref.add({
         title: title,
@@ -44,16 +43,20 @@ async function save_notification(lat, long) {
 
 }
 
-function getAllNotifications() {
-    database.collection("notifications")
+async function getAllNotifications() {
+    var listNotifications = []
+    await database.collection("notifications")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
+                listNotifications.push(doc.data())
                 console.log(doc.id, " => ", doc.data());
             });
         })
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
+    console.log(listNotifications);
+
+    return listNotifications;
 }
