@@ -51,13 +51,11 @@ async function getAllNotifications() {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 listNotifications.push(doc.data())
-                console.log(doc.id, " => ", doc.data());
             });
         })
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
     console.log(listNotifications);
-
     return listNotifications;
 }
