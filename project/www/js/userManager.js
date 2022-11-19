@@ -50,74 +50,70 @@ function register() {
         });
 }
 
+
+// Set up our login function
 function login() {
     // Get all our input fields
     email = document.getElementById('email').value
     password = document.getElementById('password').value
-    if (email == "admin@stadantwerpen.be") {
-        // Validate input fields
-        if (validate_email(email) == false || validate_password(password) == false) {
-            alert('Something went wrong! Try again!')
-            return
-            // Don't continue running the code
-        }
-        auth.signInWithEmailAndPassword(email, password)
-            .then(function() {
-                // Declare user variable
-                var user = auth.currentUser
-                    // Add this user to Firebase Database
-                var database_ref = database.collection('UserRoles')
-                    // Create User data
-                var user_data = {
-                        last_login: Date.now()
-                    }
-                    // Push to Firebase Database
-                    // Push to Firebase Database
-                database_ref.doc(user.uid).update(user_data).then(() => {
-                    // Done
-                    alert('Login success!')
-                    window.location = "../html/profile2.html"
-                })
-            })
-            .catch(function(error) {
-                // Firebase will use this to alert of its errors
-                var error_code = error.code
-                var error_message = error.message
-                alert(error_message)
-            })
-    } else {
-        // Get all our input fields
-        email = document.getElementById('email').value
-        password = document.getElementById('password').value;
-        // Validate input fields
-        if (validate_email(email) == false || validate_password(password) == false) {
-            alert('Email or password is wrong!')
-            return
-            // Don't continue running the code
-        }
-        auth.signInWithEmailAndPassword(email, password)
-            .then(function() {
-                // Declare user variable
-                var user = auth.currentUser;
+    auth.signInWithEmailAndPassword(email, password)
+        .then(function() {
+            // Declare user variable
+            var user = auth.currentUser
                 // Add this user to Firebase Database
-                var database_ref = database.collection('UserRoles');
+            var database_ref = database.collection('UserRoles')
                 // Create User data
-                var user_data = {
+            var user_data = {
                     last_login: Date.now()
-                };
+                }
                 // Push to Firebase Database
-                database_ref.doc(user.uid).update(user_data).then(() => {
-                    // Done
-                    alert('Login succceed!')
-                    window.location.href = "../html/map.html"
-                })
+                // Push to Firebase Database
+            database_ref.doc(user.uid).update(user_data).then(() => {
+                // Done
+                alert('Login success!')
+
+                const db = firebase.firestore()
+                db.collection('UserRoles')
+                    .doc(user.uid) // change to the current user id 
+                    .get().then((user) => {
+                        if (user.data().userRole == "user") {
+                            window.location = "../html/user_profile.html"
+                        } else if (user.data().userRole == "stadsmedewerker") {
+                            window.location = "../html/stadsmedewerker_profile.html"
+                        } else if (user.data().userRole == "admin") {
+                            window.location = "../html/admin_profile.html"
+                        }
+                    })
             })
-            .catch(function(error) {
-                // Firebase will use this to alert of its errors
-                alert(error.message)
-            })
-    }
+        })
+        .catch(function(error) {
+            // Firebase will use this to alert of its errors
+            var error_code = error.code
+            var error_message = error.message
+            alert(error_message)
+        })
 }
+auth.signInWithEmailAndPassword(email, password)
+    .then(function() {
+        // Declare user variable
+        var user = auth.currentUser;
+        // Add this user to Firebase Database
+        var database_ref = database.collection('UserRoles');
+        // Create User data
+        var user_data = {
+            last_login: Date.now()
+        };
+        // Push to Firebase Database
+        database_ref.doc(user.uid).update(user_data).then(() => {
+            // Done
+            alert('Login succceed!')
+            window.location.href = "../html/map.html"
+        })
+    })
+    .catch(function(error) {
+        // Firebase will use this to alert of its errors
+        alert(error.message)
+    })
 
 function sendResetMail() {
     email = document.getElementById('email').value;
@@ -177,6 +173,11 @@ function createEmployee() {
 }
 
 
+
+
+
+
+// Validate Functions
 function validate_email(email) {
     expression = /^[^@]+@\w+(\.\w+)+\w$/
     if (expression.test(email) == true) {
