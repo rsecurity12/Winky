@@ -6,7 +6,7 @@
         Wannes, Max, Rodrigo and Koen
     </author>
     <content src="html/home.html" />
-
+    <!--<content src="html/admin/manageuser.html" />-->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <access origin="*" />

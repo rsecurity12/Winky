@@ -1,10 +1,10 @@
 <head>
-    <title>Registration</title>
+    <title>Create new user</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/styleRegistration.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <script>
         function locatePage(location) {
             window.location = location + ".html";
@@ -16,9 +16,8 @@
     <div class="container">
         <div class="app">
             <i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('login')"></i>
-            <h2 class="page-heading">Registration</h2>
+            <h2 class="page-heading">Registrate new user</h2>
             <div class="login-container">
-                <h3>Create your account</h3>
                 <form action="#">
                     <div class="form-control">
                         <input type="text" class="username" id="first_name" placeholder="First name" name="name" required="">
@@ -29,8 +28,11 @@
                     <div class="form-control">
                         <input type="password" class="password" id="password" placeholder="Password" name="password" required="">
                     </div>
+                    <div class="form-control">
+                        <input type="city" class="city" id="city" placeholder="city" name="city" required="">
+                    </div>
                     <div class="shape-circle">
-                        <button type="button" onclick="register()" id="save_btn" class="btn_submit">Register</button>
+                        <button type="button" onclick="createEmployee()" id="save_btn" class="btn_submit">Register</button>
                     </div>
                 </form>
             </div>
@@ -41,6 +43,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="../js/login.js"></script>
+<script src="../../js/userManager.js"></script>
 
 </html>

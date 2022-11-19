@@ -1,4 +1,3 @@
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD-yV8RDi1Ww3YpTmwkZpmQkS934s5RwxE",
     authDomain: "winky-d52e8.firebaseapp.com",
@@ -8,12 +7,11 @@ const firebaseConfig = {
     messagingSenderId: "289336849912",
     appId: "1:289336849912:web:0b04e4d7a6e5d921dd120d"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
-// Initialize variables
 const auth = firebase.auth()
 const database = firebase.firestore();
-// R E G I S T E R   H T M L  Set up our register function
+
 function register() {
     // Get all our input fields
     email = document.getElementById('email').value
@@ -51,7 +49,7 @@ function register() {
             alert(error.message)
         });
 }
-// Set up our login function
+
 function login() {
     // Get all our input fields
     email = document.getElementById('email').value
@@ -120,7 +118,65 @@ function login() {
             })
     }
 }
-// Validate Functions
+
+function sendResetMail() {
+    email = document.getElementById('email').value;
+    alert(email)
+    firebase.auth().sendPasswordResetEmail(email)
+        .then(() => {
+            alert("Check yout mailbox")
+            window.location.href = "../html/login.html"
+        })
+        .catch(() => {
+            alert("Email adress doesn't exist or it is from a specific domain")
+        });
+
+}
+
+function getAllUsers(res) {
+    /*    const maxResults = 1;
+        auth.listUsers(maxResults).then((userRecords) => {
+            userRecords.users.forEach((user) => console.log(user.toJSON()));
+            res.end('Retrieved users list successfully.');
+        }).catch((error) => console.log(error));
+        console.log("test");
+        */
+};
+
+function deleteUser(email) {
+    /* const user = firebase.auth().where(user => user.email === email);
+     user.delete().then(() => {
+         alert("succes")
+     }).catch(() => {
+         alert("no succes")
+     });
+     */
+}
+
+function createEmployee() {
+    email = document.getElementById('email').value
+    password = document.getElementById('password').value
+    first_name = document.getElementById('first_name').value;
+    city = document.getElementById('city').value;
+    const auth = firebase.auth()
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(function() {
+            var user = auth.currentUser
+            var database_ref = database.collection('UserRoles');
+            var user_data = {
+                email: email,
+                first_name: first_name,
+                last_login: Date.now(),
+                userRole: "stadsmedewerker",
+                city: city
+            };
+            database_ref.doc(user.uid).set(user_data).then(() => {
+                alert('User created with success!')
+            });
+        });
+}
+
+
 function validate_email(email) {
     expression = /^[^@]+@\w+(\.\w+)+\w$/
     if (expression.test(email) == true) {
