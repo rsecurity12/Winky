@@ -4,7 +4,7 @@
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
     <name>Winky</name>
-    <description>Sample Apache Cordova App</description>
+    <description>A project for AP</description>
     <author email="s122428@ap.be">
         Wannes, Max, Rodrigo and Koen
     </author>

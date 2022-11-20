@@ -4,7 +4,7 @@
   "name": "Winky",
   "short_name": "Winky",
   "version": "io.cordova.hellocordova",
-  "description": "Sample Apache Cordova App",
+  "description": "A project for AP",
   "author": "Wannes, Max, Rodrigo and Koen",
   "icons": [],
   "start_url": "html/home.html"

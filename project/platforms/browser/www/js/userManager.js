@@ -41,7 +41,7 @@ function register() {
             database_ref.doc(user.uid).set(user_data).then(() => {
                 // Done
                 alert('User created with success! You will be redirected to the login page!')
-                window.location = "../html/login.html";
+                window.location = "../anonymousUser/login.html";
             })
         })
         .catch(function(error) {
@@ -50,68 +50,49 @@ function register() {
         });
 }
 
-
-// Set up our login function
 function login() {
-    // Get all our input fields
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     auth.signInWithEmailAndPassword(email, password)
         .then(function() {
-            // Declare user variable
             var user = auth.currentUser
-                // Add this user to Firebase Database
             var database_ref = database.collection('UserRoles')
-                // Create User data
             var user_data = {
-                    last_login: Date.now()
-                }
-                // Push to Firebase Database
-                // Push to Firebase Database
+                last_login: Date.now()
+            }
             database_ref.doc(user.uid).update(user_data).then(() => {
-                // Done
                 alert('Login success!')
-
                 const db = firebase.firestore()
                 db.collection('UserRoles')
-                    .doc(user.uid) // change to the current user id 
+                    .doc(user.uid)
                     .get().then((user) => {
                         if (user.data().userRole == "user") {
-                            window.location = "../html/user_profile.html"
+                            window.location = "../anonymousUser/map.html"
                         } else if (user.data().userRole == "stadsmedewerker") {
-                            window.location = "../html/stadsmedewerker_profile.html"
+                            window.location = "../stadsmedewerker/stadsmedewerker_profile.html"
                         } else if (user.data().userRole == "admin") {
-                            window.location = "../html/admin_profile.html"
+                            window.location = "../admin/admin_homepage.html"
                         }
                     })
             })
         })
         .catch(function(error) {
-            // Firebase will use this to alert of its errors
-            var error_code = error.code
-            var error_message = error.message
-            alert(error_message)
+            alert(error.message)
         })
 }
 auth.signInWithEmailAndPassword(email, password)
     .then(function() {
-        // Declare user variable
         var user = auth.currentUser;
-        // Add this user to Firebase Database
         var database_ref = database.collection('UserRoles');
-        // Create User data
         var user_data = {
             last_login: Date.now()
         };
-        // Push to Firebase Database
         database_ref.doc(user.uid).update(user_data).then(() => {
-            // Done
             alert('Login succceed!')
-            window.location.href = "../html/map.html"
+            window.location.href = "../anonymousUser/map.html"
         })
     })
     .catch(function(error) {
-        // Firebase will use this to alert of its errors
         alert(error.message)
     })
 
@@ -121,12 +102,11 @@ function sendResetMail() {
     firebase.auth().sendPasswordResetEmail(email)
         .then(() => {
             alert("Check yout mailbox")
-            window.location.href = "../html/login.html"
+            window.location.href = "../anonymousUser/login.html"
         })
         .catch(() => {
             alert("Email adress doesn't exist or it is from a specific domain")
         });
-
 }
 
 function getAllUsers(res) {
@@ -171,11 +151,6 @@ function createEmployee() {
             });
         });
 }
-
-
-
-
-
 
 // Validate Functions
 function validate_email(email) {
