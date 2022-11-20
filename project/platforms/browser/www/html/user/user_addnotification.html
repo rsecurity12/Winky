@@ -13,9 +13,8 @@
 </head>
 
 <body>
-
     <div class="container">
-        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='map.html'"></i>
+        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='user_map.html'"></i>
         <div class="app">
             <h2>Add a danger place</h2>
             <form action="#">
@@ -47,8 +46,8 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script> -->
-<script src="../../js/notificationManager.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="../../js/notificationManager.js"></script>
 <script>
     var tempLat = "";
     var tempLong = ""
@@ -59,7 +58,6 @@
             attribution: 'OSM'
         });
         map.addLayer(layer);
-
         map.locate({
                 setView: true,
                 watch: true

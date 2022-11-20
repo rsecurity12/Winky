@@ -16,7 +16,6 @@ async function save_notification(lat, long) {
     title = document.getElementById('title').value
     title = title.charAt(0).toUpperCase() + title.slice(1);
     description = description.charAt(0).toUpperCase() + description.slice(1);
-
     const radioButtons = document.querySelectorAll('input[name="notificationState"]');
     var selectedRadioButton;
     for (const radioButton of radioButtons) {
@@ -26,9 +25,6 @@ async function save_notification(lat, long) {
         }
     }
     var database_ref = database.collection('notifications');
-    /* Toe te voegen -->
-        Current user id
-    */
     database_ref.add({
         title: title,
         discription: description,
@@ -38,7 +34,7 @@ async function save_notification(lat, long) {
         status: "danger"
     }).then(() => {
         alert('Danger notified')
-        window.location = "../html/map.html"
+        window.location = "user_map.html"
     }).catch(() => {
         alert('Danger not notified')
     });

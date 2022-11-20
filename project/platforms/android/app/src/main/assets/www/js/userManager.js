@@ -67,7 +67,7 @@ function login() {
                     .doc(user.uid)
                     .get().then((user) => {
                         if (user.data().userRole == "user") {
-                            window.location = "../anonymousUser/map.html"
+                            window.location = "../user/user_map.html"
                         } else if (user.data().userRole == "stadsmedewerker") {
                             window.location = "../stadsmedewerker/stadsmedewerker_profile.html"
                         } else if (user.data().userRole == "admin") {
@@ -80,21 +80,6 @@ function login() {
             alert(error.message)
         })
 }
-auth.signInWithEmailAndPassword(email, password)
-    .then(function() {
-        var user = auth.currentUser;
-        var database_ref = database.collection('UserRoles');
-        var user_data = {
-            last_login: Date.now()
-        };
-        database_ref.doc(user.uid).update(user_data).then(() => {
-            alert('Login succceed!')
-            window.location.href = "../anonymousUser/map.html"
-        })
-    })
-    .catch(function(error) {
-        alert(error.message)
-    })
 
 function sendResetMail() {
     email = document.getElementById('email').value;
@@ -109,24 +94,49 @@ function sendResetMail() {
         });
 }
 
-function getAllUsers(res) {
-    /*    const maxResults = 1;
-        auth.listUsers(maxResults).then((userRecords) => {
-            userRecords.users.forEach((user) => console.log(user.toJSON()));
-            res.end('Retrieved users list successfully.');
-        }).catch((error) => console.log(error));
-        console.log("test");
-        */
+async function getAllEpmloyees() {
+    // Not from the auth buth from the database with userRoles because this isn't on a server
+    var listCityEmployee = []
+    await database.collection("UserRoles").where("userRole", "==", "stadsmedewerker")
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                listCityEmployee.push(doc.data())
+            });
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+    console.log(listCityEmployee);
+    return listCityEmployee;
 };
 
-function deleteUser(email) {
-    /* const user = firebase.auth().where(user => user.email === email);
-     user.delete().then(() => {
-         alert("succes")
-     }).catch(() => {
-         alert("no succes")
-     });
-     */
+function makeUserTable() {
+    var list = getAllEpmloyees();
+
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+    let table = document.getElementById('userTable').appendChild(table);
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    let row_1 = document.createElement('tr');
+    let heading_1 = document.createElement('th');
+    heading_1.innerHTML = "Sr. No.";
+    let heading_2 = document.createElement('th');
+    heading_2.innerHTML = "Name";
+    let heading_3 = document.createElement('th');
+    heading_3.innerHTML = "Company";
+
+    row_1.appendChild(heading_1);
+    row_1.appendChild(heading_2);
+    row_1.appendChild(heading_3);
+    thead.appendChild(row_1);
+
+}
+
+function deleteUser() {
+    // Not possible because it's not on a server
 }
 
 function createEmployee() {

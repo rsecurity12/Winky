@@ -17,22 +17,17 @@
 </head>
 
 <body>
-    <table border="1">
-        <tr>
-            <th>Email</th>
-            <th>userRole</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    <button onclick="locatePage('adminmakeuser')" class="ChangeRoleButton">Create new account</button>
+    <h2 class="page-heading">Forgot password</h2>
+    <table border="1" id="userTable"></table>
+    <button onclick="locatePage('admin_makeuser')" class="ChangeRoleButton">Create new account</button>
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="../../js/userManager.js"></script>
+<script>
+    makeUserTable();
+</script>
 
 </html>

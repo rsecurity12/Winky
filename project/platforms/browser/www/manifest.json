@@ -7,5 +7,5 @@
   "description": "A project for AP",
   "author": "Wannes, Max, Rodrigo and Koen",
   "icons": [],
-  "start_url": "html/home.html"
+  "start_url": "html/anonymousUser/ReadOnlyMap.html"
 }
