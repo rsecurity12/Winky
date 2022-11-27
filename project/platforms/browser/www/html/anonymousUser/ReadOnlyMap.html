@@ -39,6 +39,7 @@
                 watch: false
             }).on('locationfound', function(e) {
                 var Loc = [e.latitude, e.longitude];
+                console.log(Loc);
                 map.addLayer(layer);
                 map.setView(Loc, 20);
                 var iconOptions = {

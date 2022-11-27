@@ -24,7 +24,7 @@ async function save_notification(lat, long) {
             break;
         }
     }
-    var database_ref = database.collection('notifications');
+    var database_ref = database.collection('Notifications');
     database_ref.add({
         title: title,
         discription: description,
@@ -42,7 +42,7 @@ async function save_notification(lat, long) {
 
 async function getAllNotifications() {
     var listNotifications = []
-    await database.collection("notifications").where("status", "==", "danger")
+    await database.collection("Notifications").where("status", "==", "danger")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {

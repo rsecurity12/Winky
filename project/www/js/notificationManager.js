@@ -24,7 +24,35 @@ async function save_notification(lat, long) {
             break;
         }
     }
-    var database_ref = database.collection('notifications');
+    var database_ref = database.collection('Notifications');
+    // Check if locataion is in cirkel
+    /*if(){
+            database_ref.add({
+            title: title,
+            discription: description,
+            urgent: selectedRadioButton,
+            lat: lat,
+            long: long,
+            status: "danger"
+        }).then(() => {
+            alert('Danger notified')
+            window.location = "user_map.html"
+        }).catch(() => {
+            alert('Danger not notified')
+        });
+            database_ref.add({
+        title: title,
+        discription: description,
+        urgent: selectedRadioButton,
+        lat: lat,
+        long: long,
+        status: "dangerOutOfRange"
+    }).then(() => {
+        alert('Danger notified but can't be shown')
+        window.location = "user_map.html"
+    }).catch(() => {
+        alert('Danger not notified')
+    });} */
     database_ref.add({
         title: title,
         discription: description,
@@ -42,7 +70,7 @@ async function save_notification(lat, long) {
 
 async function getAllNotifications() {
     var listNotifications = []
-    await database.collection("notifications").where("status", "==", "danger")
+    await database.collection("Notifications").where("status", "==", "danger")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {

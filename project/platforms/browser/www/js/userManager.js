@@ -153,8 +153,7 @@ async function makeUserTable() {
         let colom6 = document.createElement('td');
         var button = document.createElement("button")
         button.innerHTML = "Delete";
-        colom5.appendChild(button);
-
+        colom6.appendChild(button);
         row.appendChild(colom1);
         row.appendChild(colom2);
         row.appendChild(colom3);
