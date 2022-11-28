@@ -1,17 +1,4 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyD-yV8RDi1Ww3YpTmwkZpmQkS934s5RwxE",
-    authDomain: "winky-d52e8.firebaseapp.com",
-    databaseURL: "https://winky-d52e8-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "winky-d52e8",
-    storageBucket: "winky-d52e8.appspot.com",
-    messagingSenderId: "289336849912",
-    appId: "1:289336849912:web:0b04e4d7a6e5d921dd120d"
-};
-
-firebase.initializeApp(firebaseConfig);
-const database = firebase.firestore();
-
-async function save_notification(lat, long) {
+async function save_notification(lat, lng) {
     description = document.getElementById('description').value
     title = document.getElementById('title').value
     title = title.charAt(0).toUpperCase() + title.slice(1);
@@ -25,19 +12,48 @@ async function save_notification(lat, long) {
         }
     }
     var database_ref = database.collection('Notifications');
-    database_ref.add({
-        title: title,
-        discription: description,
-        urgent: selectedRadioButton,
-        lat: lat,
-        long: long,
-        status: "danger"
-    }).then(() => {
-        alert('Danger notified')
-        window.location = "user_map.html"
-    }).catch(() => {
-        alert('Danger not notified')
-    });
+    point = { lat, lng };
+    if (await pointInsideCircle(point)) {
+        database_ref.add({
+            title: title,
+            discription: description,
+            urgent: selectedRadioButton,
+            lat: lat,
+            long: lng,
+            status: "danger"
+        }).then(() => {
+            alert('Danger notified 2 ')
+            window.location = "user_map.html"
+        }).catch(() => {
+            alert('Danger not notified')
+        });
+    } else {
+        database_ref.add({
+            title: title,
+            discription: description,
+            urgent: selectedRadioButton,
+            lat: lat,
+            long: lng,
+            status: "dangerOutOfRange"
+        }).then(() => {
+            alert("Danger notified but can't be shown")
+            window.location = "user_map.html"
+        }).catch(() => {
+            alert('Danger not notified')
+        });
+    }
+}
+async function pointInsideCircle(point) {
+    var list = await getAllRegions();
+    point = L.latLng(point)
+    for (let index = 0; index < list.length; index++) {
+        var circle = list[index]
+        latLng = L.latLng(circle["lat"], circle["long"]);
+        if (point.distanceTo(latLng) < circle["radius"]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 async function getAllNotifications() {

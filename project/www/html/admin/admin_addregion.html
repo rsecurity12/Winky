@@ -19,7 +19,7 @@
 
 <body>
     <div class="container">
-        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='admin_regions.html'"></i>
+        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='admin_manageregions.html'"></i>
         <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
@@ -32,20 +32,20 @@
                     <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="description">Langitude:</label>
-                    <input type="textarea" class="form-control" id="langitude" placeholder="Enter langitude" name="description">
+                    <label for="description">Longitude:</label>
+                    <input type="textarea" class="form-control" id="longitude" placeholder="Enter langitude" name="longitude">
                 </div>
                 <div class="form-group">
                     <label for="description">Location name</label>
-                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="description">
+                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location">
                 </div>
                 <div class="form-group">
                     <label for="description">City</label>
-                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="description">
+                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city">
                 </div>
                 <div class="form-group">
                     <label for="description">Radius (in km)</label>
-                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="description">
+                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius">
                 </div>
                 <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_region()">Save region</button>
             </form>
@@ -56,6 +56,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="../../js/connection.js"></script>
 <script src="../../js/regionManager.js"></script>
 
 </html>
