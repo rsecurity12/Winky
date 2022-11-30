@@ -23,20 +23,18 @@
         <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
-
-
             <h2>Make a new region</h2>
             <form action="#">
                 <div class="form-group">
                     <label for="title">Latitude:</label>
-                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="name">
+                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="lat">
                 </div>
                 <div class="form-group">
                     <label for="description">Longitude:</label>
-                    <input type="textarea" class="form-control" id="longitude" placeholder="Enter langitude" name="longitude">
+                    <input type="textarea" class="form-control" id="lng" placeholder="Enter longitude" name="lng">
                 </div>
                 <div class="form-group">
-                    <label for="description">Location name</label>
+                    <label for="description">Location name:</label>
                     <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location">
                 </div>
                 <div class="form-group">
@@ -44,7 +42,7 @@
                     <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city">
                 </div>
                 <div class="form-group">
-                    <label for="description">Radius (in km)</label>
+                    <label for="description">Radius (in km):</label>
                     <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius">
                 </div>
                 <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_region()">Save region</button>

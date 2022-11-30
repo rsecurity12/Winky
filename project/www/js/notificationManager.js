@@ -44,7 +44,7 @@ async function save_notification(lat, lng) {
     }
 }
 async function pointInsideCircle(point) {
-    var list = await getAllRegions();
+    var list = await getAllRunningRegions();
     point = L.latLng(point)
     for (let index = 0; index < list.length; index++) {
         var circle = list[index]

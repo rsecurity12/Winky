@@ -1,7 +1,7 @@
 function save_region() {
     radius = document.getElementById('radius').value
     lat = document.getElementById('latitude').value
-    lng = document.getElementById('longitude').value
+    lng = document.getElementById('lng').value
     loc = document.getElementById('location').value
     city = document.getElementById('city').value
     var database_ref = database.collection('Regions');
@@ -10,7 +10,8 @@ function save_region() {
         lat: lat,
         lng: lng,
         radius: radius * 1000,
-        city: city
+        city: city,
+        status: "running"
     }).then(() => {
         alert('Region added')
         window.location = "admin_regions.html"
@@ -19,9 +20,9 @@ function save_region() {
     });
 }
 
-async function getAllRegions() {
+async function getAllRunningRegions() {
     var listRegions = []
-    await database.collection("Regions")
+    await database.collection("Regions").where("status", "==", "running")
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -36,7 +37,7 @@ async function getAllRegions() {
 
 async function makeRegionTable() {
 
-    var list = await getAllRegions();
+    var list = await getAllRunningRegions();
     let thead = document.createElement('thead');
     let tbody = document.createElement('tbody');
     let table = document.getElementById('regionTable');
@@ -77,12 +78,16 @@ async function makeRegionTable() {
         let colom6 = document.createElement('td');
         var button2 = document.createElement("button")
         button2.onclick = button2.onclick = function() {
-            alert("Delete Button is clicked");
+            alert("Change Button is clicked");
         };
         button2.innerHTML = "Change";
         var button = document.createElement("button")
         button.onclick = button.onclick = function() {
-            alert("Change Button is clicked");
+            // aan de hand van index updaten
+            var listRegions = database.collection("Regions")
+            console.log(listRegions);
+
+            alert(list[i].city + " is deleted");
         };
         button.innerHTML = "Delete";
         colom6.appendChild(button);

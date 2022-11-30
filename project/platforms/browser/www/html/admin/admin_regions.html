@@ -73,7 +73,7 @@
                 </ul>
             </div>
             <div id="map">
-                <button class="btn_add" id="addNotBtn" onclick="locatePage('admin_manageregions')">add region</button>
+                <button class="btn_add" id="addNotBtn" onclick="locatePage('admin_manageregions')">Mange regions</button>
             </div>
         </div>
     </div>
@@ -110,13 +110,13 @@
                 alert("Location access denied.");
             });
     };
-    async function placeTargets(map, layer) {
-        var list = await getAllRegions();
+    async function placeCircles(map, layer) {
+        var list = await getAllRunningRegions();
         console.log(list.length);
         var temp = []
         for (let index = 0; index < list.length; index++) {
             console.log(list[index])
-            let circle = L.circle([list[index].lat, list[index].long], {
+            let circle = L.circle([list[index].lat, list[index].lng], {
                 radius: list[index].radius,
                 color: '#0000ff',
                 opacity: 0.25,
@@ -134,7 +134,7 @@
                 attribution: 'OSM'
             });
             placeCurrentLocation(map, layer);
-            placeTargets(map, layer);
+            placeCircles(map, layer);
         }, 1000)
     };
     loadMap('map');
