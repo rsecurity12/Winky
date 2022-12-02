@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage users</title>
+    <title>Manage regions</title>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <script>
         function locatePage(location) {
             window.location = location + ".html";
@@ -67,9 +68,9 @@
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
-            <h2 class="page-heading">User management</h2>
-            <table border="1" id="userTable"></table>
-            <button onclick="locatePage('admin_makeuser')" class="ChangeRoleButton">Create new account</button>
+            <h2 class="page-heading">Region management</h2>
+            <table border="1" id="regionTable"></table>
+            <button onclick="locatePage('admin_addregion')" class="ChangeRoleButton">Create new region</button>
         </div>
     </div>
 </body>
@@ -78,9 +79,9 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="../../js/connection.js"></script>
-<script src="../../js/userManager.js"></script>
+<script src="../../js/regionManager.js"></script>
 <script>
-    makeUserTable();
+    makeRegionTable();
 </script>
 
 </html>

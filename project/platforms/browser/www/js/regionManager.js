@@ -83,11 +83,7 @@ async function makeRegionTable() {
         button2.innerHTML = "Change";
         var button = document.createElement("button")
         button.onclick = button.onclick = function() {
-            // aan de hand van index updaten
-            var listRegions = database.collection("Regions")
-            console.log(listRegions);
-
-            alert(list[i].city + " is deleted");
+            deleteRegions(list[i].lat, list[i].lng)
         };
         button.innerHTML = "Delete";
         colom6.appendChild(button);
@@ -100,4 +96,9 @@ async function makeRegionTable() {
         row.appendChild(colom6);
         tbody.appendChild(row);
     }
+}
+
+function deleteRegions(lat, lng) {
+    // update zodat er geen gegevens uit de DB verwijderd worden
+
 }

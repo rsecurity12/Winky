@@ -13,7 +13,10 @@ async function save_notification(lat, lng) {
     }
     var database_ref = database.collection('Notifications');
     point = { lat, lng };
+    alert(lat + " " + lng)
     if (await pointInsideCircle(point)) {
+        alert("lat: " + lat)
+
         database_ref.add({
             title: title,
             discription: description,
@@ -48,7 +51,7 @@ async function pointInsideCircle(point) {
     point = L.latLng(point)
     for (let index = 0; index < list.length; index++) {
         var circle = list[index]
-        latLng = L.latLng(circle["lat"], circle["long"]);
+        latLng = L.latLng(circle["lat"], circle["lng"]);
         if (point.distanceTo(latLng) < circle["radius"]) {
             return true;
         }
