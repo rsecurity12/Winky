@@ -29,6 +29,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 <script src="../../js/connection.js"></script>
 <script src="../../js/notificationManager.js"></script>
 
@@ -112,6 +113,7 @@
     async function loadMap(id) {
         setTimeout(() => {
             var map = L.map(id);
+            L.control.locate().addTo(map);
             var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
             var layer = L.tileLayer(tile_url, {
                 attribution: 'OSM'
