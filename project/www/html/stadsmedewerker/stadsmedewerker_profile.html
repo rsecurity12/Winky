@@ -32,6 +32,7 @@
 
 <body>
     <div class="welcomeMessage">
+        <h1 id="medewerkers_name"></h1>
     </div>
     <div class="container">
         <div class="app">
@@ -62,6 +63,14 @@
             </div>
         </div>
     </div>
+    <table border="1" id="notificationsTable"></table>
 </body>
-
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="../../js/connection.js"></script>
+<script src="../../js/notificationManager.js"></script>
+<script>
+    GetCityOfcurrentUser();
+</script>
 </html>
