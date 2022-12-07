@@ -1,4 +1,5 @@
 async function save_notification(lat, lng) {
+    let city = await getCityOutLoc(lat, lng)
     description = document.getElementById('description').value
     title = document.getElementById('title').value
     title = title.charAt(0).toUpperCase() + title.slice(1);
@@ -13,20 +14,18 @@ async function save_notification(lat, lng) {
     }
     var database_ref = database.collection('Notifications');
     point = { lat, lng };
-    alert(lat + " " + lng)
     if (await pointInsideCircle(point)) {
-        alert("lat: " + lat)
-
         database_ref.add({
             title: title,
             discription: description,
             urgent: selectedRadioButton,
             lat: lat,
             long: lng,
+            city: city,
             status: "danger"
         }).then(() => {
             alert('Danger notified 2 ')
-            window.location = "user_map.html"
+                //   window.location = "user_map.html"
         }).catch(() => {
             alert('Danger not notified')
         });
@@ -37,14 +36,28 @@ async function save_notification(lat, lng) {
             urgent: selectedRadioButton,
             lat: lat,
             long: lng,
+            city: city,
             status: "dangerOutOfRange"
         }).then(() => {
             alert("Danger notified but can't be shown")
-            window.location = "user_map.html"
+                //  window.location = "user_map.html"
         }).catch(() => {
             alert('Danger not notified')
         });
     }
+}
+
+async function getCityOutLoc(lat, lng) {
+    var requestOptions = {
+        method: 'GET',
+    };
+    return new Promise((resolve, reject) => {
+        fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&format=json&apiKey=2ebfe86da1714e8fa63b217e11eb92ab`, requestOptions)
+            .then(response => response.json())
+            .then((result) => {
+                resolve(result.results[0].city)
+            })
+    });
 }
 async function pointInsideCircle(point) {
     var list = await getAllRunningRegions();
