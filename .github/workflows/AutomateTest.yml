@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: rodrigolinux30/Winky
+        uses: rodrigolinux30/Winky@v
         with:
           who-to-greet: 'Wannes'
       # Use the output from the `hello` step
