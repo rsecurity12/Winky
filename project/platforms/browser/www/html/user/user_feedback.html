@@ -3,9 +3,9 @@
 
 <head>
     <title>Add feedback</title>
-    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/styleProfile.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -54,21 +54,21 @@
                 <ul>
                     <h1>User</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="user/user_addnotification.html">Add notification</a></li>
-                    <li><a href="user/user_map.html">Map</a></li>
-                    <li class="active"><a href="feedback.html">Feedback</a></li>
+                    <li><a href="user_map.html">Map</a></li>
+                    <li><a href="">Change user details</a></li>
+                    <li class="active"><a href="user_feedback.html">Feedback</a></li>
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
             <h2 class="page-heading">Give feedback</h2>
-            <form action="mailto:koen.hellemans@hotmail.be?subject=Winky feedback" method="post" enctype="text/plain">
+            <form method="post" enctype="text/plain">
                 <label>Onderwerp:</label>
                 <br>
-                <input type="text" name="onderwerp"><br>
+                <input type="text" id="subject"><br>
                 <label>Feedback:</label>
                 <br>
-                <input type="text" name="feedback" rows="3"><br>
-                <input type="button" onclick="sendFeedback() " value="Send ">
+                <input type="text" id="feedback" rows="3"><br>
+                <input type="button" onclick="sendFeedback()" value="Send ">
             </form>
         </div>
     </div>
@@ -76,7 +76,7 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>
-<script src="../js/feedbackManager.js"></script>
-<script src="../js/connection.js"></script>
+<script src="../../js/feedbackManager.js"></script>
+<script src="../../js/connection.js"></script>
 
 </html>

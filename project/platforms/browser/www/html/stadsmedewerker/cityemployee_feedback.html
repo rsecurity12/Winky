@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage users</title>
-    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <title>Add feedback</title>
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styleProfile.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
-        function locatePage(location) {
-            window.location = location + ".html";
-        }
-
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
         }
@@ -60,30 +52,30 @@
                 </h1>
                 <div class="clearfix"></div>
                 <ul>
-                    <h1>Admin</h1>
+                    <h1>User</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="admin_regions.html">Regios</a></li>
-                    <li class="active"><a href="admin_manageuser.html">User management</a></li>
-                    <li><a href="">Change user details</a></li>
-                    <li><a href="admin_managefeedback.html">See feedback</a></li>
+                    <li><a href="user/user_map.html">Map</a></li>
+                    <li class="active"><a href="feedback.html">Feedback</a></li>
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
-            <h2 class="page-heading">User management</h2>
-            <table border="1" id="userTable"></table>
-            <h6 id="userMessage"></h6>
-            <button onclick="locatePage('admin_makeuser')" class="ChangeRoleButton">Create new account</button>
+            <h2 class="page-heading">Give feedback</h2>
+            <form method="post" enctype="text/plain">
+                <label>Onderwerp:</label>
+                <br>
+                <input type="text" id="subject"><br>
+                <label>Feedback:</label>
+                <br>
+                <input type="text" id="feedback" rows="3"><br>
+                <input type="button" onclick="sendFeedback()" value="Send ">
+            </form>
         </div>
     </div>
 </body>
 
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="../../js/connection.js"></script>
-<script src="../../js/userManager.js"></script>
-<script>
-    makeUserTable();
-</script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>
+<script src="../js/feedbackManager.js"></script>
+<script src="../js/connection.js"></script>
 
 </html>

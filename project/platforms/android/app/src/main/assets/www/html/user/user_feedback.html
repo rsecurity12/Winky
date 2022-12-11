@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<html>
 
 <head>
+    <title>Add feedback</title>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -31,8 +34,6 @@
 </head>
 
 <body>
-    <div class="welcomeMessage">
-    </div>
     <div class="container">
         <div class="app">
             <div class="menushape1"></div>
@@ -40,7 +41,6 @@
             <ul class="menubar">
                 <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
             </ul>
-
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -52,16 +52,31 @@
                 </h1>
                 <div class="clearfix"></div>
                 <ul>
+                    <h1>User</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="">Profile</a></li>
-                    <li class="active"><a href="">About</a></li>
-                    <li><a href="map.html">Request</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="user_map.html">Map</a></li>
+                    <li><a href="">Change user details</a></li>
+                    <li class="active"><a href="user_feedback.html">Feedback</a></li>
+                    <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
+            <h2 class="page-heading">Give feedback</h2>
+            <form method="post" enctype="text/plain">
+                <label>Onderwerp:</label>
+                <br>
+                <input type="text" id="subject"><br>
+                <label>Feedback:</label>
+                <br>
+                <input type="text" id="feedback" rows="3"><br>
+                <input type="button" onclick="sendFeedback()" value="Send ">
+            </form>
         </div>
     </div>
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>
+<script src="../../js/feedbackManager.js"></script>
+<script src="../../js/connection.js"></script>
 
 </html>

@@ -105,48 +105,52 @@ async function makeUserTable() {
     table.appendChild(thead);
     table.appendChild(tbody);
     // Heading
-    let headingRow = document.createElement('tr');
-    let headingcolom1 = document.createElement('th');
-    headingcolom1.innerHTML = "City";
-    let headingcolom2 = document.createElement('th');
-    headingcolom2.innerHTML = "Firstname";
-    let headingcolom3 = document.createElement('th');
-    headingcolom3.innerHTML = "Email";
-    let headingcolom4 = document.createElement('th');
-    headingcolom4.innerHTML = "Userrole";
-    let headingcolom5 = document.createElement('th');
-    headingcolom5.innerHTML = "Last loged in";
-    headingRow.appendChild(headingcolom1);
-    headingRow.appendChild(headingcolom2);
-    headingRow.appendChild(headingcolom3);
-    headingRow.appendChild(headingcolom4);
-    headingRow.appendChild(headingcolom5);
-    thead.appendChild(headingRow);
-
-    // All Users
-    for (let i = 0; i < list.length; i++) {
-        let row = document.createElement('tr');
-        let colom1 = document.createElement('td');
-        colom1.innerHTML = list[i].city;
-        let colom2 = document.createElement('td');
-        colom2.innerHTML = list[i].first_name;
-        let colom3 = document.createElement('td');
-        colom3.innerHTML = list[i].email;
-        let colom4 = document.createElement('td');
-        colom4.innerHTML = list[i].userRole;
-        let colom5 = document.createElement('td');
-        colom5.innerHTML = new Date(list[i].last_login);
-        let colom6 = document.createElement('td');
-        var button = document.createElement("button")
-        button.innerHTML = "Delete";
-        colom6.appendChild(button);
-        row.appendChild(colom1);
-        row.appendChild(colom2);
-        row.appendChild(colom3);
-        row.appendChild(colom4);
-        row.appendChild(colom5);
-        row.appendChild(colom6);
-        tbody.appendChild(row);
+    if (list.length > 0) {
+        let headingRow = document.createElement('tr');
+        let headingcolom1 = document.createElement('th');
+        headingcolom1.innerHTML = "City";
+        let headingcolom2 = document.createElement('th');
+        headingcolom2.innerHTML = "Firstname";
+        let headingcolom3 = document.createElement('th');
+        headingcolom3.innerHTML = "Email";
+        let headingcolom4 = document.createElement('th');
+        headingcolom4.innerHTML = "Userrole";
+        let headingcolom5 = document.createElement('th');
+        headingcolom5.innerHTML = "Last loged in";
+        headingRow.appendChild(headingcolom1);
+        headingRow.appendChild(headingcolom2);
+        headingRow.appendChild(headingcolom3);
+        headingRow.appendChild(headingcolom4);
+        headingRow.appendChild(headingcolom5);
+        thead.appendChild(headingRow);
+        // All Users
+        for (let i = 0; i < list.length; i++) {
+            let row = document.createElement('tr');
+            let colom1 = document.createElement('td');
+            colom1.innerHTML = list[i].city;
+            let colom2 = document.createElement('td');
+            colom2.innerHTML = list[i].first_name;
+            let colom3 = document.createElement('td');
+            colom3.innerHTML = list[i].email;
+            let colom4 = document.createElement('td');
+            colom4.innerHTML = list[i].userRole;
+            let colom5 = document.createElement('td');
+            colom5.innerHTML = new Date(list[i].last_login);
+            let colom6 = document.createElement('td');
+            var button = document.createElement("button")
+            button.innerHTML = "Delete";
+            colom6.appendChild(button);
+            row.appendChild(colom1);
+            row.appendChild(colom2);
+            row.appendChild(colom3);
+            row.appendChild(colom4);
+            row.appendChild(colom5);
+            row.appendChild(colom6);
+            tbody.appendChild(row);
+        }
+    } else {
+        let message = document.getElementById('regionMessage');
+        message.innerHTML = "No users"
     }
 }
 
@@ -179,6 +183,10 @@ function createEmployee() {
 
             })
         });
+}
+
+async function greeting_user(name) {
+    document.getElementById('medewerkers_name').innerHTML = "Welcome " + name;
 }
 
 // Validate Functions

@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage regions</title>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <script>
-        function locatePage(location) {
-            window.location = location + ".html";
-        }
-
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
         }
@@ -43,6 +31,9 @@
 </head>
 
 <body>
+    <div class="welcomeMessage">
+        <h1 id="medewerkers_name"></h1>
+    </div>
     <div class="container">
         <div class="app">
             <div class="menushape1"></div>
@@ -50,6 +41,7 @@
             <ul class="menubar">
                 <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
             </ul>
+
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -61,30 +53,26 @@
                 </h1>
                 <div class="clearfix"></div>
                 <ul>
-                    <h1>Admin</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li class="active"><a href="admin_regions.html">Regios</a></li>
-                    <li><a href="admin_manageuser.html">User management</a></li>
-                    <li><a href="">Change user details</a></li>
-                    <li><a href="admin_managefeedback.html">See feedback</a></li>
-                    <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                    <li><a href="">Profile</a></li>
+                    <li class="active"><a href="">About</a></li>
+                    <li><a href="map.html">Request</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </div>
-            <h2 class="page-heading">Region management</h2>
-            <table border="1" id="regionTable"></table>
-            <h6 id="regionMessage"></h6>
-            <button onclick="locatePage('admin_addregion')" class="ChangeRoleButton">Create new region</button>
         </div>
     </div>
+    <table border="1" id="notificationsTable"></table>
+    <h6 id="notificationMessage"></h6>
 </body>
-
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="../../js/connection.js"></script>
-<script src="../../js/regionManager.js"></script>
+<script src="../../js/notificationManager.js"></script>
 <script>
-    makeRegionTable();
+    GetCityOfcurrentUser();
 </script>
 
 </html>

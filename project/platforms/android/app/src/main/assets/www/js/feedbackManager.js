@@ -19,21 +19,6 @@ async function sendFeedback() {
 
 async function getAllFeedback() {
     var listNotifications = []
-    await database.collection("Feedback")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listNotifications.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listNotifications);
-    return listNotifications;
-}
-async function getNewFeedback() {
-    var listNotifications = []
     await database.collection("Feedback").where("status", "==", "new")
         .get()
         .then((querySnapshot) => {
@@ -47,60 +32,12 @@ async function getNewFeedback() {
     console.log(listNotifications);
     return listNotifications;
 }
-async function getDeletedFeedback() {
-    var listNotifications = []
-    await database.collection("Feedback").where("status", "==", "deleted")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listNotifications.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listNotifications);
-    return listNotifications;
-}
-async function getApprovedFeedback() {
-    var listNotifications = []
-    await database.collection("Feedback").where("status", "==", "approved")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listNotifications.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listNotifications);
-    return listNotifications;
-}
 
-async function makeFeedbackTable(feedback) {
-    let message = document.getElementById('feedbackMessage');
+async function makeFeedbackTable() {
+    var list = await getAllFeedback();
     let thead = document.createElement('thead');
     let tbody = document.createElement('tbody');
     let table = document.getElementById('FeedbackTable');
-    var list;
-    if (feedback == "deleted") {
-        message.innerHTML = ""
-        table.innerHTML = ""
-        list = await getDeletedFeedback();
-    } else if (feedback == "new") {
-        message.innerHTML = ""
-        table.innerHTML = ""
-        list = await getNewFeedback();
-    } else if (feedback == "approved") {
-        message.innerHTML = ""
-        table.innerHTML = ""
-        list = await getApprovedFeedback();
-    } else {
-        message.innerHTML = ""
-        table.innerHTML = ""
-        list = await getAllFeedback();
-    }
     table.appendChild(thead);
     table.appendChild(tbody);
     if (list.length > 0) {
@@ -126,20 +63,18 @@ async function makeFeedbackTable(feedback) {
             let colom3 = document.createElement('td');
             colom3.innerHTML = list[i].status;
             let colom4 = document.createElement('td');
-            if (list[i].status == "new") {
-                var button2 = document.createElement("button")
-                button2.onclick = button2.onclick = async function() {
-                    await DeleteFeedback(list[i].id)
-                };
-                button2.innerHTML = "Deleted";
-                var button = document.createElement("button")
-                button.onclick = button.onclick = function() {
-                    ApproveFeedback(list[i].id)
-                };
-                button.innerHTML = "Approved";
-                colom4.appendChild(button);
-                colom4.appendChild(button2);
-            }
+            var button2 = document.createElement("button")
+            button2.onclick = button2.onclick = async function() {
+                await DeleteFeedback(list[i].id)
+            };
+            button2.innerHTML = "Deleted";
+            var button = document.createElement("button")
+            button.onclick = button.onclick = function() {
+                ApproveFeedback(list[i].id)
+            };
+            button.innerHTML = "Approved";
+            colom4.appendChild(button);
+            colom4.appendChild(button2);
             row.appendChild(colom1);
             row.appendChild(colom2);
             row.appendChild(colom3);
@@ -147,6 +82,7 @@ async function makeFeedbackTable(feedback) {
             tbody.appendChild(row);
         }
     } else {
+        let message = document.getElementById('feedbackMessage');
         message.innerHTML = "No feedback at the moment";
     }
 }
@@ -156,7 +92,7 @@ async function ApproveFeedback(id) {
         .get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                doc.ref.update({ status: "approved" });
+                doc.ref.update({ status: "Approved" });
                 //  window.location = "admin_managefeedback.html"
             });
         }).then(function() {
