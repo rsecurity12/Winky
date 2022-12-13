@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update profile</title>
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="app">
+            <div class="menushape1"></div>
+            <div class="menushape2"></div>
+            <div class="sidenav" id="sidenav">
+                <div class="sidenavshape"></div>
+                <div class="profile">
+                </div>
+                <h1>
+                    <script>
+                        document.write();
+                    </script>
+                </h1>
+                <div class="clearfix"></div>
+            </div>
+            <h2 class="page-heading">Account management</h2>
+            <h6 id="userMessage"></h6>
+        </div>
+    </div>
+    <div class="login-container">
+    <form action="#">
+        <div class="form-control">
+            <input type="text" class="username" id="first_name" placeholder="g" name="name" required="">
+        </div>
+        <div class="form-control">
+            <input type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
+        </div>
+        <div class="form-control">
+            <input type="phone" class="username" id="phone_number" placeholder="Optional Belgian phone number. 9 Digits" name="phone_number">
+        </div>
+        <div class="shape-circle">
+            <button type="button" onclick="update()" id="save_btn" class="btn_submit">Update</button>
+        </div>
+    </form>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="../../js/connection.js"></script>
+<script src="../../js/userManager.js"></script>
+<script>
+    userDetails()
+</script>
+</html>
+
+
+

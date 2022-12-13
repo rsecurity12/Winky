@@ -1,11 +1,21 @@
-function register() {
+async function register() {
     // Get all our input fields
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     first_name = document.getElementById('first_name').value;
+    last_name = document.getElementById('last_name').value;
+    phone_number = document.getElementById('phone_number').value;
+
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false || validate_field(first_name) == false) {
         alert('Something went wrong! Try again!')
+        return
+        // Don't continue running the code
+    }
+
+    // Validate phone number
+    if (validate_phone_number(phone_number) == false) {
+        alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
         return
         // Don't continue running the code
     }
@@ -20,6 +30,8 @@ function register() {
             var user_data = {
                 email: email,
                 first_name: first_name,
+                last_name: last_name,
+                phone_number: phone_number,
                 last_login: Date.now(),
                 userRole: "user"
             };
@@ -55,7 +67,7 @@ function login() {
                         if (user.data().userRole == "user") {
                             window.location = "../user/user_map.html"
                         } else if (user.data().userRole == "stadsmedewerker") {
-                            window.location = "../stadsmedewerker/stadsmedewerker_profile.html"
+                            window.location = "../stadsmedewerker/cityemployee_profile.html"
                         } else if (user.data().userRole == "admin") {
                             window.location = "../admin/admin_homepage.html"
                         }
@@ -76,7 +88,7 @@ function sendResetMail() {
             window.location.href = "../anonymousUser/login.html"
         })
         .catch(() => {
-            alert("Email adress doesn't exist or it is from a specific domain")
+            alert("Email address doesn't exist or it is from a specific domain")
         });
 }
 
@@ -112,16 +124,22 @@ async function makeUserTable() {
         let headingcolom2 = document.createElement('th');
         headingcolom2.innerHTML = "Firstname";
         let headingcolom3 = document.createElement('th');
-        headingcolom3.innerHTML = "Email";
+        headingcolom3.innerHTML = "Lastname";
         let headingcolom4 = document.createElement('th');
-        headingcolom4.innerHTML = "Userrole";
+        headingcolom4.innerHTML = "Email";
         let headingcolom5 = document.createElement('th');
-        headingcolom5.innerHTML = "Last loged in";
+        headingcolom5.innerHTML = "Phonenumber";
+        let headingcolom6 = document.createElement('th');
+        head4ngcolom6.innerHTML = "Userrole";
+        let headingcolom7 = document.createElement('th');
+        headingcolom7.innerHTML = "Last loged in";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
         headingRow.appendChild(headingcolom4);
         headingRow.appendChild(headingcolom5);
+        headingRow.appendChild(headingcolom6);
+        headingRow.appendChild(headingcolom7);
         thead.appendChild(headingRow);
         // All Users
         for (let i = 0; i < list.length; i++) {
@@ -131,21 +149,27 @@ async function makeUserTable() {
             let colom2 = document.createElement('td');
             colom2.innerHTML = list[i].first_name;
             let colom3 = document.createElement('td');
-            colom3.innerHTML = list[i].email;
+            colom3.innerHTML = list[i].last_name;
             let colom4 = document.createElement('td');
-            colom4.innerHTML = list[i].userRole;
+            colom4.innerHTML = list[i].email;
             let colom5 = document.createElement('td');
-            colom5.innerHTML = new Date(list[i].last_login);
+            colom5.innerHTML = list[i].phone_number;
             let colom6 = document.createElement('td');
+            colom6.innerHTML = list[i].userRole;
+            let colom7 = document.createElement('td');
+            colom7.innerHTML = new Date(list[i].last_login);
+            let colom8 = document.createElement('td');
             var button = document.createElement("button")
             button.innerHTML = "Delete";
-            colom6.appendChild(button);
+            colom9.appendChild(button);
             row.appendChild(colom1);
             row.appendChild(colom2);
             row.appendChild(colom3);
             row.appendChild(colom4);
             row.appendChild(colom5);
             row.appendChild(colom6);
+            row.appendChild(colom7);
+            row.appendChild(colom8);
             tbody.appendChild(row);
         }
     } else {
@@ -162,7 +186,9 @@ function createEmployee() {
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     first_name = document.getElementById('first_name').value;
+    last_name = document.getElementById('last_name').value;
     city = document.getElementById('city').value;
+     phone_number = document.getElementById('phone_number').value;
     const auth = firebase.auth()
     auth.createUserWithEmailAndPassword(email, password)
         .then(function() {
@@ -171,6 +197,8 @@ function createEmployee() {
             var user_data = {
                 email: email,
                 first_name: first_name,
+                last_name: last_name,
+                phone_number: phone_number,
                 last_login: Date.now(),
                 userRole: "stadsmedewerker",
                 city: city
@@ -219,4 +247,101 @@ function validate_field(field) {
     } else {
         return true
     }
+}
+
+function validate_phone_number(input_str) {
+   var phoneno = /^\(?([0-9]{3})[-. ]?([0-9]{6})$/;
+    return phoneno.test(input_str);
+  }
+
+  
+
+  
+async function GetCurrentUserData() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                        console.log(data)
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+        }
+    })
+}
+
+
+async function userDetails() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                        console.log(data)
+                    });
+                })
+                    document.getElementById("first_name").placeholder = data.first_name
+                    document.getElementById("last_name").placeholder = data.last_name
+                    document.getElementById("phone_number").placeholder = data.phone_number    
+                    document.getElementById("email").placeholder = data.email   
+        }
+    })
+}
+
+
+
+
+
+async function updateUserDetails(){
+    first_name_update = document.getElementById('first_name').value;
+    last_name_update = document.getElementById('last_name').value;
+    phone_number_update = document.getElementById('phone_number').value;
+
+    // Validate phone number
+    if (validate_phone_number(phone_number_update) == false) {
+        alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
+        return
+        // Don't continue running the code
+    }
+
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+
+            await database.collection("UserRoles").doc(user.uid).update({
+                first_name: first_name_update,
+                last_name: last_name_update,
+                phone_number: phone_number_update
+            })
+            alert("Your profile is updated successfully. Refresh the page")
+        }      
+   })
+}
+
+
+async function changeUserPassword(){
+    var new_password = document.getElementById("new_password").value
+    var retype_password = document.getElementById("retype_password").value
+
+    if(new_password != retype_password){
+        alert("The passwords don't match")
+    }
+
+
+    if(new_password == retype_password){
+            var user = firebase.auth().currentUser;
+            user.updatePassword(new_password).then(function() {
+                alert("Update successful.") 
+        }).catch(function(error) {
+            alert(error)
+        });
+}
 }

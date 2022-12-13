@@ -69,7 +69,13 @@
             <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
-    <table border="1" id="FeedbackTable"></table>
+    <div>
+        <input type="radio" name="feedbackKind" value="new" id="new" onclick="makeFeedbackTable('new')"> <label for="new">New</label>
+        <input type="radio" name="feedbackKind" value="approved" id="approved" onclick="makeFeedbackTable('approved')" /> <label for="approved">Approved</label>
+        <input type="radio" name="feedbackKind" value="deleted" id="deleted" onclick="makeFeedbackTable('deleted')"> <label for="deleted">Deleted</label>
+        <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeFeedbackTable('all')" checked> <label for="all">All</label>
+    </div>
+    <table id="FeedbackTable"></table>
     <h6 id="feedbackMessage"></h6>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
