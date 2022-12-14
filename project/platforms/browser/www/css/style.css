@@ -454,9 +454,6 @@ span {
     margin-left:-1750px;
 }
 
-
-
-
 .btn_normal3 {
     text-align: center;
     border: 1px solid rgba(244, 214, 65, 1);
@@ -472,3 +469,36 @@ span {
     position: absolute;
     margin-left:-1750px;
 }
+
+.btn_normal4 {
+    text-align: center;
+    border: 1px solid rgba(244, 214, 65, 1);
+    background: rgba(244, 214, 65, 0.7);
+    width: 100px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 20%;
+    box-shadow: 4px 4px #f4c141;
+    color: #555;
+    top: 70%;
+    position: absolute;
+    margin-left:-1750px;
+}
+
+.btn_normal5 {
+    text-align: center;
+    border: 1px solid rgba(244, 214, 65, 1);
+    background: rgba(244, 214, 65, 0.7);
+    width: 100px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 20%;
+    box-shadow: 4px 4px #f4c141;
+    color: #555;
+    top: 190%;
+    position: absolute;
+    margin-left:-1750px;
+}
+
