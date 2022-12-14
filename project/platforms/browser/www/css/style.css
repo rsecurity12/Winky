@@ -162,13 +162,19 @@ h2 {
 }
 
 #btn_saveNot {
-    position: absolute;
+    position:relative;
     bottom: 1px;
     left: 35%;
     right: 35%;
+    
+
 }
 
 #radioButtons {
+    margin: auto;
+    padding: 20px;
+}
+#positionState {
     margin: auto;
     padding: 20px;
 }
@@ -384,6 +390,8 @@ after {
 
 button {
     margin: 5px;
+    
+    
 }
 
 .btn_normal {
@@ -455,7 +463,7 @@ span {
 }
 
 
-
+#map { height: 600px; width: 600px; }
 
 .btn_normal3 {
     text-align: center;

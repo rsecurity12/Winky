@@ -158,7 +158,10 @@
     };
     async function loadMap(id) {
         setTimeout(() => {
-            var map = L.map(id);
+            var map = L.map(id, {
+                minZoom: 16,
+                maxZoom: 18
+            });
             L.control.locate().addTo(map);
             var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
             var layer = L.tileLayer(tile_url, {

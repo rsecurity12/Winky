@@ -64,7 +64,7 @@
                     <h1>User</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
                     <li><a href="user_map.html">Map</a></li>
-                    <li><a href="">Change user details</a></li>
+                    <li><a href="../user/update_profile.html">Update profile</a></li>
                     <li><a href="user_feedback.html">Send feedback</a></li>
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
@@ -158,7 +158,10 @@
     };
     async function loadMap(id) {
         setTimeout(() => {
-            var map = L.map(id);
+            var map = L.map(id, {
+                minZoom: 16,
+                maxZoom: 18
+            });
             L.control.locate().addTo(map);
             var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
             var layer = L.tileLayer(tile_url, {

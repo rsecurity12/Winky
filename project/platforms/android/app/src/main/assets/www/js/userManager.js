@@ -291,8 +291,8 @@ async function userDetails() {
                 })
                     document.getElementById("first_name").placeholder = data.first_name
                     document.getElementById("last_name").placeholder = data.last_name
-                    document.getElementById("phone_number").placeholder = data.phone_number
-            
+                    document.getElementById("phone_number").placeholder = data.phone_number    
+                    document.getElementById("email").placeholder = data.email   
         }
     })
 }
@@ -301,4 +301,47 @@ async function userDetails() {
 
 
 
+async function updateUserDetails(){
+    first_name_update = document.getElementById('first_name').value;
+    last_name_update = document.getElementById('last_name').value;
+    phone_number_update = document.getElementById('phone_number').value;
 
+    // Validate phone number
+    if (validate_phone_number(phone_number_update) == false) {
+        alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
+        return
+        // Don't continue running the code
+    }
+
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+
+            await database.collection("UserRoles").doc(user.uid).update({
+                first_name: first_name_update,
+                last_name: last_name_update,
+                phone_number: phone_number_update
+            })
+            alert("Your profile is updated successfully. Refresh the page")
+        }      
+   })
+}
+
+
+async function changeUserPassword(){
+    var new_password = document.getElementById("new_password").value
+    var retype_password = document.getElementById("retype_password").value
+
+    if(new_password != retype_password){
+        alert("The passwords don't match")
+    }
+
+
+    if(new_password == retype_password){
+            var user = firebase.auth().currentUser;
+            user.updatePassword(new_password).then(function() {
+                alert("Update successful.") 
+        }).catch(function(error) {
+            alert(error)
+        });
+}
+}
