@@ -32,39 +32,10 @@ async function getAllFeedback() {
     console.log(listNotifications);
     return listNotifications;
 }
-async function getNewFeedback() {
+
+async function getFeedback(status) {
     var listNotifications = []
-    await database.collection("Feedback").where("status", "==", "new")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listNotifications.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listNotifications);
-    return listNotifications;
-}
-async function getDeletedFeedback() {
-    var listNotifications = []
-    await database.collection("Feedback").where("status", "==", "deleted")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listNotifications.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listNotifications);
-    return listNotifications;
-}
-async function getApprovedFeedback() {
-    var listNotifications = []
-    await database.collection("Feedback").where("status", "==", "approved")
+    await database.collection("Feedback").where("status", "==", status)
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -87,15 +58,15 @@ async function makeFeedbackTable(feedback) {
     if (feedback == "deleted") {
         message.innerHTML = ""
         table.innerHTML = ""
-        list = await getDeletedFeedback();
+        list = await getFeedback("deleted");
     } else if (feedback == "new") {
         message.innerHTML = ""
         table.innerHTML = ""
-        list = await getNewFeedback();
+        list = await getFeedback("new");
     } else if (feedback == "approved") {
         message.innerHTML = ""
         table.innerHTML = ""
-        list = await getApprovedFeedback();
+        list = await getFeedback("approved");
     } else {
         message.innerHTML = ""
         table.innerHTML = ""
@@ -157,12 +128,26 @@ async function ApproveFeedback(id) {
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 doc.ref.update({ status: "approved" });
-                //  window.location = "admin_managefeedback.html"
             });
         }).then(function() {
             alert("feedback approved")
         }).catch(() => {
             alert('Feedback not approved')
+        });
+}
+
+async function DeleteFeedback(id) {
+    await firebase.firestore().collection("Feedback").where("id", "==", id)
+        .get()
+        .then(async function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.update({ status: "deleted" });
+                //  window.location = "admin_managefeedback.html"
+            });
+        }).then(function() {
+            alert("feedback deleted")
+        }).catch(() => {
+            alert('Feedback not deleted')
         });
 }
 
