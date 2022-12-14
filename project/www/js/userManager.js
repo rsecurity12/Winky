@@ -293,13 +293,16 @@ async function userDetails() {
                     document.getElementById("last_name").placeholder = data.last_name
                     document.getElementById("phone_number").placeholder = data.phone_number    
                     document.getElementById("email").placeholder = data.email   
+                    document.getElementById("city").placeholder = data.city
+                    greeting_normal_user(data.first_name)
         }
     })
 }
 
 
-
-
+async function greeting_normal_user(name) {
+    document.getElementById('normal_user').innerHTML = "Hello " + name;
+}
 
 async function updateUserDetails(){
     first_name_update = document.getElementById('first_name').value;

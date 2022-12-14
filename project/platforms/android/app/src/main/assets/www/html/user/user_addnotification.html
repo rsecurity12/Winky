@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
 </head>
 
 <body>
@@ -16,7 +17,9 @@
         <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='user_map.html'"></i>
         <div class="app">
             <h2>Add a danger place</h2>
+            
             <form action="#">
+                <!-- titel en beschrijving -->
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" class="form-control" id="title" placeholder="Enter title" name="name">
@@ -25,55 +28,110 @@
                     <label for="description">Description:</label>
                     <input type="textarea" class="form-control" id="description" placeholder="Enter description" name="description">
                 </div>
-                <div class="form-group" id="radioButtons" required> <label for="description">What dangerous is this problem?</label>
+
+                <!-- positie divs -->
+                <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label>
+                    <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" checked required>
+                    <label>Current location</label>
+                    <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" required>
+                    <label>Map</label>
+                </div>
+
+                <!-- Dangerous state divs -->
+                <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label>
                     <input type="radio" id="red" name="notificationState" value="red" required>
                     <label for="red" style="color:red;">Very dangerous</label>
                     <input type="radio" id="orange" name="notificationState" value="orange" required>
                     <label for="orange" style="color:orange;">Dangerous</label>
                     <input type="radio" id="green" name="notificationState" value="green" required>
-                    <label for="green" style="color:green;">Anoying</label>
-                </div>
-                <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(tempLat, tempLong)">Save notification</button>
-                <div hidden="true">
-                    <div id="map">
-                    </div>
-                </div>
+                    <label for="green" style="color:green;">Annoying</label>
+                </div>   
             </form>
-        </div>
-    </div>
+            <div id="my_div" style="display: none;">
+                <div id="map">
+                </div> 
+            </div>
+            
+            <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(Lat, Long)">Save notification</button>
+        </div> 
+    </div> 
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>    
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/regionManager.js"></script>
 <script src="../../js/connection.js"></script>
 <script>
-    var tempLat = "";
-    var tempLong = ""
+
+    //Gekozen latitude en logitude voor de notificatie
+    var Lat = "";
+    var Long = "";
+
+    //Latitude en Longitude gekozen op de kaart
+    var mapLat = "";
+    var mapLong = "";
+
+    //Latitude en Longitude via current locatie
+    var curLat = "";
+    var curLong = "";
+
+    var isHidden = "true";
     var loadMap = function(id) {
-        var map = L.map(id);
+        var popup = L.popup();
+        var map = L.map(id, {
+            minZoom: 16,
+            maxZoom: 18
+        });
         var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
         var layer = L.tileLayer(tile_url, {
             attribution: 'OSM'
         });
+        
         map.addLayer(layer);
         map.locate({
                 setView: true,
                 watch: true
             })
             .on('locationfound', function(e) {
-                tempLat = e.latitude
-                tempLong = e.longitude
+                curLat = e.latitude
+                curLong = e.longitude
 
             })
             .on('locationerror', function(e) {
                 console.log(e);
                 alert("Location access denied.");
+            })
+            .on('click', function(e){
+                mapLat = e.latlng.lat;
+                mapLong = e.latlng.lng;
+                popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+                
             });
     };
     loadMap('map');
+    function my_function(elm)
+{
+    if(elm == document.getElementById('localPosition'))
+    {
+        //document.getElementById('my_div').style.visibility = "hidden";
+        document.getElementById('my_div').style.display = "none";
+        Lat = curLat;
+        Long = curLong;
+        
+    }
+    else if(elm == document.getElementById('mapChoice'))
+    {
+        //document.getElementById('my_div').style.visibility = "visible";
+        document.getElementById('my_div').style.display = "block";
+        Lat= mapLat;
+        Long = mapLong;
+    }
+}
 </script>
 
 </html>

@@ -162,13 +162,19 @@ h2 {
 }
 
 #btn_saveNot {
-    position: absolute;
+    position:relative;
     bottom: 1px;
     left: 35%;
     right: 35%;
+    
+
 }
 
 #radioButtons {
+    margin: auto;
+    padding: 20px;
+}
+#positionState {
     margin: auto;
     padding: 20px;
 }
@@ -384,6 +390,8 @@ after {
 
 button {
     margin: 5px;
+    
+    
 }
 
 .btn_normal {
@@ -432,4 +440,43 @@ span {
 #welcomeMessage {
     margin: 40px;
     color: #1d1d1d;
+}
+
+
+
+
+
+.btn_normal2 {
+    text-align: center;
+    border: 1px solid rgba(244, 214, 65, 1);
+    background: rgba(244, 214, 65, 0.7);
+    width: 100px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 20%;
+    box-shadow: 4px 4px #f4c141;
+    color: #555;
+    top: 165%;
+    position: absolute;
+    margin-left:-1750px;
+}
+
+
+#map { height: 600px; width: 600px; }
+
+.btn_normal3 {
+    text-align: center;
+    border: 1px solid rgba(244, 214, 65, 1);
+    background: rgba(244, 214, 65, 0.7);
+    width: 100px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 20%;
+    box-shadow: 4px 4px #f4c141;
+    color: #555;
+    top: 45%;
+    position: absolute;
+    margin-left:-1750px;
 }
