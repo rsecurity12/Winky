@@ -1,22 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update profile</title>
-    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="../../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+    <title>Update profile</title>
+    <script>
+        function locatePage(location) {
+            window.location = location + ".html";
+        }
 
+        function openNav() {
+            document.getElementById("sidenav").style.width = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+        }
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                items: 6,
+                loop: true,
+                margin: 10,
+                merge: true,
+                responsive: {
+                    678: {
+                        mergeFit: true
+                    },
+                    1000: {
+                        mergeFit: false
+                    }
+                }
+            });
+        })
+    </script>
 </head>
+
 <body>
-    <div class="container">
-        <div class="app">
+    <div class="container" id="container1">
+        <div class="app" id="app1">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
+            <ul class="menubar">
+                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
+            </ul>
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -27,11 +60,20 @@
                     </script>
                 </h1>
                 <div class="clearfix"></div>
+                <ul>
+                    <h2 id="normal_user"></h2>
+                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+                    <li><a href="user_map.html">Map</a></li>
+                    <li><a href="../user/user_addnotification.html">Add a notification</a></li>
+                    <li><a href="user_feedback.html">Send feedback</a></li>
+                    <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                </ul>
             </div>
             <h2 class="page-heading">Account management</h2>
             <h6 id="userMessage"></h6>
         </div>
     </div>
+
     <div class="login-container">
     <form action="#">
         <div class="form-control">
@@ -41,7 +83,7 @@
             <input type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
         </div>
         <div class="form-control">
-            <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number. 9 Digits" name="phone_number" required="">
+            <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" disabled>
         </div>
         <div class="form-control">
             <input type="text" class="username" id="email" placeholder="email" name="email"  disabled>
@@ -67,13 +109,7 @@
     </div>
     </form>
     </div>
-
-
-
 </body>
-
-
-
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
@@ -83,4 +119,3 @@
     userDetails()
 </script>
 </html>
-

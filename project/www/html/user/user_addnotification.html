@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='user_map.html'"></i>
         <div class="app">
             <h2>Add a danger place</h2>
-            
+
             <form action="#">
                 <!-- titel en beschrijving -->
                 <div class="form-group">
@@ -45,26 +45,25 @@
                     <label for="orange" style="color:orange;">Dangerous</label>
                     <input type="radio" id="green" name="notificationState" value="green" required>
                     <label for="green" style="color:green;">Annoying</label>
-                </div>   
+                </div>
             </form>
             <div id="my_div" style="display: none;">
                 <div id="map">
-                </div> 
+                </div>
             </div>
-            
+
             <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(Lat, Long)">Save notification</button>
-        </div> 
-    </div> 
+        </div>
+    </div>
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>    
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/regionManager.js"></script>
 <script src="../../js/connection.js"></script>
 <script>
-
     //Gekozen latitude en logitude voor de notificatie
     var Lat = "";
     var Long = "";
@@ -88,7 +87,7 @@
         var layer = L.tileLayer(tile_url, {
             attribution: 'OSM'
         });
-        
+
         map.addLayer(layer);
         map.locate({
                 setView: true,
@@ -103,35 +102,30 @@
                 console.log(e);
                 alert("Location access denied.");
             })
-            .on('click', function(e){
+            .on('click', function(e) {
                 mapLat = e.latlng.lat;
                 mapLong = e.latlng.lng;
                 popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(map);
-                
+                    .setLatLng(e.latlng)
+                    .setContent("You clicked the map at " + e.latlng.toString())
+                    .openOn(map);
+
             });
     };
     loadMap('map');
-    function my_function(elm)
-{
-    if(elm == document.getElementById('localPosition'))
-    {
-        //document.getElementById('my_div').style.visibility = "hidden";
-        document.getElementById('my_div').style.display = "none";
-        Lat = curLat;
-        Long = curLong;
-        
+
+    function my_function(elm) {
+        if (elm == document.getElementById('localPosition')) {
+            document.getElementById('my_div').style.display = "none";
+            Lat = curLat;
+            Long = curLong;
+
+        } else if (elm == document.getElementById('mapChoice')) {
+            document.getElementById('my_div').style.display = "block";
+            Lat = mapLat;
+            Long = mapLong;
+        }
     }
-    else if(elm == document.getElementById('mapChoice'))
-    {
-        //document.getElementById('my_div').style.visibility = "visible";
-        document.getElementById('my_div').style.display = "block";
-        Lat= mapLat;
-        Long = mapLong;
-    }
-}
 </script>
 
 </html>

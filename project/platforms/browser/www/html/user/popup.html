@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="../../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+    <title>Pop-up</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: Tahoma, Arial, sans-serif;
+            color: #06D85F;
+            margin: 80px 0;
+        }
+        
+        .box {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 35px;
+            border: 2px solid #fff;
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+        }
+        
+        .button {
+            font-size: 1em;
+            padding: 10px;
+            color: #fff;
+            border: 2px solid #06D85F;
+            border-radius: 20px/50px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background: #06D85F;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+        }
+        
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+        
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .popup .understood {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .popup .close:hover {
+            color: #06D85F;
+        }
+        
+        .popup .content {
+            max-height: 50%;
+            overflow: auto;
+        }
+        
+        @media screen and (max-width: 700px) {
+            .box {
+                width: 70%;
+            }
+            .popup {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body onload="showPopUp()">
+    <div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Instructions</h2>
+                <a class="close" href="user_map.html">&times;</a>
+                <div class="content">
+                    <video width="320" height="240" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                      Your browser does not support the video tag.
+                      </video>
+                </div>
+                <button class="understood" onclick='window.location="user_map.html"'>Understood</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js " charset="utf-8 "></script>
+<script src="../../js/notificationManager.js "></script>
+<script src="../../js/connection.js "></script>
+<script src="../../js/userManager.js "></script>
+<script>
+    function showPopUp() {
+        document.getElementById("popup1").style.visibility = "visible";
+        document.getElementById("popup1").style.opacity = "1";
+    }
+</script>
+
+</html>

@@ -78,7 +78,7 @@ async function makeRegionTable() {
         let headingcolom2 = document.createElement('th');
         headingcolom2.innerHTML = "Location name";
         let headingcolom3 = document.createElement('th');
-        headingcolom3.innerHTML = "Radius";
+        headingcolom3.innerHTML = "Radius (km)";
         let headingcolom4 = document.createElement('th');
         headingcolom4.innerHTML = "Latitude";
         let headingcolom5 = document.createElement('th');
@@ -97,7 +97,7 @@ async function makeRegionTable() {
             let colom2 = document.createElement('td');
             colom2.innerHTML = list[i].loc;
             let colom3 = document.createElement('td');
-            colom3.innerHTML = list[i].radius / 1000 + "km";
+            colom3.innerHTML = list[i].radius / 1000;
             let colom4 = document.createElement('td');
             colom4.innerHTML = list[i].lat;
             let colom5 = document.createElement('td');
@@ -150,11 +150,11 @@ async function setInputValue() {
     const urlParams = new URLSearchParams(queryString);
     const id = urlParams.get('id')
     let region = await getRegionById(id)
-    let radius = document.getElementById('radius').value = region.radius / 1000;
-    let lat = document.getElementById('latitude').value = region.lat;
-    let lng = document.getElementById('lng').value = region.lng;
-    let loc = document.getElementById('location').value = region.loc;
-    let city = document.getElementById('city').value = region.city;
+    document.getElementById('radius').value = region.radius / 1000;
+    document.getElementById('latitude').value = region.lat;
+    document.getElementById('lng').value = region.lng;
+    document.getElementById('location').value = region.loc;
+    document.getElementById('city').value = region.city;
 }
 
 async function updateRegion(radius, lat, lng, loc, city) {
@@ -173,12 +173,12 @@ async function updateRegion(radius, lat, lng, loc, city) {
                     loc: loc,
                     city: city
                 });
-                // window.location = "admin_managefeedback.html"
+                //  window.location = "admin_manageregions.html"
             });
         }).then(function() {
-            alert("Region deleted")
+            alert("Region updated")
         }).catch(() => {
-            alert('Region not deleted')
+            alert('Region not updated')
         });
 }
 

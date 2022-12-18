@@ -24,7 +24,7 @@ async function save_notification(lat, lng) {
             city: city,
             status: "danger"
         }).then(() => {
-            alert('Danger notified 2 ')
+            alert('Danger notified')
             window.location = "user_map.html"
         }).catch(() => {
             alert('Danger not notified')
@@ -187,9 +187,3 @@ async function GetCityOfcurrentUser() {
         }
     })
 }
-
-
-
-
-
-
