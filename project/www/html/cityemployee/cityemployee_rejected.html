@@ -31,8 +31,8 @@
 </head>
 
 <body>
-    <div class="welcomeMessage">
-        <h1 id="medewerkers_name"></h1>
+        <h1 style="text-align:center">Rejected notifications</h1>
+        <h3 style="text-align:center">Below is a table of the rejected notifications</h3>
     </div>
     <div class="container">
         <div class="app">
@@ -54,17 +54,21 @@
                 <div class="clearfix"></div>
                 <ul>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="../stadsmedewerker/cityemployee_update_profile.html">Update profile</a></li>
-                    <li class="active"><a href="">About</a></li>
-                    <li><a href="map.html">Request</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="../cityemployee/cityemployee_update_profile.html">Update profile</a></li>
+                    <li><a href="../cityemployee/cityemployee_waiting.html">Waiting</a></li>
+                    <li><a href="../cityemployee/cityemployee_in_progress.html">In progress</a></li>
+                    <li><a href="../cityemployee/cityemployee_all.html">All</a></li>
+                    <li><a href="../cityemployee/cityemployee_done.html">Completed</a></li>
                     <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
                 </ul>
             </div>
         </div>
     </div>
     <table border="1" id="notificationsTable"></table>
-    <h6 id="notificationMessage"></h6>
+    <h3 id="notificationMessage"></h3>
+    <table id="FeedbackTable"></table>
+    <h6 id="feedbackMessage"></h6>
+   
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -73,7 +77,7 @@
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/userManager.js"></script>
 <script>
-    GetCityOfcurrentUser();
+    getRejectedNotifications();
 </script>
 
 </html>
