@@ -47,7 +47,7 @@
                     <label for="green" style="color:green;">Annoying</label>
                 </div>   
             </form>
-            <div id="my_div" style="display: none;">
+            <div id="my_div">
                 <div id="map">
                 </div> 
             </div>
@@ -81,7 +81,7 @@
     var loadMap = function(id) {
         var popup = L.popup();
         var map = L.map(id, {
-            minZoom: 16,
+            minZoom: 4,
             maxZoom: 18
         });
         var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -106,6 +106,8 @@
             .on('click', function(e){
                 mapLat = e.latlng.lat;
                 mapLong = e.latlng.lng;
+                console.log(mapLat);
+                console.log(mapLong);
                 popup
                 .setLatLng(e.latlng)
                 .setContent("You clicked the map at " + e.latlng.toString())
