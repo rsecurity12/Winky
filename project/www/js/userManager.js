@@ -10,7 +10,7 @@ async function register() {
     if (validate_email(email) == false || validate_password(password) == false || validate_field(first_name) == false) {
         alert('Something went wrong! Try again!')
         return
-        µ
+        // Don't continue running the code
     }
     // Validate phone number
     if (validate_phone_number(phone_number) == false) {
@@ -71,7 +71,7 @@ async function login() {
                                 window.location = "../user/user_map.html"
                             }
                         } else if (user.data().userRole == "stadsmedewerker") {
-                            window.location = "../stadsmedewerker/cityemployee_profile.html"
+                            window.location = "../cityemployee/cityemployee_waiting.html"
                         } else if (user.data().userRole == "admin") {
                             window.location = "../admin/admin_homepage.html"
                         }
