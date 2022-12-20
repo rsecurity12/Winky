@@ -161,7 +161,7 @@
     async function loadMap(id) {
         setTimeout(() => {
             var map = L.map(id, {
-                minZoom: 16,
+                minZoom: 4,
                 maxZoom: 18
             });
             L.control.locate().addTo(map);
