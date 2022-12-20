@@ -1,4 +1,5 @@
 async function save_notification(lat, lng) {
+    alert(lat + "" + lng)
     let city = await getCityOutLoc(lat, lng)
     description = document.getElementById('description').value
     title = document.getElementById('title').value
@@ -51,6 +52,7 @@ async function getCityOutLoc(lat, lng) {
     var requestOptions = {
         method: 'GET',
     };
+    alert(lat + "" + lng)
     return new Promise((resolve, reject) => {
         fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lng}&format=json&apiKey=2ebfe86da1714e8fa63b217e11eb92ab`, requestOptions)
             .then(response => response.json())
