@@ -31,9 +31,9 @@
 
                 <!-- positie divs -->
                 <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label>
-                    <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" checked required>
+                    <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
                     <label>Current location</label>
-                    <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" required>
+                    <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
                     <label>Map</label>
                 </div>
 
@@ -103,8 +103,8 @@
                 alert("Location access denied.");
             })
             .on('click', function(e) {
-                mapLat = e.latlng.lat;
-                mapLong = e.latlng.lng;
+                Lat = e.latlng.lat;
+                Long = e.latlng.lng;
                 console.log(mapLat);
                 console.log(mapLong);
                 popup
@@ -124,8 +124,6 @@
 
         } else if (elm == document.getElementById('mapChoice')) {
             document.getElementById('my_div').style.display = "block";
-            Lat = mapLat;
-            Long = mapLong;
         }
     }
 </script>
