@@ -144,7 +144,7 @@ async function makeUserTable() {
         let headingcolom5 = document.createElement('th');
         headingcolom5.innerHTML = "Phonenumber";
         let headingcolom6 = document.createElement('th');
-        head4ngcolom6.innerHTML = "Userrole";
+        headingcolom6.innerHTML = "Userrole";
         let headingcolom7 = document.createElement('th');
         headingcolom7.innerHTML = "Last loged in";
         headingRow.appendChild(headingcolom1);
@@ -175,7 +175,7 @@ async function makeUserTable() {
             let colom8 = document.createElement('td');
             var button = document.createElement("button")
             button.innerHTML = "Delete";
-            colom9.appendChild(button);
+            colom8.appendChild(button);
             row.appendChild(colom1);
             row.appendChild(colom2);
             row.appendChild(colom3);
