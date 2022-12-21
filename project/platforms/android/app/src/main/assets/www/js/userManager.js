@@ -10,21 +10,19 @@ async function register() {
     if (validate_email(email) == false || validate_password(password) == false || validate_field(first_name) == false) {
         alert('Something went wrong! Try again!')
         return
-        // Don't continue running the code
+        µ
     }
-
     // Validate phone number
     if (validate_phone_number(phone_number) == false) {
         alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
         return
-        // Don't continue running the code
     }
     // Move on with Auth
     auth.createUserWithEmailAndPassword(email, password)
         .then(function() {
             // Declare user variable
-            var user = auth.currentUser
-                // Add this user to Firebase Database
+            var user = auth.currentUser;
+            // Add this user to Firebase Database
             var database_ref = database.collection('UserRoles');
             // Create User data
             var user_data = {
@@ -33,7 +31,8 @@ async function register() {
                 last_name: last_name,
                 phone_number: phone_number,
                 last_login: Date.now(),
-                userRole: "user"
+                userRole: "user",
+                loggedIn: false
             };
             // Push to Firebase Database
             database_ref.doc(user.uid).set(user_data).then(() => {
@@ -48,7 +47,7 @@ async function register() {
         });
 }
 
-function login() {
+async function login() {
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     auth.signInWithEmailAndPassword(email, password)
@@ -63,9 +62,14 @@ function login() {
                 const db = firebase.firestore()
                 db.collection('UserRoles')
                     .doc(user.uid)
-                    .get().then((user) => {
+                    .get().then(async(user) => {
                         if (user.data().userRole == "user") {
-                            window.location = "../user/user_map.html"
+                            if (user.data().loggedIn == false) {
+                                await UpdateUser(email);
+                                window.location = "../user/popup.html"
+                            } else {
+                                window.location = "../user/user_map.html"
+                            }
                         } else if (user.data().userRole == "stadsmedewerker") {
                             window.location = "../stadsmedewerker/cityemployee_profile.html"
                         } else if (user.data().userRole == "admin") {
@@ -76,6 +80,16 @@ function login() {
         })
         .catch(function(error) {
             alert(error.message)
+        })
+}
+
+async function UpdateUser(email) {
+    await firebase.firestore().collection("UserRoles").where("email", "==", email)
+        .get()
+        .then(async function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.update({ loggedIn: true });
+            });
         })
 }
 
@@ -188,7 +202,7 @@ function createEmployee() {
     first_name = document.getElementById('first_name').value;
     last_name = document.getElementById('last_name').value;
     city = document.getElementById('city').value;
-     phone_number = document.getElementById('phone_number').value;
+    phone_number = document.getElementById('phone_number').value;
     const auth = firebase.auth()
     auth.createUserWithEmailAndPassword(email, password)
         .then(function() {
@@ -250,13 +264,10 @@ function validate_field(field) {
 }
 
 function validate_phone_number(input_str) {
-   var phoneno = /^\(?([0-9]{3})[-. ]?([0-9]{6})$/;
+    var phoneno = /^\(?([0-9]{3})[-. ]?([0-9]{6})$/;
     return phoneno.test(input_str);
-  }
+}
 
-  
-
-  
 async function GetCurrentUserData() {
     firebase.auth().onAuthStateChanged(async user => {
         if (user) {
@@ -276,7 +287,6 @@ async function GetCurrentUserData() {
     })
 }
 
-
 async function userDetails() {
     firebase.auth().onAuthStateChanged(async user => {
         if (user) {
@@ -289,12 +299,12 @@ async function userDetails() {
                         console.log(data)
                     });
                 })
-                    document.getElementById("first_name").placeholder = data.first_name
-                    document.getElementById("last_name").placeholder = data.last_name
-                    document.getElementById("phone_number").placeholder = data.phone_number    
-                    document.getElementById("email").placeholder = data.email   
-                    document.getElementById("city").placeholder = data.city
-                    greeting_normal_user(data.first_name)
+            document.getElementById("first_name").placeholder = data.first_name
+            document.getElementById("last_name").placeholder = data.last_name
+            document.getElementById("phone_number").placeholder = data.phone_number
+            document.getElementById("email").placeholder = data.email
+            document.getElementById("city").placeholder = data.city
+            greeting_normal_user(data.first_name)
         }
     })
 }
@@ -304,47 +314,39 @@ async function greeting_normal_user(name) {
     document.getElementById('normal_user').innerHTML = "Hello " + name;
 }
 
-async function updateUserDetails(){
+async function updateUserDetails() {
     first_name_update = document.getElementById('first_name').value;
     last_name_update = document.getElementById('last_name').value;
     phone_number_update = document.getElementById('phone_number').value;
-
-    // Validate phone number
     if (validate_phone_number(phone_number_update) == false) {
         alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
         return
-        // Don't continue running the code
     }
 
     firebase.auth().onAuthStateChanged(async user => {
         if (user) {
-
             await database.collection("UserRoles").doc(user.uid).update({
                 first_name: first_name_update,
                 last_name: last_name_update,
                 phone_number: phone_number_update
             })
             alert("Your profile is updated successfully. Refresh the page")
-        }      
-   })
+        }
+    })
 }
 
-
-async function changeUserPassword(){
+async function changeUserPassword() {
     var new_password = document.getElementById("new_password").value
     var retype_password = document.getElementById("retype_password").value
-
-    if(new_password != retype_password){
+    if (new_password != retype_password) {
         alert("The passwords don't match")
     }
-
-
-    if(new_password == retype_password){
-            var user = firebase.auth().currentUser;
-            user.updatePassword(new_password).then(function() {
-                alert("Update successful.") 
+    if (new_password == retype_password) {
+        var user = firebase.auth().currentUser;
+        user.updatePassword(new_password).then(function() {
+            alert("Update successful.")
         }).catch(function(error) {
             alert(error)
         });
-}
+    }
 }
