@@ -32,9 +32,9 @@
                 <!-- positie divs -->
                 <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label>
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
-                    <label>Current location</label>
+                    <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label>Map</label>
+                    <label for="mapChoice">Map (Choose a position on the map.)</label>
                 </div>
 
                 <!-- Dangerous state divs -->
@@ -51,8 +51,7 @@
                 <div id="map">
                 </div>
             </div>
-
-            <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_notification(Lat, Long)">Save notification</button>
+            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
         </div>
     </div>
 </body>
@@ -68,15 +67,10 @@
     var Lat = "";
     var Long = "";
 
-    //Latitude en Longitude gekozen op de kaart
-    var mapLat = "";
-    var mapLong = "";
-
     //Latitude en Longitude via current locatie
     var curLat = "";
     var curLong = "";
 
-    var isHidden = "true";
     var loadMap = function(id) {
         var popup = L.popup();
         var map = L.map(id, {
@@ -105,12 +99,11 @@
             .on('click', function(e) {
                 Lat = e.latlng.lat;
                 Long = e.latlng.lng;
-                console.log(mapLat);
-                console.log(mapLong);
                 popup
                     .setLatLng(e.latlng)
                     .setContent("You clicked the map at " + e.latlng.toString())
                     .openOn(map);
+                showButton();
 
             });
     };
@@ -121,10 +114,14 @@
             document.getElementById('my_div').style.display = "none";
             Lat = curLat;
             Long = curLong;
+            showButton();
 
         } else if (elm == document.getElementById('mapChoice')) {
             document.getElementById('my_div').style.display = "block";
         }
+    }
+    function showButton(){
+        document.getElementById('btn_saveNot').style.display = "block";
     }
 </script>
 

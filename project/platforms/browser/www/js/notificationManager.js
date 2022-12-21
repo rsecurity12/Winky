@@ -908,3 +908,21 @@ async function get_list_size(){
         })
             return list_size.length + 1
 }
+async function getUserName() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+            greeting_user(data.first_name)
+        }
+    })
+}
