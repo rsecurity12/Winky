@@ -14,10 +14,9 @@
 
 <body>
     <div class="container">
-        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='user_map.html'"></i>
+        <i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('login')"></i>
         <div class="app">
             <h2>Add a danger place</h2>
-
             <form action="#">
                 <!-- titel en beschrijving -->
                 <div class="form-group">
@@ -30,14 +29,14 @@
                 </div>
 
                 <!-- positie divs -->
-                <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label>
+                <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label> <br>
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
-                    <label>Current location</label>
+                    <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label>Map</label>
+                    <label for="mapChoice">Map</label>
                 </div>
                 <!-- Dangerous state divs -->
-                <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label>
+                <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label><br>
                     <input type="radio" id="red" name="notificationState" value="red" required>
                     <label for="red" style="color:red;">Very dangerous</label>
                     <input type="radio" id="orange" name="notificationState" value="orange" required>
@@ -66,10 +65,6 @@
     //Gekozen latitude en logitude voor de notificatie
     var Lat = "";
     var Long = "";
-
-    //Latitude en Longitude gekozen op de kaart
-    var mapLat = "";
-    var mapLong = "";
 
     //Latitude en Longitude via current locatie
     var curLat = "";
@@ -104,8 +99,6 @@
             .on('click', function(e) {
                 Lat = e.latlng.lat;
                 Long = e.latlng.lng;
-                console.log(mapLat);
-                console.log(mapLong);
                 popup
                     .setLatLng(e.latlng)
                     .setContent("You clicked the map at " + e.latlng.toString())
