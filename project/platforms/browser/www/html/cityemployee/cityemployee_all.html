@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>
+    <button onclick="generatePdf()">Download PDF</button>
     <table border="1" id="notificationsTable"></table>
     <h3 id="notificationMessage"></h3>
     <table id="FeedbackTable"></table>
@@ -75,6 +76,7 @@
 <script src="../../js/connection.js"></script>
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/userManager.js"></script>
+<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
 <script>
 displayAllNotifications();
 </script>

@@ -31,8 +31,10 @@
 </head>
 
 <body>
-    <h1 style="text-align:center">All notifications</h1>
-        <h3 style="text-align:center">Below is a table of all the notifications</h3>
+    <div class="welcomeMessage">
+        <h1 id="medewerkers_name"></h1>
+        <h3>Below is a table of the current notifications in the waiting list. Click on the button to change a notification status</h3>
+    </div>
     <div class="container">
         <div class="app">
             <div class="menushape1"></div>
@@ -54,21 +56,29 @@
                 <ul>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
                     <li><a href="../cityemployee/cityemployee_update_profile.html">Update profile</a></li>
-                    <li><a href="../cityemployee/cityemployee_waiting.html">Waiting</a></li>
                     <li><a href="../cityemployee/cityemployee_in_progress.html">In progress</a></li>
                     <li><a href="../cityemployee/cityemployee_done.html">Completed</a></li>
+                    <li><a href="../cityemployee/cityemployee_all.html">All</a></li>
                     <li><a href="../cityemployee/cityemployee_rejected.html">Rejected</a></li>
                     <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
                 </ul>
             </div>
         </div>
     </div>
-    <button onclick="generatePdf()">Download PDF</button>
+    <label> Enter a notification ID</label>
+    <br>
+    <input type="number" class="password" id="notification_id" placeholder="Enter a notifcation id"  required="">
+    <br>
+    <br>
+    <label> Choose  its status</label>
+<button onclick="inProgress()">Approve</button>
+<button onclick="reject()">Reject</button>
+    <br>
+    <br>
     <table border="1" id="notificationsTable"></table>
     <h3 id="notificationMessage"></h3>
     <table id="FeedbackTable"></table>
     <h6 id="feedbackMessage"></h6>
-   
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -76,8 +86,8 @@
 <script src="../../js/connection.js"></script>
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/userManager.js"></script>
-<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
 <script>
-displayAllNotifications();
+    displayWaitingNotifications();
 </script>
+
 </html>
