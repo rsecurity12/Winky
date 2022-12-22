@@ -32,9 +32,9 @@
                 <!-- positie divs -->
                 <div class="form-group" id="positionState" required> <label for="description">Choose your position: </label>
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
-                    <label>Current location</label>
+                    <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label>Map</label>
+                    <label for="mapChoice">Map</label>
                 </div>
 
                 <!-- Dangerous state divs -->
@@ -67,10 +67,6 @@
     //Gekozen latitude en logitude voor de notificatie
     var Lat = "";
     var Long = "";
-
-    //Latitude en Longitude gekozen op de kaart
-    var mapLat = "";
-    var mapLong = "";
 
     //Latitude en Longitude via current locatie
     var curLat = "";
@@ -105,8 +101,6 @@
             .on('click', function(e) {
                 Lat = e.latlng.lat;
                 Long = e.latlng.lng;
-                console.log(mapLat);
-                console.log(mapLong);
                 popup
                     .setLatLng(e.latlng)
                     .setContent("You clicked the map at " + e.latlng.toString())
