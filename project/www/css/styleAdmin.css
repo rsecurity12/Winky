@@ -9,3 +9,46 @@
     box-shadow: 4px 4px #f4c141;
     color: #555;
 }
+
+/* Home page */
+.column {
+    flex: 33.33%;
+    height: 700px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #fcf4c7;
+    border-radius: 30px;
+    
+}
+
+.flex-container {
+    display: flex;
+}
+
+.center {
+    padding: 220px;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.column:hover {
+    background: #f7d616;
+    cursor: pointer;
+}
+
+/* Manage regions */
+
+#globe {
+    padding-left: 10px;
+}
+
+#menu-icon{
+    padding: 25px;
+}
+
+.main-title {
+    padding: 25px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
