@@ -83,11 +83,14 @@ async function makeRegionTable() {
         headingcolom4.innerHTML = "Latitude";
         let headingcolom5 = document.createElement('th');
         headingcolom5.innerHTML = "Longitude";
+        let headingcolom6 = document.createElement('th');
+        headingcolom6.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
         headingRow.appendChild(headingcolom4);
         headingRow.appendChild(headingcolom5);
+        headingRow.appendChild(headingcolom6)
         thead.appendChild(headingRow);
         // All regions
         for (let i = 0; i < list.length; i++) {
