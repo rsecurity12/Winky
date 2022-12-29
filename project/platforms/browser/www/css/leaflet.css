@@ -42,4 +42,5 @@ body {
 #addNotBtn:hover {
     background: #f7d616;
     cursor: pointer;
+    color: white;
 }
