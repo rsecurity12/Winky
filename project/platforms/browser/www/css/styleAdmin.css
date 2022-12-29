@@ -13,7 +13,7 @@
 
 .ChangeRoleButton:hover {
     background-color: #e7c710;
-    color:#555;
+    color: white;
 }
 
 #addButtonArea {
@@ -48,6 +48,7 @@
 .column:hover {
     background: #f7d616;
     cursor: pointer;
+    color: white;
 }
 
 /* Manage regions */
@@ -58,6 +59,7 @@
 
 #menu-icon{
     padding: 25px;
+    color: #555;
 }
 
 #logout:hover{
@@ -73,6 +75,7 @@
     text-align: center;
     font-family: "Roboto",sans-serif;
     font-size: 18px;
+    color: #555;
 }
 
 #logo {
