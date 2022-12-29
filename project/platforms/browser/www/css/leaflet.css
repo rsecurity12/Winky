@@ -34,7 +34,6 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #fcf4c7;
     border-radius: 15px;
-    z-index: 500;
 }
 
 #addNotBtn:hover {
