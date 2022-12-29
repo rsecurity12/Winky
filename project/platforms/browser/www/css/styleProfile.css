@@ -58,7 +58,7 @@
         width: 400px;
         height: 400px;
         background-color: rgba(244, 215, 66,0.2);
-      background: linear-gradient(90deg, rgba(247,118,43,0.5) 0%, rgba(255,230,145,0.6) 35%, rgba(245,217,54,0.9) 100%);
+        background: linear-gradient(90deg, rgba(247,118,43,0.5) 0%, rgba(255,230,145,0.6) 35%, rgba(245,217,54,0.9) 100%);
         border-radius: 50%;
         position: absolute;
         top: -20px;
@@ -147,24 +147,29 @@
           font-weight: 400;
           text-decoration: none;
           font-family: 'Open Sans', sans-serif;
+          border-top-right-radius: 40px;
+          border-bottom-right-radius: 40px;
           width: 160px;
       }
        .sidenav li:last-child{
           vertical-align: bottom;
           font-size: 0.8em;
           width: 120px;
+          border-top-right-radius: 40px;
+          border-bottom-right-radius: 40px;
           border:1px solid rgba(244, 215, 66,0.4);
        }
       .sidenav li.active a {
-          background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.7);
         border-top-right-radius: 40px;
         border-bottom-right-radius: 40px;
         color: #555;
         font-weight: 600;
       }
       .sidenav li a:hover {
-          background-color: #555;
-          color: white;
+        background-color: #e7c710;
+        cursor: pointer;
+        color:#555;
       }
       
       
