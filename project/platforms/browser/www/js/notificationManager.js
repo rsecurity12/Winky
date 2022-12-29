@@ -938,7 +938,7 @@ function generatePdf() {
                     });
                 })
     
-    let listNotifications = []
+    var listNotifications = []
                 await database.collection("Notifications").where("city", "==", data_city.city)
                     .orderBy("status")
                     .orderBy("id")
@@ -950,11 +950,7 @@ function generatePdf() {
                         });
                     })
 
-    const date = Date();
-    let day = date.getDate()
-    let month = date.getMonth()
-    let year = date.getFullYear()
-    let currentDate = `${day}-${month}-${year}`;
+
 
 let props = {
     outputType: jsPDFInvoiceTemplate.OutputType.Save,
@@ -985,24 +981,24 @@ let props = {
     },
     business: {
         name: "Winky",
-        address: "Ellermanstraat 30, 2060 Antwerpen",
-        phone: "maxloubry01.wixsite.com/winky",
-        email: "",
-        email_1: "",
-        website: "",
+        address: "Albania, Tirane ish-Dogana, Durres 2001",
+        phone: "(+355) 069 11 11 111",
+        email: "email@example.com",
+        email_1: "info@example.al",
+        website: "www.example.al",
     },
     contact: {
-        name: "",
-        address: "",
-        phone: "",
-        email: "",
-        otherInfo: "",
+        name: "Test locatie",
+        address: "teststraat 33",
+        phone: "2000 Antwerpen",
+        email: "client@website.al",
+        otherInfo: "www.website.al",
     },
     invoice: {
         label: "Report #: ",
-        num: currentDate,
-        invDate: "",
-        invGenDate: "",
+        num: 1,
+        invDate: "Payment Date: 01/01/2021 18:12",
+        invGenDate: "Invoice Date: 02/02/2021 10:17",
         headerBorder: false,
         tableBodyBorder: false,
         header: [{
@@ -1051,38 +1047,39 @@ let props = {
           listNotifications[index].lat +" / "+ listNotifications[index].long,
         ])),
         additionalRows: [{
-            col1: '',
-            col2: '',
-            col3: '',
+            col1: 'Total:',
+            col2: '145,250.50',
+            col3: 'ALL',
             style: {
                 fontSize: 14 //optional, default 12
             }
         }, {
-            col1: '',
-            col2: '',
-            col3: '',
+            col1: 'VAT:',
+            col2: '20',
+            col3: '%',
             style: {
                 fontSize: 10 //optional, default 12
             }
         }, {
-            col1: '',
-            col2: '',
-            col3: '',
+            col1: 'SubTotal:',
+            col2: '116,199.90',
+            col3: 'ALL',
             style: {
                 fontSize: 10 //optional, default 12
             }
         }],
-        invDescLabel: "",
-        invDesc: "",
+        invDescLabel: "Report Note",
+        invDesc: "test note",
     },
     footer: {
-        text: "The report is created for internal use only",
+        text: "The report is created on a computer and is valid without the signature and stamp.",
     },
     pageEnable: true,
     pageLabel: "Page ",
 };
 let pdfObject = jsPDFInvoiceTemplate.default(props);
-
+console.log("Object created: " + pdfObject)
+console.log(data)
 }
 })
 }
