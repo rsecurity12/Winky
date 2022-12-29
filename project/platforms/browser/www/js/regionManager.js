@@ -111,12 +111,32 @@ async function makeRegionTable() {
                 window.location = "admin_updateregion.html?id=" + list[i].id;
             };
             button2.innerHTML = "Change";
+            button2.style.backgroundColor = "#008CBA";
+            button2.style.border = "none";
+            button2.style.padding = "7px";
+            button2.style.borderRadius = "15px";
+            button2.style.textAlign = "center";
+            button2.style.fontSize = "16px";
+            button2.style.fontFamily = "Roboto, sans-serif";
+            button2.style.margin = "4px";
+            button2.style.cursor = "pointer";
+            button2.style.color = "white";
             var button = document.createElement("button")
             button.onclick = button.onclick = async function() {
                 await deleteRegions(list[i].id)
                 alert("region deleted");
             };
             button.innerHTML = "Delete";
+            button.style.backgroundColor = "red";
+            button.style.border = "none";
+            button.style.padding = "7px";
+            button.style.borderRadius = "15px";
+            button.style.textAlign = "center";
+            button.style.fontSize = "16px";
+            button.style.fontFamily = "Roboto, sans-serif";
+            button.style.margin = "4px";
+            button.style.cursor = "pointer";
+            button.style.color = "white";
             colom6.appendChild(button);
             colom6.appendChild(button2);
             row.appendChild(colom1);
