@@ -68,3 +68,20 @@
     padding-top: 10px;
     padding-right: 40px;
 }
+
+#regionTable td, #regionTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#regionTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#regionTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e7c710;
+    color: white;
+}
