@@ -118,6 +118,7 @@ async function makeRegionTable() {
             button2.style.textAlign = "center";
             button2.style.fontSize = "16px";
             button2.style.fontFamily = "Roboto, sans-serif";
+            button2.style.fontWeight = "bold";
             button2.style.margin = "4px";
             button2.style.cursor = "pointer";
             button2.style.color = "white";
@@ -134,6 +135,7 @@ async function makeRegionTable() {
             button.style.textAlign = "center";
             button.style.fontSize = "16px";
             button.style.fontFamily = "Roboto, sans-serif";
+            button.style.fontWeight = "bold";
             button.style.margin = "4px";
             button.style.cursor = "pointer";
             button.style.color = "white";
