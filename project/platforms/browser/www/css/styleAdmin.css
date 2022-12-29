@@ -1,12 +1,17 @@
 .ChangeRoleButton {
-    margin: 0;
-    top: 50%;
     width: 100px;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
     color: #555;
     position: relative;
+}
+
+#addButtonArea {
+    position: absolute;
+    top: 12%;
+    left: 47%;
+    margin: 0;
 }
 
 /* Home page */
@@ -69,6 +74,7 @@
 }
 
 #regionTable {
+    margin-top: 75px;
     margin-left: auto;
     margin-right: auto;
 }
