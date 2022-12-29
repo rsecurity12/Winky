@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 
 <head>
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="../../css/styleAdmin.css">
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -31,14 +33,63 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="app">
+    <div class="container">       
+        <div class="menushape1"></div>
+        <div class="menushape2"></div>
+        <ul class="menubar">
+            <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+            <li>
+                <div class="welcomeMessage">
+                    <h1>Welcome Admin!</h1>
+                </div>
+            </li>
+            <li>
+                <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+            </li>
+        </ul>
+        <div class="sidenav" id="sidenav">
+            <div class="sidenavshape"></div>
+            <div class="profile">
+            </div>
+            <h1>
+                <script>
+                    document.write();
+                </script>
+            </h1>
+            <div class="clearfix"></div>
+            <ul>
+                <h1>Admin</h1>
+                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+                <li class="active"><a href="admin_homepage.html">Home</a></li>
+                <li><a href="admin_regions.html">Manage Regions</a></li>
+                <li><a href="admin_manageuser.html">Manage Users</a></li>
+                <li><a href="">Change User Details</a></li>
+                <li><a href="admin_managefeedback.html">Check Feedback</a></li>
+                <br>
+                <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="flex-container">
+            <div class="column" onclick="window.location = 'admin_regions.html'">
+                <div class="center">
+                    <p>Manage Regions</p>
+                    <i class="fa-solid fa-city fa-4x"></i>
+                </div>
+            </div>
+            <div class="column" onclick="window.location = 'admin_manageuser.html'">
+                <div class="center">
+                    <p>Manage Users</p>
+                    <i class="fa-solid fa-user fa-4x"></i>
+                </div> 
+            </div>
+            <div class="column" onclick="window.location = 'admin_managefeedback.html'">
+                <div class="center">
+                    <p>Manage Feedback</p>
+                    <i class="fa-solid fa-clipboard-list fa-4x"></i>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="welcomeMessage">
-        <h1>Welcome Admin</h1>
-    </div>
-    <button onclick="window.location = 'admin_regions.html'">Regions</button>
 </body>
 
 </html>

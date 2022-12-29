@@ -8,7 +8,6 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        border-bottom: 5px solid rgba(244, 215, 66,0.3);
       }
       
       .menubar li{
@@ -45,7 +44,7 @@
         width: 450px;
         height: 400px;
         background-color: rgba(244, 215, 66,0.3);
-      background: linear-gradient(90deg, rgba(247,118,43,0.8) 0%, rgba(246,212,98,0.5) 35%, rgba(255,235,0,0.6) 100%);
+        background: linear-gradient(90deg, rgba(247,118,43,0.8) 0%, rgba(246,212,98,0.5) 35%, rgba(255,235,0,0.6) 100%);
         border-radius: 50%;
         position: absolute;
         top: -100px;
@@ -58,7 +57,7 @@
         width: 400px;
         height: 400px;
         background-color: rgba(244, 215, 66,0.2);
-      background: linear-gradient(90deg, rgba(247,118,43,0.5) 0%, rgba(255,230,145,0.6) 35%, rgba(245,217,54,0.9) 100%);
+        background: linear-gradient(90deg, rgba(247,118,43,0.5) 0%, rgba(255,230,145,0.6) 35%, rgba(245,217,54,0.9) 100%);
         border-radius: 50%;
         position: absolute;
         top: -20px;
@@ -135,7 +134,7 @@
       }
       
       .sidenav li:last-child{
-          margin-top: auto;
+        margin-top: auto;
         border-top-right-radius: 40px;
         border-bottom-right-radius: 40px;
        }
@@ -148,27 +147,35 @@
           text-decoration: none;
           font-family: 'Open Sans', sans-serif;
           width: 160px;
+          border-top-right-radius: 40px;
+          border-bottom-right-radius: 40px;
       }
        .sidenav li:last-child{
           vertical-align: bottom;
           font-size: 0.8em;
           width: 120px;
-          border:1px solid rgba(244, 215, 66,0.4);
+          border-top-right-radius: 40px;
+          border-bottom-right-radius: 40px;
        }
       .sidenav li.active a {
-          background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.7);
         border-top-right-radius: 40px;
         border-bottom-right-radius: 40px;
         color: #555;
         font-weight: 600;
       }
       .sidenav li a:hover {
-          background-color: #555;
-          color: white;
+          background-color: #e7c710;
+          cursor: pointer;
+          color:#555;
       }
       
       
       .welcomeMessage{
         text-align:center;
-        color:black;
+        font-family: "Roboto", sans-serif;
+      }
+
+      h1 {
+        font-family: "Roboto", sans-serif;
       }
