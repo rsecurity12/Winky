@@ -78,11 +78,11 @@ async function makeFeedbackTable(feedback) {
         // Heading
         let headingRow = document.createElement('tr');
         let headingcolom1 = document.createElement('th');
-        headingcolom1.innerHTML = "Feedback";
+        headingcolom1.innerHTML = "feedback";
         let headingcolom2 = document.createElement('th');
-        headingcolom2.innerHTML = "Subject";
+        headingcolom2.innerHTML = "onderwerp";
         let headingcolom3 = document.createElement('th');
-        headingcolom3.innerHTML = "Status";
+        headingcolom3.innerHTML = "status";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
