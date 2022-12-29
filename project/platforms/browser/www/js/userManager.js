@@ -147,6 +147,8 @@ async function makeUserTable() {
         headingcolom6.innerHTML = "Userrole";
         let headingcolom7 = document.createElement('th');
         headingcolom7.innerHTML = "Last loged in";
+        let headingcolom8 = document.createElement('th');
+        headingcolom8.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
@@ -154,6 +156,7 @@ async function makeUserTable() {
         headingRow.appendChild(headingcolom5);
         headingRow.appendChild(headingcolom6);
         headingRow.appendChild(headingcolom7);
+        headingRow.appendChild(headingcolom8);
         thead.appendChild(headingRow);
         // All Users
         for (let i = 0; i < list.length; i++) {

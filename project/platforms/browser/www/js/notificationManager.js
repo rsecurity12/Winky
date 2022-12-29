@@ -950,7 +950,11 @@ function generatePdf() {
                         });
                     })
 
-
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth();
+const day = date.getDay();
+const finalDate = day + "/" + month + "/" + year;
 
 let props = {
     outputType: jsPDFInvoiceTemplate.OutputType.Save,
@@ -996,9 +1000,9 @@ let props = {
     },
     invoice: {
         label: "Report #: ",
-        num: 1,
-        invDate: "Payment Date: 01/01/2021 18:12",
-        invGenDate: "Invoice Date: 02/02/2021 10:17",
+        num: finalDate,
+        invDate: "",
+        invGenDate: "",
         headerBorder: false,
         tableBodyBorder: false,
         header: [{
@@ -1047,32 +1051,32 @@ let props = {
           listNotifications[index].lat +" / "+ listNotifications[index].long,
         ])),
         additionalRows: [{
-            col1: 'Total:',
-            col2: '145,250.50',
-            col3: 'ALL',
+            col1: ':',
+            col2: '',
+            col3: '',
             style: {
                 fontSize: 14 //optional, default 12
             }
         }, {
-            col1: 'VAT:',
-            col2: '20',
-            col3: '%',
+            col1: '',
+            col2: '',
+            col3: '',
             style: {
                 fontSize: 10 //optional, default 12
             }
         }, {
-            col1: 'SubTotal:',
-            col2: '116,199.90',
-            col3: 'ALL',
+            col1: '',
+            col2: '',
+            col3: '',
             style: {
                 fontSize: 10 //optional, default 12
             }
         }],
-        invDescLabel: "Report Note",
-        invDesc: "test note",
+        invDescLabel: "",
+        invDesc: "",
     },
     footer: {
-        text: "The report is created on a computer and is valid without the signature and stamp.",
+        text: "",
     },
     pageEnable: true,
     pageLabel: "Page ",
