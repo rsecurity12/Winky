@@ -1,9 +1,12 @@
 .ChangeRoleButton {
+    margin: 0;
+    top: 50%;
     width: 100px;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
     color: #555;
+    position: relative;
 }
 
 /* Home page */
