@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regions</title>
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
@@ -52,7 +53,12 @@
             <div class="menushape1"></div>
             <div class="menushape2"></div>
             <ul class="menubar">
-                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
+                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+                <li>
+                    <div class="main-title">
+                        <h1>Region Manager</h1>
+                    </div>
+                </li>
             </ul>
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
@@ -67,14 +73,16 @@
                 <ul>
                     <h1>Admin</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li class="active"><a href="admin_regions.html">Regios</a></li>
-                    <li><a href="admin_manageuser.html">User management</a></li>
-                    <li><a href="admin_managefeedback.html">See feedback</a></li>
+                    <li><a href="admin_homepage.html">Home</a></li>
+                    <li class="active"><a href="admin_regions.html">Manage Regions</a></li>
+                    <li><a href="admin_manageuser.html">Manage Users</a></li>
+                    <li><a href="">Change User Details</a></li>
+                    <li><a href="admin_managefeedback.html">Check Feedback</a></li>
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
             <div id="map">
-                <button class="btn_add" id="addNotBtn" onclick="locatePage('admin_manageregions')">Manage regions</button>
+                <button  id="addNotBtn" onclick="locatePage('admin_manageregions')">Add Region <i id="globe" class="fa-solid fa-globe"></i></button>
             </div>
         </div>
     </div>
