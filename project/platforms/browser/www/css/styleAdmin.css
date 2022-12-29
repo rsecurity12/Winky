@@ -69,6 +69,11 @@
     padding-right: 40px;
 }
 
+#regionTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #regionTable td, #regionTable th {
     border: 1px solid #ddd;
     padding: 8px;
