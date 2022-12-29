@@ -72,10 +72,15 @@
 #regionTable td, #regionTable th {
     border: 1px solid #ddd;
     padding: 8px;
+    background-color: white;
 }
 
 #regionTable tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+#regionTable tr:hover {
+    background-color: #ddd;
 }
 
 #regionTable th {
