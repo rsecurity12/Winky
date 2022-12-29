@@ -35,28 +35,30 @@
             </ul>
             <div class="menushape1"></div>
             <div class="menushape2"></div>
-            <form id="addForm" action="#">
+            <form action="#">
                 <div class="form-group">
                     <label for="title">Latitude:</label>
-                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="lat">
+                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="lat" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Longitude:</label>
-                    <input type="textarea" class="form-control" id="lng" placeholder="Enter longitude" name="lng">
+                    <input type="textarea" class="form-control" id="lng" placeholder="Enter longitude" name="lng" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Location name:</label>
-                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location">
+                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location" required>
                 </div>
                 <div class="form-group">
                     <label for="description">City</label>
-                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city">
+                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Radius (in km):</label>
-                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius">
+                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius" required>
                 </div>
-                <button type="button" class="btn_normal" id="btn_saveNot" onclick="save_region()">Save region</button>
+                <div class="form-group">
+                    <button type="button" class="save-button" onclick="save_region()">Save Region</button>
+                </div>
             </form>
         </div>
 </body>

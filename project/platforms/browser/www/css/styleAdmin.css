@@ -113,3 +113,70 @@
     background-color: #e7c710;
     color: #555;
 }
+
+#userTable {
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#userTable td, #userTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: white;
+}
+
+#userTable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#userTable:hover{
+    background-color: #ddd;
+}
+
+#userTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e7c710;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Roboto",sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 10%;
+    padding: 7px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.save-button {
+    width: 100px;
+    padding: 12px;
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #fcf4c7;
+}
+
+.save-button:hover {
+    background-color: #e7c710;
+    color: white;
+}
