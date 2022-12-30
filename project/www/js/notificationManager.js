@@ -79,10 +79,6 @@ async function pointInsideCircle(point) {
     return false;
 }
 
-
-
-
-
 //Search for specific notifications
 async function getAllNotificationsByCity(city) {
     var listNotifications = []
@@ -141,7 +137,6 @@ async function getCompletedNotificationsByCity(city) {
     return listNotifications;
 };
 
-
 async function getRejectedNotifications2(city) {
     var listNotifications = []
     await database.collection("Notifications").where("city", "==", city)
@@ -161,9 +156,6 @@ async function getRejectedNotifications2(city) {
         });
     return listNotifications;
 };
-
-
-
 async function getInProgressNotifications2(city) {
     var listNotifications = []
     await database.collection("Notifications").where("city", "==", city)
@@ -183,8 +175,6 @@ async function getInProgressNotifications2(city) {
         });
     return listNotifications;
 };
-
-
 async function getAllNotifications() {
     var listNotifications = []
     await database.collection("Notifications").where("status", "==", "danger")
@@ -199,17 +189,6 @@ async function getAllNotifications() {
         });
     return listNotifications;
 };
-
-
-
-
-
-
-
-
-
-
-
 //Table of waiting notifications
 async function makeWaitingNotificationsByCityTable(city) {
     var list = await getWaitingNotifications(city);
@@ -367,9 +346,6 @@ async function makeRejectedNotificationsByCityTable(city) {
         message.innerHTML = "At this moment there aren't any notifications for this city"
     }
 }
-
-
-
 
 //Table of completed notifications
 async function makeCompletedNotificationsByCityTable(city) {
@@ -529,7 +505,6 @@ async function makeNotificationsByCityTable(city) {
     }
 }
 
-
 //Table of in progress notifications
 async function makeInProgressNotificationsByCityTable(city) {
     var list = await getInProgressNotifications2(city);
@@ -608,8 +583,6 @@ async function makeInProgressNotificationsByCityTable(city) {
         message.innerHTML = "At this moment there aren't any notifications for this city"
     }
 }
-
-
 
 async function makeAllNotificationsByCityTable(city) {
     var list = await getAllNotificationsByCity(city);
