@@ -178,6 +178,17 @@ async function makeUserTable() {
             let colom8 = document.createElement('td');
             var button = document.createElement("button")
             button.innerHTML = "Delete";
+            button.style.backgroundColor = "red";
+            button.style.border = "none";
+            button.style.padding = "7px";
+            button.style.borderRadius = "15px";
+            button.style.textAlign = "center";
+            button.style.fontSize = "16px";
+            button.style.fontFamily = "Roboto, sans-serif";
+            button.style.fontWeight = "bold";
+            button.style.margin = "4px";
+            button.style.cursor = "pointer";
+            button.style.color = "white";
             colom8.appendChild(button);
             row.appendChild(colom1);
             row.appendChild(colom2);

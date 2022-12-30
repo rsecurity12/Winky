@@ -180,3 +180,28 @@
     background-color: #e7c710;
     color: white;
 }
+
+.addEmployeeArea {
+    position: absolute;
+    top: 12%;
+    left: 45%;
+    margin: 0;
+}
+
+.addEmployeeButton {
+    width: 200px;
+    padding: 10px;
+    color: #555;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #fcf4c7;
+}
+
+.addEmployeeButton:hover {
+    background-color: #e7c710;
+    color: white;
+}
