@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <link rel="stylesheet" href="../../css/leaflet.css">
@@ -52,7 +52,7 @@
             <a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
         <li>
             <div class="main-title">
-                <h1>Feedback</h1>
+                <h1>Feedback List</h1>
             </div>
         </li>
         <li>
@@ -82,11 +82,12 @@
             <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
-    <div>
-        <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeFeedbackTable('all')" checked> <label for="all">All</label>
-        <input type="radio" name="feedbackKind" value="new" id="new" onclick="makeFeedbackTable('new')"> <label for="new">New</label>
-        <input type="radio" name="feedbackKind" value="approved" id="approved" onclick="makeFeedbackTable('approved')" /> <label for="approved">Approved</label>
-        <input type="radio" name="feedbackKind" value="deleted" id="deleted" onclick="makeFeedbackTable('deleted')"> <label for="deleted">Deleted</label>
+    <div class="filter">
+        <h2>Filters: </h2>
+        <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeFeedbackTable('all')" checked> <label for="all">ALL</label>
+        <input type="radio" name="feedbackKind" value="new" id="new" onclick="makeFeedbackTable('new')"> <label for="new">NEW</label>
+        <input type="radio" name="feedbackKind" value="approved" id="approved" onclick="makeFeedbackTable('approved')" /> <label for="approved">APPROVED</label>
+        <input type="radio" name="feedbackKind" value="deleted" id="deleted" onclick="makeFeedbackTable('deleted')"> <label for="deleted">DELETED</label>
     </div>
     <table id="FeedbackTable"></table>
     <h6 id="feedbackMessage"></h6>

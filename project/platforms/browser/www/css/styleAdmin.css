@@ -1,5 +1,5 @@
 .ChangeRoleButton {
-    width: 100px;
+    width: 140px;
     padding: 12px;
     color: #555;
     position: relative;
@@ -18,8 +18,8 @@
 
 #addButtonArea {
     position: absolute;
-    top: 12%;
-    left: 47%;
+    top: 13%;
+    left: 46%;
     margin: 0;
 }
 
@@ -62,12 +62,15 @@
     font-size: 35px;
 }
 
+
 #logout:hover{
     background-color: #e7c710;
     color:#555;
     cursor: pointer;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
+    width: 120px;
+    font-weight: bold;
 }
 
 .main-title {
@@ -95,6 +98,7 @@
     border: 1px solid #ddd;
     padding: 8px;
     background-color: white;
+    font-family: "Roboto",sans-serif;
 }
 
 #regionTable tr:nth-child(even) {
@@ -109,6 +113,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
+    font-family: "Roboto",sans-serif;
     background-color: #e7c710;
     color: #555;
 }
@@ -122,6 +127,7 @@
 #userTable td, #userTable th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-family: "Roboto",sans-serif;
     background-color: white;
 }
 
@@ -137,6 +143,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
+    font-family: "Roboto",sans-serif;
     background-color: #e7c710;
     color: #555;
 }
@@ -183,7 +190,7 @@
 .addEmployeeArea {
     position: absolute;
     top: 12%;
-    left: 45%;
+    left: 46%;
     margin: 0;
 }
 
@@ -216,6 +223,7 @@
     border: 1px solid #ddd;
     padding: 8px;
     background-color: white;
+    font-family: "Roboto",sans-serif;
 }
 
 #FeedbackTable tr:nth-child(even) {
@@ -230,6 +238,14 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
+    font-family: "Roboto",sans-serif;
     background-color: #e7c710;
     color: #555;
+}
+
+.filter {
+    text-align: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 18px;
+    margin: 6px;
 }
