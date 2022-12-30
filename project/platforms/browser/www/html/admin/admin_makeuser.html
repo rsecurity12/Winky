@@ -16,33 +16,50 @@
 <body>
     <div class="container">
         <div class="app">
-            <i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('admin_manageuser')"></i>
-            <h2 class="page-heading">Register New City Employee</h2>
-            <div class="login-container">
+            <ul class="menubar">
+                    <li>
+                        <i id="menu-icon" class="fa fa-arrow-left"  onclick="window.location='admin_manageuser.html'"></i>
+                    </li>
+                    <li>
+                        <div class="main-title">
+                            <h1>Create New City Employee</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+                    </li>
+                </ul>
+                <div class="menushape1"></div>
+                <div class="menushape2"></div>
                 <form action="#">
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="first_name">First Name: </label>
                         <input type="text" class="username" id="first_name" placeholder="First name" name="name" required="">
                     </div>
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="last_name">Last Name: </label>
                         <input type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
                     </div>
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="email">Email: </label>
                         <input type="email" class="email" id="email" placeholder="Email" name="email" required="">
                     </div>
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="password">Password: </label>
                         <input type="password" class="password" id="password" placeholder="Password" name="password" required="">
                     </div>
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="city">City: </label>
                         <input type="city" class="city" id="city" placeholder="city" name="city" required="">
                     </div>
-                    <div class="form-control">
+                    <div class="form-group">
+                        <label for="phone">Phone: </label>
                         <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" required="">
                     </div>
-                    <div class="shape-circle">
-                        <button type="button" onclick="createEmployee()" id="save_btn" class="btn_submit">Create City Employee</button>
+                    <div class="form-group">
+                        <button type="button" class="addEmployeeButton" onclick="createEmployee()">Save City Employee</button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 </body>

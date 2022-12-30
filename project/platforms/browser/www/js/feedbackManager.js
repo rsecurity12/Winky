@@ -83,9 +83,12 @@ async function makeFeedbackTable(feedback) {
         headingcolom2.innerHTML = "Subject";
         let headingcolom3 = document.createElement('th');
         headingcolom3.innerHTML = "Status";
+        let headingcolom4 = document.createElement('th');
+        headingcolom4.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
+        headingRow.appendChild(headingcolom4);
         thead.appendChild(headingRow);
         // All feedback
         for (let i = 0; i < list.length; i++) {
@@ -103,11 +106,33 @@ async function makeFeedbackTable(feedback) {
                     await DeleteFeedback(list[i].id)
                 };
                 button2.innerHTML = "Deleted";
+                button2.style.backgroundColor = "red";
+                button2.style.border = "none";
+                button2.style.padding = "7px";
+                button2.style.borderRadius = "15px";
+                button2.style.textAlign = "center";
+                button2.style.fontSize = "16px";
+                button2.style.fontFamily = "Roboto, sans-serif";
+                button2.style.fontWeight = "bold";
+                button2.style.margin = "4px";
+                button2.style.cursor = "pointer";
+                button2.style.color = "white";
                 var button = document.createElement("button")
                 button.onclick = button.onclick = function() {
                     ApproveFeedback(list[i].id)
                 };
                 button.innerHTML = "Approved";
+                button.style.backgroundColor = "#5ced73";
+                button.style.border = "none";
+                button.style.padding = "7px";
+                button.style.borderRadius = "15px";
+                button.style.textAlign = "center";
+                button.style.fontSize = "16px";
+                button.style.fontFamily = "Roboto, sans-serif";
+                button.style.fontWeight = "bold";
+                button.style.margin = "4px";
+                button.style.cursor = "pointer";
+                button.style.color = "white";
                 colom4.appendChild(button);
                 colom4.appendChild(button2);
             }
@@ -119,6 +144,9 @@ async function makeFeedbackTable(feedback) {
         }
     } else {
         message.innerHTML = "No feedback at the moment";
+        message.style.fontSize = "18px";
+        message.style.fontFamily = "Roboto, sans-serif";
+        message.style.textAlign = "center"; 
     }
 }
 

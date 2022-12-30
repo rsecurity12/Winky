@@ -30,8 +30,7 @@
     padding: 10px;
     margin: 5px;
     background-color: #fcf4c7;
-    border-radius: 30px;
-    
+    border-radius: 30px; 
 }
 
 .flex-container {
@@ -204,4 +203,33 @@
 .addEmployeeButton:hover {
     background-color: #e7c710;
     color: white;
+}
+
+#FeedbackTable {
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+#FeedbackTable td, #FeedbackTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: white;
+}
+
+#FeedbackTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#FeedbackTable tr:hover {
+    background-color: #ddd;
+}
+
+#FeedbackTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e7c710;
+    color: #555;
 }

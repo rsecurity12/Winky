@@ -154,6 +154,7 @@ async function makeRegionTable() {
         message.innerHTML = "No Regions To Display"
         message.style.fontFamily = "Roboto, sans-serif"
         message.style.fontSize = "18px"
+        message.style.textAlign = "center";
     }
 }
 

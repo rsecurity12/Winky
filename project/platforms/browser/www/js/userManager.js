@@ -202,7 +202,10 @@ async function makeUserTable() {
         }
     } else {
         let message = document.getElementById('regionMessage');
-        message.innerHTML = "No users"
+        message.innerHTML = "No users created"
+        message.style.fontFamily = "Roboto, sans-serif";
+        message.style.fontSize = "18px";
+        message.style.textAlign = "center";
     }
 }
 
