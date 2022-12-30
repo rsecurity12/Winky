@@ -275,7 +275,7 @@ async function makeRegionTable() {
         }
     } else {
         let message = document.getElementById('regionMessage');
-        message.innerHTML = "No Regions To Display"
+        message.innerHTML = "No regions"
         message.style.fontFamily = "Roboto, sans-serif"
         message.style.fontSize = "18px"
         message.style.textAlign = "center";

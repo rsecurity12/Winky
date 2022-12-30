@@ -156,7 +156,7 @@ async function makeUserTable() {
         headingRow.appendChild(headingcolom5);
         headingRow.appendChild(headingcolom6);
         headingRow.appendChild(headingcolom7);
-        headingRow.appendChild(headingcolom8);
+        headingRow.appendChild(headingcolom8)
         thead.appendChild(headingRow);
         // All Users
         for (let i = 0; i < list.length; i++) {
