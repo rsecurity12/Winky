@@ -150,18 +150,3 @@ async function DeleteFeedback(id) {
             alert('Feedback not deleted')
         });
 }
-
-async function DeleteFeedback(id) {
-    await firebase.firestore().collection("Feedback").where("id", "==", id)
-        .get()
-        .then(async function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                doc.ref.update({ status: "deleted" });
-                //  window.location = "admin_managefeedback.html"
-            });
-        }).then(function() {
-            alert("feedback deleted")
-        }).catch(() => {
-            alert('Feedback not deleted')
-        });
-}
