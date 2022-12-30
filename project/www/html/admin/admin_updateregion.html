@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Add region</title>
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -19,33 +18,46 @@
 
 <body>
     <div class="container">
-        <i class="fa fa-arrow-left" style="font-size:48px;" onclick="window.location='admin_manageregions.html'"></i>
+        <ul class="menubar">
+            <li>
+                <i id="menu-icon" class="fa fa-arrow-left"  onclick="window.location='admin_manageregions.html'"></i>
+            </li>
+            <li>
+                <div class="main-title">
+                    <h1>Update Region</h1>
+                </div>
+            </li>
+            <li>
+                <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+            </li>
+        </ul>
         <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
-            <h2>Update region</h2>
             <form action="#">
                 <div class="form-group">
                     <label for="title">Latitude:</label>
-                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="lat">
+                    <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" name="lat" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Longitude:</label>
-                    <input type="textarea" class="form-control" id="lng" placeholder="Enter longitude" name="lng">
+                    <input type="textarea" class="form-control" id="lng" placeholder="Enter longitude" name="lng" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Location name:</label>
-                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location">
+                    <input type="textarea" class="form-control" id="location" placeholder="Enter location" name="location" required>
                 </div>
                 <div class="form-group">
                     <label for="description">City</label>
-                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city">
+                    <input type="textarea" class="form-control" id="city" placeholder="Enter city" name="city" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Radius (in km):</label>
-                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius">
+                    <input type="number" class="form-control" id="radius" placeholder="Enter radius" name="radius" required>
                 </div>
-                <button type="button" class="btn_normal" id="btn_saveNot" onclick="updateRegion(radius.value,latitude.value,lng.value,location.value, city.value)">Save region</button>
+                <div class="form-group">
+                    <button type="button" class="save-button" onclick="updateRegion(radius.value,latitude.value,lng.value,location.value, city.value)">Save Region</button>
+                </div>
             </form>
         </div>
 </body>
