@@ -896,3 +896,163 @@ async function get_list_size() {
         })
     return list_size.length + 1
 }
+
+
+function generatePdf() {
+
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data_city = doc.data();
+                    });
+                })
+    
+    var listNotifications = []
+                await database.collection("Notifications").where("city", "==", data_city.city)
+                    .orderBy("status")
+                    .orderBy("id")
+                    .where("status","!=","dangerOutOfRange") 
+                    .get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            listNotifications.push(doc.data())
+                        });
+                    })
+
+
+
+let props = {
+    outputType: jsPDFInvoiceTemplate.OutputType.Save,
+    returnJsPDFDocObject: true,
+    fileName: "Report",
+    orientationLandscape: false,
+    compress: true,
+    logo: {
+        src: "/www/images/FullLogo.png",
+        type: 'PNG', //optional, when src= data:uri (nodejs case)
+        width: 30, //aspect ratio = width/height
+        height: 30,
+        margin: {
+            top: 0, //negative or positive num, from the current position
+            left: 0 //negative or positive num, from the current position
+        }
+    },
+    stamp: {
+        inAllPages: true, //by default = false, just in the last page
+        src: "https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/qr_code.jpg",
+        type: 'JPG', //optional, when src= data:uri (nodejs case)
+        width: 20, //aspect ratio = width/height
+        height: 20,
+        margin: {
+            top: 0, //negative or positive num, from the current position
+            left: 0 //negative or positive num, from the current position
+        }
+    },
+    business: {
+        name: "Winky",
+        address: "Albania, Tirane ish-Dogana, Durres 2001",
+        phone: "(+355) 069 11 11 111",
+        email: "email@example.com",
+        email_1: "info@example.al",
+        website: "www.example.al",
+    },
+    contact: {
+        name: "Test locatie",
+        address: "teststraat 33",
+        phone: "2000 Antwerpen",
+        email: "client@website.al",
+        otherInfo: "www.website.al",
+    },
+    invoice: {
+        label: "Report #: ",
+        num: 1,
+        invDate: "Payment Date: 01/01/2021 18:12",
+        invGenDate: "Invoice Date: 02/02/2021 10:17",
+        headerBorder: false,
+        tableBodyBorder: false,
+        header: [{
+            title: "ID",
+            style: {
+                width: 15
+            }
+        }, {
+            title: "Title",
+            style: {
+                width: 30
+            }
+        }, {
+            title: "Description",
+            style: {
+                width: 30
+            }
+        }, {
+            title: "City",
+            style: {
+                width: 15
+            }
+        }, {
+            title: "Process status",
+            style: {
+                width: 30
+            }
+        }, {
+            title: "Urgent",
+            style: {
+                width: 25
+            }
+        }, {
+            title: "Latitude / Longitude",
+            style: {
+                width: 50
+            }
+        }],
+        table: Array.from(Array(listNotifications.length), (item, index) => ([
+          listNotifications[index].id,
+          listNotifications[index].title,
+          listNotifications[index].description,
+          listNotifications[index].city,
+          listNotifications[index].process_status,
+          listNotifications[index].urgent,
+          listNotifications[index].lat +" / "+ listNotifications[index].long,
+        ])),
+        additionalRows: [{
+            col1: 'Total:',
+            col2: '145,250.50',
+            col3: 'ALL',
+            style: {
+                fontSize: 14 //optional, default 12
+            }
+        }, {
+            col1: 'VAT:',
+            col2: '20',
+            col3: '%',
+            style: {
+                fontSize: 10 //optional, default 12
+            }
+        }, {
+            col1: 'SubTotal:',
+            col2: '116,199.90',
+            col3: 'ALL',
+            style: {
+                fontSize: 10 //optional, default 12
+            }
+        }],
+        invDescLabel: "Report Note",
+        invDesc: "test note",
+    },
+    footer: {
+        text: "The report is created on a computer and is valid without the signature and stamp.",
+    },
+    pageEnable: true,
+    pageLabel: "Page ",
+};
+let pdfObject = jsPDFInvoiceTemplate.default(props);
+console.log("Object created: " + pdfObject)
+console.log(data)
+}
+})
+}

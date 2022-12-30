@@ -208,11 +208,14 @@ async function makeRegionTable() {
         headingcolom4.innerHTML = "Latitude";
         let headingcolom5 = document.createElement('th');
         headingcolom5.innerHTML = "Longitude";
+        let headingcolom6 = document.createElement('th');
+        headingcolom6.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
         headingRow.appendChild(headingcolom4);
         headingRow.appendChild(headingcolom5);
+        headingRow.appendChild(headingcolom6)
         thead.appendChild(headingRow);
         // All regions
         for (let i = 0; i < list.length; i++) {
@@ -233,11 +236,33 @@ async function makeRegionTable() {
                 window.location = "admin_updateregion.html?id=" + list[i].id;
             };
             button2.innerHTML = "Change";
+            button2.style.backgroundColor = "#008CBA";
+            button2.style.border = "none";
+            button2.style.padding = "7px";
+            button2.style.borderRadius = "15px";
+            button2.style.textAlign = "center";
+            button2.style.fontSize = "16px";
+            button2.style.fontFamily = "Roboto, sans-serif";
+            button2.style.fontWeight = "bold";
+            button2.style.margin = "4px";
+            button2.style.cursor = "pointer";
+            button2.style.color = "white";
             var button = document.createElement("button")
             button.onclick = button.onclick = async function() {
                 await deleteRegions(list[i].id)
             };
             button.innerHTML = "Delete";
+            button.style.backgroundColor = "red";
+            button.style.border = "none";
+            button.style.padding = "7px";
+            button.style.borderRadius = "15px";
+            button.style.textAlign = "center";
+            button.style.fontSize = "16px";
+            button.style.fontFamily = "Roboto, sans-serif";
+            button.style.fontWeight = "bold";
+            button.style.margin = "4px";
+            button.style.cursor = "pointer";
+            button.style.color = "white";
             colom6.appendChild(button);
             colom6.appendChild(button2);
             row.appendChild(colom1);
@@ -250,6 +275,9 @@ async function makeRegionTable() {
         }
     } else {
         let message = document.getElementById('regionMessage');
-        message.innerHTML = "No regions"
+        message.innerHTML = "No Regions To Display"
+        message.style.fontFamily = "Roboto, sans-serif"
+        message.style.fontSize = "18px"
+        message.style.textAlign = "center";
     }
 }
