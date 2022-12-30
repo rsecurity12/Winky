@@ -19,7 +19,14 @@
 #addButtonArea {
     position: absolute;
     top: 13%;
-    left: 46%;
+    left: 42%;
+    margin: 0;
+}
+
+#mapButtonArea {
+    position: absolute;
+    top: 13%;
+    left: 50%;
     margin: 0;
 }
 
@@ -74,7 +81,7 @@
 }
 
 .main-title {
-    padding: 25px;
+    padding: 10px;
     text-align: center;
     font-family: "Roboto",sans-serif;
     font-size: 18px;
@@ -190,7 +197,7 @@
 .addEmployeeArea {
     position: absolute;
     top: 12%;
-    left: 46%;
+    left: 44%;
     margin: 0;
 }
 
