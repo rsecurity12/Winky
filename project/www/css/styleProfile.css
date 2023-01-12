@@ -181,3 +181,138 @@
     h1 {
       font-family: "Roboto", sans-serif;
     }
+
+    .main-title {
+      padding: 10px;
+      text-align: center;
+      font-family: "Roboto",sans-serif;
+      font-size: 18px;
+      color: #555;
+  }
+
+  #logo {
+    width: 70px;
+    height: 70px;
+    padding-top: 10px;
+    padding-right: 40px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.downloadPDF {
+  width: 150px;
+  padding: 5px;
+  color: #555;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-radius: 15px;
+  position:relative; 
+  right:890px; 
+  background-color: #fcf4c7;
+  top:27%;
+  float: left;
+}
+
+
+.downloadPDF:hover {
+  background-color: #e7c710;
+  color: white;
+}
+
+
+
+
+.approve {
+  width: 150px;
+  padding: 5px;
+  color: #555;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-radius: 15px;
+  position:relative;
+  right:890px; 
+  background-color: #fcf4c7;
+  top:27%;
+  float: left;
+}
+
+
+.approve:hover {
+  background-color: #e7c710;
+  color: white;
+}
+
+
+
+.reject {
+  width: 150px;
+  padding: 5px;
+  color: #555;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-radius: 15px;
+  position:absolute;
+  left: 150px;
+  background-color: #fcf4c7;
+  top:21%;
+  float: right;
+}
+
+.reject:hover {
+  background-color: #e7c710;
+  color: white;
+}
+
+
+
+
+
+.completed {
+  width: 150px;
+  padding: 5px;
+  color: #555;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-radius: 15px;
+  position:absolute;
+  left: 305px;
+  background-color: #fcf4c7;
+  top:21%;
+  float: right;
+}
+
+.completed:hover {
+  background-color: #e7c710;
+  color: white;
+}
+
+
+.filters {
+  text-align: center;
+  font-family: "Roboto",sans-serif;
+  font-size: 18px;
+  margin: 6px;
+  top:28%;
+  position:absolute;
+  left: 690px;
+}
+
+.table {
+  text-align: center;
+  font-family: "Roboto",sans-serif;
+  font-size: 18px;
+  margin: 6px;
+  top:40%;
+  position:absolute;
+  left: 450px;
+}

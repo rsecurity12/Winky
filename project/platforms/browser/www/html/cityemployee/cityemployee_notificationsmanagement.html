@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <link rel="stylesheet" href="../../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <title>Manage feedback</title>
+    <script>
+        function locatePage(location) {
+            window.location = location + ".html";
+        }
+
+        function openNav() {
+            document.getElementById("sidenav").style.width = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+        }
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                items: 6,
+                loop: true,
+                margin: 10,
+                merge: true,
+                responsive: {
+                    678: {
+                        mergeFit: true
+                    },
+                    1000: {
+                        mergeFit: false
+                    }
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="menushape1"></div>
+    <div class="menushape2"></div>
+    <ul class="menubar">
+        <li>
+            <a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+        <li>
+            <div class="main-title">
+                <h1>Notifications List</h1>
+            </div>
+        </li>
+        <li>
+            <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+        </li>
+    </ul>
+</ul>
+    <div class="sidenav" id="sidenav">
+        <div class="sidenavshape"></div>
+        <div class="profile">
+        </div>
+        <h1>
+            <script>
+                document.write();
+            </script>
+        </h1>
+        <div class="clearfix"></div>
+        <ul>
+            <h1>Menu</h1>
+            <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+            <li><a href="cityemployee_homepage.html">Home</a></li>
+            <li><a href="cityemployee_update_profile.html">Update profile</a></li>
+            <li><a href="cityemployee_update_password.html">Change password</a></li>
+            <br>
+            <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+    <h3><label> Enter a notification ID: </label><input type="number" class="password" id="notification_id" placeholder="Enter a notifcation id"  required=""></h3>
+    <h3><label> Choose  its status: </label>
+        <div class="form-group">
+            <button type="button" class="approve" onclick="inProgress()">Approve</button>
+        </div>
+        <div class="form-group">
+            <button type="button" class="reject" onclick="reject()">Reject</button>
+        </div>
+        <div class="form-group">
+            <button type="button" class="completed" onclick="completed()">Completed</button>
+        </div>
+    <h3><label> Download report: </label></h3>
+    <div class="form-group">
+        <button type="button" class="downloadPDF" onclick="generatePdf()">Download PDF</button>
+    </div>
+    <div class="filters">
+        <h2>Filters: </h2>                        
+        <input type="radio" name="feedbackKind" value="new" id="new" onclick=" makeNotificationsTable('new')"> <label for="new">NEW</label>
+        <input type="radio" name="feedbackKind" value="in_progress" id="in_progress" onclick=" makeNotificationsTable('in_progress')" /> <label for="in_progress">IN PROGRESS</label>
+        <input type="radio" name="feedbackKind" value="completed" id="completed" onclick="makeNotificationsTable('completed')"> <label for="completed">COMPLETED</label>
+        <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeNotificationsTable('all')" checked> <label for="all">ALL</label>
+        <input type="radio" name="feedbackKind" value="rejected" id="rejected" onclick="makeNotificationsTable('rejected')" checked> <label for="rejected">REJECTED</label>
+    </div>
+
+    <div class="table">
+        <h3 id="notificationMessage"></h3>
+        <h3> <table border="1" id="notificationsTable"></table>  </h3>    
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="../../js/connection.js"></script>
+<script src="../../js/notificationManager.js"></script>
+<script src="../../js/userManager.js"></script>
+<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
+<script>
+    makeNotificationsTable()
+</script>
+</html>

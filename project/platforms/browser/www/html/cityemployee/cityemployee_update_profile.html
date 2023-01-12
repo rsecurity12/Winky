@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
-    <link rel="stylesheet" href="../../css/leaflet.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
+     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+        <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <title>Update profile</title>
     <script>
         function locatePage(location) {
@@ -43,13 +40,85 @@
 </head>
 
 <body>
-    <div class="container" id="container1">
-        <div class="app" id="app1">
+    <div class="container">
+        <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
             <ul class="menubar">
-                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
+                <ul class="menubar">
+                    <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+                    <li>
+                        <div class="main-title">
+                            <h1>Update profile details</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+                    </li>
+                </ul>
             </ul>
+            <div class="sidenav" id="sidenav">
+                <div class="sidenavshape"></div>
+                <div class="profile">
+                </div>
+                <h1>
+                    <script>
+                        document.write();
+                    </script>
+                </h1>
+                <div class="clearfix"></div>
+                <ul>
+                    <h1>Menu</h1>
+                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+                    <li><a href="cityemployee_homepage.html">Home</a></li>
+                    <li><a href="cityemployee_notificationsmanagement.html">Manage Notifications</a></li>
+                    <li><a href="cityemployee_update_password.html">Change password</a></li>
+                    <br>
+                    <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form action="#">
+        <div class="form-group">
+            <label for="first_name"><h2>First name: </h2></label>
+            <input type="text" class="username" id="first_name" placeholder="First name" name="name" required="">
+        </div>
+        <div class="form-group">
+            <label for="last_name"><h2>Last name: </h2></label>
+            <input type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
+        </div>
+        <div class="form-group">
+            <label for="city"><h2>City: </h2></label>
+            <input type="city" class="city" id="city" placeholder="city" name="city" disabled>
+        </div>
+        <div class="form-group">
+            <label for="phone"><h2>Phone number: </h2></label>
+            <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" required="">
+        </div>
+        <div class="form-group">
+            <label for="email"><h2>E-mail address</h2></label>
+            <input type="email" class="email" id="email" placeholder="Email" name="email" disabled>
+        </div>
+        <div class="form-group">
+            <button type="button" class="addEmployeeButton" onclick="updateUserDetails()">Update details</button>
+        </div>
+    </form>
+</div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script src="../../js/connection.js"></script>
+<script src="../../js/userManager.js"></script>
+<script src="../../js/notificationManager.js"></script>
+
+<script>
+    userDetails()
+</script>
+</html>
+<!--
+    
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -71,8 +140,10 @@
                     <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
                 </ul>
             </div>
-            <h2 class="page-heading">Account management</h2>
-            <h6 id="userMessage"></h6>
+  
+            <div class="main-title">
+                <h1>Update profile settings</h1>
+            </div>
         </div>
     </div>
 
@@ -87,9 +158,14 @@
         <div class="form-control">
             <input type="phone" class="username" id="city" placeholder="City" name="city" disabled>
         </div>
+
+
         <div class="form-control">
             <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" disabled>
         </div>
+
+
+
         <div class="form-control">
             <input type="text" class="username" id="email" placeholder="email" name="email"  disabled>
         </div>
@@ -114,13 +190,4 @@
     </div>
     </form>
     </div>
-</body>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="../../js/connection.js"></script>
-<script src="../../js/userManager.js"></script>
-<script>
-    userDetails()
-</script>
-</html>
+-->

@@ -71,7 +71,7 @@ async function login() {
                                 window.location = "../user/user_map.html"
                             }
                         } else if (user.data().userRole == "stadsmedewerker") {
-                            window.location = "../cityemployee/cityemployee_waiting.html"
+                            window.location = "../cityemployee/cityemployee_homepage.html"
                         } else if (user.data().userRole == "admin") {
                             window.location = "../admin/admin_homepage.html"
                         }
@@ -246,6 +246,25 @@ function createEmployee() {
 
 async function greeting_user(name) {
     document.getElementById('medewerkers_name').innerHTML = "Welcome " + name;
+}
+
+async function display_greeting_user(){
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+            greeting_user(data.first_name)
+        }
+    })
 }
 
 // Validate Functions
