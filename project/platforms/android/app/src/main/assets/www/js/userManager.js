@@ -71,7 +71,7 @@ async function login() {
                                 window.location = "../user/user_map.html"
                             }
                         } else if (user.data().userRole == "stadsmedewerker") {
-                            window.location = "../cityemployee/cityemployee_waiting.html"
+                            window.location = "../cityemployee/cityemployee_homepage.html"
                         } else if (user.data().userRole == "admin") {
                             window.location = "../admin/admin_homepage.html"
                         }
@@ -144,9 +144,11 @@ async function makeUserTable() {
         let headingcolom5 = document.createElement('th');
         headingcolom5.innerHTML = "Phonenumber";
         let headingcolom6 = document.createElement('th');
-        head4ngcolom6.innerHTML = "Userrole";
+        headingcolom6.innerHTML = "Userrole";
         let headingcolom7 = document.createElement('th');
         headingcolom7.innerHTML = "Last loged in";
+        let headingcolom8 = document.createElement('th');
+        headingcolom8.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
@@ -154,6 +156,7 @@ async function makeUserTable() {
         headingRow.appendChild(headingcolom5);
         headingRow.appendChild(headingcolom6);
         headingRow.appendChild(headingcolom7);
+        headingRow.appendChild(headingcolom8)
         thead.appendChild(headingRow);
         // All Users
         for (let i = 0; i < list.length; i++) {
@@ -175,7 +178,18 @@ async function makeUserTable() {
             let colom8 = document.createElement('td');
             var button = document.createElement("button")
             button.innerHTML = "Delete";
-            colom9.appendChild(button);
+            button.style.backgroundColor = "red";
+            button.style.border = "none";
+            button.style.padding = "7px";
+            button.style.borderRadius = "15px";
+            button.style.textAlign = "center";
+            button.style.fontSize = "16px";
+            button.style.fontFamily = "Roboto, sans-serif";
+            button.style.fontWeight = "bold";
+            button.style.margin = "4px";
+            button.style.cursor = "pointer";
+            button.style.color = "white";
+            colom8.appendChild(button);
             row.appendChild(colom1);
             row.appendChild(colom2);
             row.appendChild(colom3);
@@ -188,7 +202,10 @@ async function makeUserTable() {
         }
     } else {
         let message = document.getElementById('regionMessage');
-        message.innerHTML = "No users"
+        message.innerHTML = "No users created"
+        message.style.fontFamily = "Roboto, sans-serif";
+        message.style.fontSize = "18px";
+        message.style.textAlign = "center";
     }
 }
 
@@ -229,6 +246,25 @@ function createEmployee() {
 
 async function greeting_user(name) {
     document.getElementById('medewerkers_name').innerHTML = "Welcome " + name;
+}
+
+async function display_greeting_user(){
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+            greeting_user(data.first_name)
+        }
+    })
 }
 
 // Validate Functions

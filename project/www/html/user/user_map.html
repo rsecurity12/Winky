@@ -48,9 +48,6 @@
         <div class="app" id="app1">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
-            <ul class="menubar">
-                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
-            </ul>
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -71,6 +68,7 @@
                 </ul>
             </div>
             <div id="map">
+                <button class="active"  id = "menuBtn"href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></button>
                 <button class="btn_add" id="addNotBtn" onclick="locatePage('user_addnotification')">+</button>
             </div>
         </div>
@@ -162,9 +160,16 @@
         setTimeout(() => {
             var map = L.map(id, {
                 minZoom: 4,
-                maxZoom: 18
+                maxZoom: 18,
+                zoomControl: false
+                
             });
-            L.control.locate().addTo(map);
+            L.control.zoom({
+                position: 'bottomleft'
+            }).addTo(map);
+            L.control.locate({
+                position: 'bottomleft'
+            }).addTo(map);
             var tile_url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
             var layer = L.tileLayer(tile_url, {
                 attribution: 'OSM'

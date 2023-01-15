@@ -1,11 +1,258 @@
 .ChangeRoleButton {
-    border: 1px solid rgba(244, 214, 65, 1);
-    background: rgba(0, 214, 65, 0.7);
-    width: 100px;
-    padding: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 20%;
-    box-shadow: 4px 4px #f4c141;
+    width: 140px;
+    padding: 12px;
     color: #555;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #fcf4c7;
+}
+
+.ChangeRoleButton:hover {
+    background-color: #e7c710;
+    color: white;
+}
+
+#addButtonArea {
+    position: absolute;
+    top: 13%;
+    left: 42%;
+    margin: 0;
+}
+
+#mapButtonArea {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    margin: 0;
+}
+
+/* Home page */
+.column {
+    flex: 33.33%;
+    height: 700px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #fcf4c7;
+    border-radius: 30px; 
+}
+
+.flex-container {
+    display: flex;
+}
+
+.center {
+    padding: 220px;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.column:hover {
+    background: #f7d616;
+    cursor: pointer;
+    color: white;
+}
+
+/* Manage regions */
+
+#globe {
+    padding-left: 10px;
+}
+
+#menu-icon{
+    padding: 25px;
+    color: #555;
+    font-size: 35px;
+}
+
+
+#logout:hover{
+    background-color: #e7c710;
+    color:#555;
+    cursor: pointer;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    width: 120px;
+    font-weight: bold;
+}
+
+.main-title {
+    padding: 10px;
+    text-align: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 18px;
+    color: #555;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    padding-top: 10px;
+    padding-right: 40px;
+}
+
+#regionTable {
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#regionTable td, #regionTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: white;
+    font-family: "Roboto",sans-serif;
+}
+
+#regionTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#regionTable tr:hover {
+    background-color: #ddd;
+}
+
+#regionTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-family: "Roboto",sans-serif;
+    background-color: #e7c710;
+    color: #555;
+}
+
+#userTable {
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#userTable td, #userTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: "Roboto",sans-serif;
+    background-color: white;
+}
+
+#userTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#userTable tr:hover {
+    background-color: #ddd;
+}
+
+#userTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-family: "Roboto",sans-serif;
+    background-color: #e7c710;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Roboto",sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 10%;
+    padding: 7px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.save-button {
+    width: 100px;
+    padding: 12px;
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #fcf4c7;
+}
+
+.save-button:hover {
+    background-color: #e7c710;
+    color: white;
+}
+
+.addEmployeeArea {
+    position: absolute;
+    top: 12%;
+    left: 44%;
+    margin: 0;
+}
+
+.addEmployeeButton {
+    width: 200px;
+    padding: 10px;
+    color: #555;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #fcf4c7;
+}
+
+.addEmployeeButton:hover {
+    background-color: #e7c710;
+    color: white;
+}
+
+#FeedbackTable {
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+#FeedbackTable td, #FeedbackTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: white;
+    font-family: "Roboto",sans-serif;
+}
+
+#FeedbackTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#FeedbackTable tr:hover {
+    background-color: #ddd;
+}
+
+#FeedbackTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-family: "Roboto",sans-serif;
+    background-color: #e7c710;
+    color: #555;
+}
+
+.filter {
+    text-align: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 18px;
+    margin: 6px;
 }

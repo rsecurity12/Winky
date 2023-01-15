@@ -5,23 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd447949-8101-4911-80a3-0063fb1a9d7a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/platforms/android/app/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/platforms/android/app/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/platforms/android/app/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/platforms/android/app/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/leaflet.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/leaflet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/style2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/AddNotification.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/AddNotification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/styleAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/styleAdmin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/styleProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/css/styleProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_addregion.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_addregion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_makeuser.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_makeuser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_managefeedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_managefeedback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_manageregions.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_manageregions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_manageuser.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_manageuser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_regions.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_regions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_updateregion.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/admin/admin_updateregion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/anonymousUser/ReadOnlyMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/anonymousUser/ReadOnlyMap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/anonymousUser/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/anonymousUser/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_done.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_in_progress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_rejected.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_update_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/cityemployee/cityemployee_waiting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/pdf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/user/user_addnotification.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/user/user_addnotification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/user/user_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/html/user/user_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/feedbackManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/feedbackManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notificationManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/notificationManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-name.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/cdv-gradle-name.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/regionManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/regionManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/userManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/android/app/src/main/assets/www/js/userManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/browser/www/css/leaflet.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/browser/www/css/leaflet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/browser/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/browser/www/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/platforms/browser/www/html/anonymousUser/ReadOnlyMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/platforms/browser/www/html/anonymousUser/ReadOnlyMap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/www/css/leaflet.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/www/css/leaflet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/www/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/www/html/anonymousUser/ReadOnlyMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/www/html/anonymousUser/ReadOnlyMap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/platforms/android/app/build/outputs/apk/debug/app-debug.apk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

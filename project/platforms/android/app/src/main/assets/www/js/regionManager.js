@@ -15,22 +15,76 @@ async function save_region() {
         status: "running",
         id: list.length
     }).then(async() => {
+        await makeAllNotificationsStatusRight(city);
         alert('Region added')
-        await makeAllNotificationsStatusRIght(city);
-        window.location = "admin_regions.html"
+            // window.location = "admin_regions.html"
     }).catch(() => {
-        alert('Region not added')
+        alert(`Region ${city} not added`)
     });
 }
 
-async function makeAllNotificationsStatusRIght(city) {
+async function makeAllNotificationsStatusRight(city) {
     await firebase.firestore().collection("Notifications").where("city", "==", city)
         .get()
         .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                doc.ref.update({ status: "danger" });
+            querySnapshot.forEach(async function(doc) {
+                lat = doc.data().lat
+                lng = doc.data().long
+                point = { lat, lng };
+                if (await pointInCircles(point)) {
+                    doc.ref.update({ status: "danger" });
+                }
             });
         });
+}
+
+async function pointInCircles(point) {
+    var list = await getAllRunningRegions();
+    point = L.latLng(point)
+    for (let index = 0; index < list.length; index++) {
+        var circle = list[index]
+        latLng = L.latLng(circle["lat"], circle["lng"]);
+        if (point.distanceTo(latLng) < circle["radius"]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+async function pointInCircle(region, point) {
+    point = L.latLng(point)
+    var circle = region
+    latLng = L.latLng(circle["lat"], circle["lng"]);
+    if (point.distanceTo(latLng) < circle["radius"]) {
+        alert(true)
+        return true;
+    }
+    alert(false)
+    return false;
+}
+async function makeAllNotificationsStatusOuthOfRange(id, city) {
+    let region;
+    await firebase.firestore().collection("Region").where("id", "==", id)
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(async function(doc) {
+                console.log(doc.data);
+                region = doc.data
+            })
+        })
+    await firebase.firestore().collection("Notifications").where("city", "==", city)
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(async function(doc) {
+                lat = doc.data().lat
+                lng = doc.data().long
+                point = { lat, lng };
+                alert(123)
+                if (await pointInCircle(region, point)) {
+                    doc.ref.update({ status: "dangerOutOfRange" });
+                }
+            });
+        })
 }
 
 async function getAllRunningRegions() {
@@ -63,6 +117,77 @@ async function getAllRegions() {
     return listRegions;
 }
 
+async function deleteRegions(id) {
+    let city = ""
+    await firebase.firestore().collection("Regions").where("id", "==", id)
+        .get()
+        .then(async function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.update({ status: "deleted" });
+                city = doc.data().city;
+            });
+        }).then(() => {
+            alert("Region deleted");
+        }).catch(() => {
+            alert('Region not deleted');
+        });
+    alert(city)
+    await makeAllNotificationsStatusOuthOfRange(id, city)
+}
+
+async function setInputValue() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    let region = await getRegionById(id)
+    document.getElementById('radius').value = region.radius / 1000;
+    document.getElementById('latitude').value = region.lat;
+    document.getElementById('lng').value = region.lng;
+    document.getElementById('location').value = region.loc;
+    document.getElementById('city').value = region.city;
+}
+
+async function updateRegion(radius, lat, lng, loc, city) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    await firebase.firestore().collection("Regions").where("id", "==", parseInt(id))
+        .get()
+        .then(async function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.update({
+                    radius: radius * 1000,
+                    lat: lat,
+                    lng: lng,
+                    loc: loc,
+                    city: city
+                });
+                //  window.location = "admin_manageregions.html"
+            });
+        }).then(function() {
+            alert("Region updated")
+        }).catch(() => {
+            alert('Region not updated')
+        });
+    await makeAllNotificationsStatusRight(city)
+}
+
+async function getRegionById(id) {
+    var listRegions = []
+    await database.collection("Regions").where("id", "==", parseInt(id))
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                listRegions.push(doc.data())
+            });
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+    console.log(listRegions);
+    return listRegions[0];
+}
+
 async function makeRegionTable() {
     var list = await getAllRunningRegions();
     let thead = document.createElement('thead');
@@ -83,11 +208,14 @@ async function makeRegionTable() {
         headingcolom4.innerHTML = "Latitude";
         let headingcolom5 = document.createElement('th');
         headingcolom5.innerHTML = "Longitude";
+        let headingcolom6 = document.createElement('th');
+        headingcolom6.innerHTML = "Options";
         headingRow.appendChild(headingcolom1);
         headingRow.appendChild(headingcolom2);
         headingRow.appendChild(headingcolom3);
         headingRow.appendChild(headingcolom4);
         headingRow.appendChild(headingcolom5);
+        headingRow.appendChild(headingcolom6)
         thead.appendChild(headingRow);
         // All regions
         for (let i = 0; i < list.length; i++) {
@@ -108,12 +236,33 @@ async function makeRegionTable() {
                 window.location = "admin_updateregion.html?id=" + list[i].id;
             };
             button2.innerHTML = "Change";
+            button2.style.backgroundColor = "#008CBA";
+            button2.style.border = "none";
+            button2.style.padding = "7px";
+            button2.style.borderRadius = "15px";
+            button2.style.textAlign = "center";
+            button2.style.fontSize = "16px";
+            button2.style.fontFamily = "Roboto, sans-serif";
+            button2.style.fontWeight = "bold";
+            button2.style.margin = "4px";
+            button2.style.cursor = "pointer";
+            button2.style.color = "white";
             var button = document.createElement("button")
             button.onclick = button.onclick = async function() {
                 await deleteRegions(list[i].id)
-                alert("region deleted");
             };
             button.innerHTML = "Delete";
+            button.style.backgroundColor = "red";
+            button.style.border = "none";
+            button.style.padding = "7px";
+            button.style.borderRadius = "15px";
+            button.style.textAlign = "center";
+            button.style.fontSize = "16px";
+            button.style.fontFamily = "Roboto, sans-serif";
+            button.style.fontWeight = "bold";
+            button.style.margin = "4px";
+            button.style.cursor = "pointer";
+            button.style.color = "white";
             colom6.appendChild(button);
             colom6.appendChild(button2);
             row.appendChild(colom1);
@@ -127,73 +276,8 @@ async function makeRegionTable() {
     } else {
         let message = document.getElementById('regionMessage');
         message.innerHTML = "No regions"
+        message.style.fontFamily = "Roboto, sans-serif"
+        message.style.fontSize = "18px"
+        message.style.textAlign = "center";
     }
-}
-
-async function deleteRegions(id) {
-    await firebase.firestore().collection("Regions").where("id", "==", id)
-        .get()
-        .then(async function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                doc.ref.update({ status: "deleted" });
-                // window.location = "admin_managefeedback.html"
-            });
-        }).then(function() {
-            alert("Region deleted")
-        }).catch(() => {
-            alert('Region not deleted')
-        });
-}
-
-async function setInputValue() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
-    let region = await getRegionById(id)
-    document.getElementById('radius').value = region.radius / 1000;
-    document.getElementById('latitude').value = region.lat;
-    document.getElementById('lng').value = region.lng;
-    document.getElementById('location').value = region.loc;
-    document.getElementById('city').value = region.city;
-}
-
-async function updateRegion(radius, lat, lng, loc, city) {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
-
-    await firebase.firestore().collection("Regions").where("id", "==", parseInt(id))
-        .get()
-        .then(async function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                doc.ref.update({
-                    radius: radius * 1000,
-                    lat: lat,
-                    lng: lng,
-                    loc: loc,
-                    city: city
-                });
-                //  window.location = "admin_manageregions.html"
-            });
-        }).then(function() {
-            alert("Region updated")
-        }).catch(() => {
-            alert('Region not updated')
-        });
-}
-
-async function getRegionById(id) {
-    var listRegions = []
-    await database.collection("Regions").where("id", "==", parseInt(id))
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                listRegions.push(doc.data())
-            });
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
-    console.log(listRegions);
-    return listRegions[0];
 }

@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script>
+        function locatePage(location) {
+            window.location = location + ".html";
+        }
+    </script>
 </head>
 
 <body>
@@ -45,11 +50,11 @@
                     <label for="green" style="color:green;">Annoying</label>
                 </div>
             </form>
+            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
             <div id="my_div">
                 <div id="map">
                 </div>
             </div>
-            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
         </div>
     </div>
 </body>

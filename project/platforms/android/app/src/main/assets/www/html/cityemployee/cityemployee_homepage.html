@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-
 <head>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <link rel="stylesheet" href="../../css/styleAdmin.css">
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -29,18 +30,27 @@
         })
     </script>
 </head>
-
 <body>
-        <h1 style="text-align:center">Rejected notifications</h1>
-        <h3 style="text-align:center">Below is a table of the rejected notifications</h3>
+    <div class="welcomeMessage">
+        <h1 id="medewerkers_name"></h1>
     </div>
-    <div class="container">
+        <div class="container">
         <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
             <ul class="menubar">
-                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
-            </ul>
+            <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+            <li>
+                <div class="main-title">
+                    <h1 id="medewerkers_name"></h1>
+                </div>
+            </li>
+            <li>
+                <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+            </li>
+        </ul>
+           
+            
 
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
@@ -54,21 +64,29 @@
                 <div class="clearfix"></div>
                 <ul>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="../cityemployee/cityemployee_update_profile.html">Update profile</a></li>
-                    <li><a href="../cityemployee/cityemployee_waiting.html">Waiting</a></li>
-                    <li><a href="../cityemployee/cityemployee_in_progress.html">In progress</a></li>
-                    <li><a href="../cityemployee/cityemployee_all.html">All</a></li>
-                    <li><a href="../cityemployee/cityemployee_done.html">Completed</a></li>
-                    <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
+                    <h1>Menu</h1>
+                    <li><a href="cityemployee_notificationsmanagement.html">Notifications management</a></li>
+                    <li><a href="cityemployee_update_profile.html">Update profile</a></li>
+                    <li><a href="cityemployee_update_password.html">Change password</a></li>
+                    <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <table border="1" id="notificationsTable"></table>
-    <h3 id="notificationMessage"></h3>
-    <table id="FeedbackTable"></table>
-    <h6 id="feedbackMessage"></h6>
-   
+    <div class="flex-container">
+        <div class="column" onclick="window.location = 'cityemployee_notificationsmanagement.html'">
+            <div class="center">
+                <p>Manage notifications</p>
+                <i class="fa-solid fa-city fa-4x"></i>
+            </div>
+        </div>
+        <div class="column" onclick="window.location = 'cityemployee_update_profile.html'">
+            <div class="center">
+                <p>Manage profile</p>
+                <i class="fa-solid fa-user fa-4x"></i>
+            </div> 
+        </div>
+</div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -77,7 +95,6 @@
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/userManager.js"></script>
 <script>
-    getRejectedNotifications();
+     display_greeting_user()
 </script>
-
 </html>

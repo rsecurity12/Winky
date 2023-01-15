@@ -12,6 +12,7 @@ body {
 
 #app1 {
     flex: 1;
+    text-align: center;
 }
 
 #map {
@@ -20,14 +21,33 @@ body {
     z-index: 0;
 }
 
-#addNotBtn {
-    display: flex;
-    align-items: center;
+#menuBtn{
     position: absolute;
-    top: 40px;
-    right: 70px;
+    font-size: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    z-index: 500;
+    top: 10px;
+    left: 10px;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: #fcf4c7;
+    font-weight: bold;
+}
+#menuBtn:hover {
+    background: #f7d616;
+    cursor: pointer;
+    color: white;
+}
+#addNotBtn {
+    position:absolute;
+    margin: 0;
     padding-left: 10px;
     padding-right: 10px;
+    left :50%;
+    top: 90%;
     width: 150px;
     height: 70px;
     font-size: 18px;

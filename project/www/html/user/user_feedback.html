@@ -55,21 +55,25 @@
                     <h1>User</h1>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
                     <li><a href="user_map.html">Map</a></li>
-                    <li><a href="">Change user details</a></li>
+                    <li><a href="user_update_profile.html">Change user details</a></li>
                     <li class="active"><a href="user_feedback.html">Feedback</a></li>
                     <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 </ul>
             </div>
             <h2 class="page-heading">Give feedback</h2>
-            <form method="post" enctype="text/plain">
-                <label>Onderwerp:</label>
-                <br>
-                <input type="text" id="subject"><br>
-                <label>Feedback:</label>
-                <br>
-                <input type="text" id="feedback" rows="3"><br>
-                <input type="button" onclick="sendFeedback()" value="Send ">
-            </form>
+            <div class="login-container">
+                <form action="#">
+                        <div class="form-control">
+                    <input type="text" class="username" id="subject" placeholder="Subject"  required="">
+                </div>
+                        <div class="form-control">
+                    <input type="text" class="username" id="feedback" placeholder="New feedback" required="">
+                </div>
+                <div class="shape-circle">
+                    <button type="button"  class="btn_submit" onclick="sendFeedback()">Update password</button>
+                </div>
+                </form>
+                </div>
         </div>
     </div>
 </body>
