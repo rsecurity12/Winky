@@ -275,3 +275,9 @@
     border-radius: 15px;
     z-index: 500;
 }
+
+.manageRegionsBtn:hover {
+    background: #f7d616;
+    cursor: pointer;
+    color: white;
+}
