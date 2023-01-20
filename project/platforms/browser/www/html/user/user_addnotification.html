@@ -56,7 +56,7 @@
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
                     <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label for="mapChoice">Map (Choose a position on the map.)</label>
+                    <label for="mapChoice">Map, click a place on the map.</label>
                 </div>
                 <!-- Dangerous state divs -->
                 <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label><br>
@@ -68,7 +68,7 @@
                     <label for="green" style="color:green;">Annoying</label>
                 </div>
             </form>
-            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
+            <button type="button" class="btn_normal" id="addNotBtn" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
             <div id="my_div">
                 <div id="map">
                 </div>
@@ -142,7 +142,7 @@
         }
     }
     function showButton(){
-        document.getElementById('btn_saveNot').style.display = "block";
+        document.getElementById('addNotBtn').style.display = "block";
     }
 </script>
 
