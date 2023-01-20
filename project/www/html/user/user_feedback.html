@@ -3,9 +3,12 @@
 
 <head>
     <title>Add feedback</title>
-    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -32,51 +35,62 @@
         })
     </script>
 </head>
-
 <body>
-    <div class="container">
-        <div class="app">
-            <div class="menushape1"></div>
-            <div class="menushape2"></div>
-            <ul class="menubar">
-                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
-            </ul>
-            <div class="sidenav" id="sidenav">
-                <div class="sidenavshape"></div>
-                <div class="profile">
+    <div class="container">       
+        <div class="menushape1"></div>
+        <div class="menushape2"></div>
+        <ul class="menubar">
+            <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+            <li>
+                <div class="welcomeMessage">
+                    <h1>Send feedback</h1>
                 </div>
-                <h1>
-                    <script>
-                        document.write();
-                    </script>
-                </h1>
-                <div class="clearfix"></div>
-                <ul>
-                    <h1>User</h1>
-                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <li><a href="user_map.html">Map</a></li>
-                    <li><a href="user_update_profile.html">Change user details</a></li>
-                    <li class="active"><a href="user_feedback.html">Feedback</a></li>
-                    <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                </ul>
+            </li>
+            <li>
+                <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+            </li>
+        </ul>
+        <div class="sidenav" id="sidenav">
+            <div class="sidenavshape"></div>
+            <div class="profile">
             </div>
-            <h2 class="page-heading">Give feedback</h2>
-            <div class="login-container">
-                <form action="#">
-                        <div class="form-control">
-                    <input type="text" class="username" id="subject" placeholder="Subject"  required="">
-                </div>
-                        <div class="form-control">
-                    <input type="text" class="username" id="feedback" placeholder="New feedback" required="">
-                </div>
-                <div class="shape-circle">
-                    <button type="button"  class="btn_submit" onclick="sendFeedback()">Update password</button>
-                </div>
-                </form>
-                </div>
+            <h1>
+                <script>
+                    document.write();
+                </script>
+            </h1>
+            <div class="clearfix"></div>
+            <ul>
+                <h2 id="normal_user"></h2>
+                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
+                <li><a href="user_map.html">Map</a></li>
+                <li><a href="../user/user_addnotification.html">Add a notification</a></li>
+                <li><a href="../user/user_update_profile.html">Update profile</a></li>
+                <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul
         </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="login-container">
+    <form action="#">
+        <div class="form-group">
+            <label for="first_name">Subject: </label>
+            <input style="width: 100px;" type="text" class="username" id="subject" placeholder="Subject" name="subject" required="">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Feedback: </label>
+            <textarea class="username" id="feedback" placeholder="Feedback..." name="feedback" required="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="button" class="addEmployeeButton" onclick="sendFeedback()">Send feedback</button>
+        </div>
+    </form>
+    </div>
 </body>
+
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>

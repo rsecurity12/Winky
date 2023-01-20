@@ -211,6 +211,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     border-radius: 15px;
+    border: none;
     background-color: #fcf4c7;
 }
 

@@ -211,6 +211,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     border-radius: 15px;
+    border: none;
     background-color: #fcf4c7;
 }
 
@@ -255,4 +256,8 @@
     font-family: "Roboto",sans-serif;
     font-size: 18px;
     margin: 6px;
+}
+
+.manageRegionsBtn {
+    
 }
