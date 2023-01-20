@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" href="../../css/styleAdmin.css">
     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
+    <title>Home</title>
     <script>
         function openNav() {
             document.getElementById("sidenav").style.width = "300px";
@@ -30,28 +32,26 @@
         })
     </script>
 </head>
+
 <body>
     <div class="welcomeMessage">
         <h1 id="medewerkers_name"></h1>
     </div>
-        <div class="container">
+    <div class="container">
         <div class="app">
             <div class="menushape1"></div>
             <div class="menushape2"></div>
             <ul class="menubar">
-            <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
-            <li>
-                <div class="main-title">
-                    <h1 id="medewerkers_name"></h1>
-                </div>
-            </li>
-            <li>
-                <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
-            </li>
-        </ul>
-           
-            
-
+                <li><a class="active" href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars" id="menu-icon"></i></a></li>
+                <li>
+                    <div class="main-title">
+                        <h1 id="medewerkers_name"></h1>
+                    </div>
+                </li>
+                <li>
+                    <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
+                </li>
+            </ul>
             <div class="sidenav" id="sidenav">
                 <div class="sidenavshape"></div>
                 <div class="profile">
@@ -64,7 +64,7 @@
                 <div class="clearfix"></div>
                 <ul>
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
-                    <h1>Menu</h1>
+                    <h1>Employee</h1>
                     <li><a href="cityemployee_notificationsmanagement.html">Notifications management</a></li>
                     <li><a href="cityemployee_update_profile.html">Update profile</a></li>
                     <li><a href="cityemployee_update_password.html">Change password</a></li>
@@ -84,9 +84,9 @@
             <div class="center">
                 <p>Manage profile</p>
                 <i class="fa-solid fa-user fa-4x"></i>
-            </div> 
+            </div>
         </div>
-</div>
+    </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -95,6 +95,7 @@
 <script src="../../js/notificationManager.js"></script>
 <script src="../../js/userManager.js"></script>
 <script>
-     display_greeting_user()
+    display_greeting_user()
 </script>
+
 </html>
