@@ -33,6 +33,9 @@ async function makeAllNotificationsStatusRight(city) {
                 point = { lat, lng };
                 if (await pointInCircles(point)) {
                     doc.ref.update({ status: "danger" });
+                } else {
+                    doc.ref.update({ status: "dangerOutOfRange" });
+
                 }
             });
         });
@@ -162,7 +165,6 @@ async function updateRegion(radius, lat, lng, loc, city) {
                     loc: loc,
                     city: city
                 });
-                //  window.location = "admin_manageregions.html"
             });
         }).then(function() {
             alert("Region updated")
