@@ -196,7 +196,15 @@
     padding-top: 10px;
     padding-right: 40px;
 }
-
+#logoNotfication{
+  width: 70px;
+    height: 70px;
+    right: 40px;
+    top: 10px;
+}
+.container1{
+  width: 100%;
+}
 .flex-container {
   display: flex;
 }
