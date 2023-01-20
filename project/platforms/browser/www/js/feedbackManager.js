@@ -29,7 +29,6 @@ async function getAllFeedback() {
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
-    console.log(listNotifications);
     return listNotifications;
 }
 
@@ -45,7 +44,6 @@ async function getFeedback(status) {
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
-    console.log(listNotifications);
     return listNotifications;
 }
 
@@ -78,9 +76,9 @@ async function makeFeedbackTable(feedback) {
         // Heading
         let headingRow = document.createElement('tr');
         let headingcolom1 = document.createElement('th');
-        headingcolom1.innerHTML = "Feedback";
+        headingcolom1.innerHTML = "Subject";
         let headingcolom2 = document.createElement('th');
-        headingcolom2.innerHTML = "Subject";
+        headingcolom2.innerHTML = "Feedback";
         let headingcolom3 = document.createElement('th');
         headingcolom3.innerHTML = "Status";
         let headingcolom4 = document.createElement('th');
@@ -94,9 +92,9 @@ async function makeFeedbackTable(feedback) {
         for (let i = 0; i < list.length; i++) {
             let row = document.createElement('tr');
             let colom1 = document.createElement('td');
-            colom1.innerHTML = list[i].feedback;
+            colom1.innerHTML = list[i].onderwerp;
             let colom2 = document.createElement('td');
-            colom2.innerHTML = list[i].onderwerp;
+            colom2.innerHTML = list[i].feedback;
             let colom3 = document.createElement('td');
             colom3.innerHTML = list[i].status;
             let colom4 = document.createElement('td');
@@ -146,7 +144,7 @@ async function makeFeedbackTable(feedback) {
         message.innerHTML = "No feedback at the moment";
         message.style.fontSize = "18px";
         message.style.fontFamily = "Roboto, sans-serif";
-        message.style.textAlign = "center"; 
+        message.style.textAlign = "center";
     }
 }
 

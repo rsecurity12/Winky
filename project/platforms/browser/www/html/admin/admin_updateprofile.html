@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
-        <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
+    <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <title>Update profile</title>
     <script>
         function locatePage(location) {
@@ -72,7 +72,7 @@
                     <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
                     <li><a href="admin_homepage.html">Home</a></li>
                     <li><a href="admin_regions.html">Manage Regions</a></li>
-                    <li><a href="admin_manageuser.html">Manage Users</a></li>
+                    <li><a href="admin_manageuser.html">Manage City Employee</a></li>
                     <li class="active"><a href="admin_updateprofile.html">Change User Details</a></li>
                     <li><a href="admin_managefeedback.html">Check Feedback</a></li>
                     <br>
@@ -92,17 +92,30 @@
         </div>
         <div class="form-group">
             <label for="phone"><h2>Phone number: </h2></label>
-            <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" required="">
+            <input type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" required="" disabled>
         </div>
         <div class="form-group">
-            <label for="email"><h2>E-mail address</h2></label>
+            <label for="email"><h2>E-mail address: </h2></label>
             <input type="email" class="email" id="email" placeholder="Email" name="email" disabled>
         </div>
         <div class="form-group">
             <button type="button" class="addEmployeeButton" onclick="updateUserDetails()">Update details</button>
         </div>
     </form>
-</div>
+    <form action="#">
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input style="width: 100px;" type="password" class="password" id="new_password" placeholder="Password" name="password" required="">
+        </div>
+        <div class="form-group">
+            <label for="password">Retype password: </label>
+            <input style="width: 100px;" type="password" class="username" id="retype_password" placeholder="Repeat password" name="retyped_password" required="">
+        </div>
+        <div class="form-group">
+            <button type="button" class="addEmployeeButton" onclick="changeUserPassword()">Update password</button>
+        </div>
+    </form>
+    </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -112,8 +125,9 @@
 <script src="../../js/notificationManager.js"></script>
 
 <script>
-    userDetails()
+    userDetailsEmployee()
 </script>
+
 </html>
 <!--
     
