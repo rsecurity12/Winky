@@ -9,24 +9,26 @@
     font-weight: bold;
     border-radius: 15px;
     background-color: #fcf4c7;
+    border: none;
 }
 
 .ChangeRoleButton:hover {
     background-color: #e7c710;
     color: white;
+    border: none;
 }
 
 #addButtonArea {
     position: absolute;
     top: 13%;
-    left: 42%;
+    left: 39%;
     margin: 0;
 }
 
 #mapButtonArea {
     position: absolute;
     top: 13%;
-    left: 50%;
+    right: 39%;
     margin: 0;
 }
 
@@ -187,16 +189,18 @@
     font-weight: bold;
     border-radius: 15px;
     background-color: #fcf4c7;
+    border: none;
 }
 
 .save-button:hover {
     background-color: #e7c710;
     color: white;
+    border: none;
 }
 
 .addEmployeeArea {
     position: absolute;
-    top: 12%;
+    top: 19%;
     left: 44%;
     margin: 0;
 }
@@ -213,11 +217,13 @@
     border-radius: 15px;
     border: none;
     background-color: #fcf4c7;
+    border: none;
 }
 
 .addEmployeeButton:hover {
     background-color: #e7c710;
     color: white;
+    border: none;
 }
 
 #FeedbackTable {
@@ -259,5 +265,28 @@
 }
 
 .manageRegionsBtn {
-    
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 150px;
+    height: 70px;
+    font-size: 18px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    background-color: #fcf4c7;
+    font-weight: bold;
+    border-radius: 15px;
+    z-index: 500;
+    border: none;
+}
+
+.manageRegionsBtn:hover {
+    background: #f7d616;
+    cursor: pointer;
+    color: white;
+    border: none;
 }
