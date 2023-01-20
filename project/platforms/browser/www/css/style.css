@@ -165,19 +165,19 @@ h2 {
 #btn_saveNot {
     position:relative;
     bottom: 1px;
-    left: 35%;
-    right: 35%;
+    left: 25%;
     
 
 }
 
 #radioButtons {
     margin: auto;
-    padding: 20px;
+    padding: 10px;
+    
 }
 #positionState {
     margin: auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 #arrowBack {
@@ -461,6 +461,10 @@ span {
     border-radius: 20%;
     box-shadow: 4px 4px #f4c141;
     color: #555;
+}
+#labelDescription{
+    margin: auto;
+    padding: 10px;
 }
 .btn_normal4 {
     text-align: center;
