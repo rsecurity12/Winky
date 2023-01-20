@@ -41,11 +41,8 @@ body {
     color: white;
 }
 #addNotBtn {
-    position:absolute;
-    margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    left :45%;
+    position:relative;
+    left:auto;
     top: 90%;
     width: 150px;
     height: 70px;
