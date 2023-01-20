@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -22,10 +23,23 @@
 </head>
 
 <body>
+    <div class="container1">       
+        <div class="menushape1"></div>
+        <div class="menushape2"></div>
+        <ul class="menubar">
+            <li><i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('user_map')"></i></li>
+            <li>
+                <div class="welcomeMessage">
+                    <h1>Add a danger place</h1>
+                </div>
+            </li>
+            <li>
+                <img id="logoNotfication" src="../../images/FullLogo.png" alt="Winky Logo">
+            </li>
+        </ul>
+    </div>
     <div class="container">
-        <i class="fa fa-arrow-left" id="arrowBack" aria-hidden="true" onclick="locatePage('user_map')"></i>
         <div class="app">
-            <h2>Add a danger place</h2>
             <form action="#">
                 <!-- titel en beschrijving -->
                 <div class="form-group" id="labelDescription">
@@ -42,7 +56,7 @@
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
                     <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label for="mapChoice">Map (Choose a position on the map.)</label>
+                    <label for="mapChoice">Map, click a place on the map.</label>
                 </div>
                 <!-- Dangerous state divs -->
                 <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label><br>
@@ -54,7 +68,7 @@
                     <label for="green" style="color:green;">Annoying</label>
                 </div>
             </form>
-            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
+            <button type="button" class="btn_normal" id="addNotBtn" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
             <div id="my_div">
                 <div id="map">
                 </div>
@@ -128,7 +142,7 @@
         }
     }
     function showButton(){
-        document.getElementById('btn_saveNot').style.display = "block";
+        document.getElementById('addNotBtn').style.display = "block";
     }
 </script>
 
