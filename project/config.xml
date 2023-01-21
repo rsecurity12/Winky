@@ -12,4 +12,5 @@
     <allow-intent href="geo:*" />
     <plugin name="cordova-plugin-geolocation" spec="*4.0.1" />
     <allow-navigation origin="*" />
+    <icon src="www/images/FullLogo.png" />
 </widget>

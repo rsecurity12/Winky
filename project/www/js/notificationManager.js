@@ -1063,9 +1063,7 @@ async function get_list_size() {
     return list_size.length + 1
 }
 
-
 function generatePdf() {
-
     firebase.auth().onAuthStateChanged(async user => {
         if (user) {
             var data = "";
@@ -1076,7 +1074,6 @@ function generatePdf() {
                         data_city = doc.data();
                     });
                 })
-
             var listNotifications = []
             await database.collection("Notifications").where("city", "==", data_city.city)
                 .orderBy("status")
@@ -1127,7 +1124,7 @@ function generatePdf() {
                     website: "www.example.al",
                 },
                 contact: {
-                    name: "Test locatie",
+                    name: "Mechelen",
                     address: "teststraat 33",
                     phone: "2000 Antwerpen",
                     email: "client@website.al",
@@ -1206,9 +1203,7 @@ function generatePdf() {
                         style: {
                             fontSize: 10 //optional, default 12
                         }
-                    }],
-                    invDescLabel: "Report Note",
-                    invDesc: "test note",
+                    }]
                 },
                 footer: {
                     text: "The report is created on a computer and is valid without the signature and stamp.",

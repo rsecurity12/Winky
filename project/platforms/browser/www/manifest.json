@@ -6,6 +6,12 @@
   "version": "io.cordova.hellocordova",
   "description": "A project for AP",
   "author": "Wannes, Max, Rodrigo and Koen",
-  "icons": [],
+  "icons": [
+    {
+      "src": "www/images/FullLogo.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "html/anonymousUser/ReadOnlyMap.html"
 }

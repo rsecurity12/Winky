@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <link rel="stylesheet" href="../../css/leaflet.css">
+    <link rel="icon" type="image/png" href="../../images/FullLogo.png" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
-    <title>Manage feedback</title>
+    <title>Manage notifications</title>
     <script>
         function locatePage(location) {
             window.location = location + ".html";
@@ -60,7 +60,7 @@
             <img id="logo" src="../../images/FullLogo.png" alt="Winky Logo">
         </li>
     </ul>
-</ul>
+    </ul>
     <div class="sidenav" id="sidenav">
         <div class="sidenavshape"></div>
         <div class="profile">
@@ -72,16 +72,16 @@
         </h1>
         <div class="clearfix"></div>
         <ul>
-            <h1>Menu</h1>
+            <h1>Employee</h1>
             <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a></li>
             <li><a href="cityemployee_homepage.html">Home</a></li>
+            <li class="active"><a href="cityemployee_notificationsmanagement.html">Manage notification</a></li>
             <li><a href="cityemployee_update_profile.html">Update profile</a></li>
-            <li><a href="cityemployee_update_password.html">Change password</a></li>
             <br>
             <li><a id="logout" href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
-    <h3><label> Enter a notification ID: </label><input type="number" class="password" id="notification_id" placeholder="Enter a notifcation id"  required=""></h3>
+    <h3><label> Enter a notification ID: </label><input type="number" class="password" id="notification_id" placeholder="Enter a notifcation id" required=""></h3>
     <h3><label> Choose  its status: </label>
         <div class="form-group">
             <button type="button" class="approve" onclick="inProgress()">Approve</button>
@@ -92,23 +92,25 @@
         <div class="form-group">
             <button type="button" class="completed" onclick="completed()">Completed</button>
         </div>
-    <h3><label> Download report: </label></h3>
-    <div class="form-group">
-        <button type="button" class="downloadPDF" onclick="generatePdf()">Download PDF</button>
-    </div>
-    <div class="filters">
-        <h2>Filters: </h2>                        
-        <input type="radio" name="feedbackKind" value="new" id="new" onclick=" makeNotificationsTable('new')"> <label for="new">NEW</label>
-        <input type="radio" name="feedbackKind" value="in_progress" id="in_progress" onclick=" makeNotificationsTable('in_progress')" /> <label for="in_progress">IN PROGRESS</label>
-        <input type="radio" name="feedbackKind" value="completed" id="completed" onclick="makeNotificationsTable('completed')"> <label for="completed">COMPLETED</label>
-        <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeNotificationsTable('all')" checked> <label for="all">ALL</label>
-        <input type="radio" name="feedbackKind" value="rejected" id="rejected" onclick="makeNotificationsTable('rejected')" checked> <label for="rejected">REJECTED</label>
-    </div>
+        <h3><label> Download report: </label></h3>
+        <div class="form-group">
+            <button type="button" class="downloadPDF" onclick="generatePdf()">Download PDF</button>
+        </div>
+        <div class="filters">
+            <h2>Filters: </h2>
+            <input type="radio" name="feedbackKind" value="new" id="new" onclick=" makeNotificationsTable('new')"> <label for="new">NEW</label>
+            <input type="radio" name="feedbackKind" value="in_progress" id="in_progress" onclick=" makeNotificationsTable('in_progress')" /> <label for="in_progress">IN PROGRESS</label>
+            <input type="radio" name="feedbackKind" value="completed" id="completed" onclick="makeNotificationsTable('completed')"> <label for="completed">COMPLETED</label>
+            <input type="radio" name="feedbackKind" value="all" id="all" onclick="makeNotificationsTable('all')" checked> <label for="all">ALL</label>
+            <input type="radio" name="feedbackKind" value="rejected" id="rejected" onclick="makeNotificationsTable('rejected')" checked> <label for="rejected">REJECTED</label>
+        </div>
 
-    <div class="table">
-        <h3 id="notificationMessage"></h3>
-        <h3> <table border="1" id="notificationsTable"></table>  </h3>    
-    </div>
+        <div class="table">
+            <h3 id="notificationMessage"></h3>
+            <h3>
+                <table border="1" id="notificationsTable"></table>
+            </h3>
+        </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -120,4 +122,5 @@
 <script>
     makeNotificationsTable()
 </script>
+
 </html>

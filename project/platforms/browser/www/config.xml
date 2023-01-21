@@ -11,4 +11,5 @@
     <access origin="*" />
     <allow-intent href="geo:*" />
     <allow-navigation origin="*" />
+    <icon src="www/images/FullLogo.png" />
 </widget>

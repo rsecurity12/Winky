@@ -42,7 +42,6 @@ async function register() {
             })
         })
         .catch(function(error) {
-            // Firebase will use this to alert of its errors
             alert(error.message)
         });
 }
@@ -95,7 +94,6 @@ async function UpdateUser(email) {
 
 function sendResetMail() {
     email = document.getElementById('email').value;
-    alert(email)
     firebase.auth().sendPasswordResetEmail(email)
         .then(() => {
             alert("Check yout mailbox")
@@ -248,7 +246,7 @@ async function greeting_user(name) {
     document.getElementById('medewerkers_name').innerHTML = "Welcome " + name;
 }
 
-async function display_greeting_user(){
+async function display_greeting_user() {
     firebase.auth().onAuthStateChanged(async user => {
         if (user) {
             var data = "";
@@ -265,6 +263,101 @@ async function display_greeting_user(){
             greeting_user(data.first_name)
         }
     })
+}
+
+
+async function GetCurrentUserData() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                        console.log(data)
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+        }
+    })
+}
+
+async function userDetailsEmployee() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                        console.log(data)
+                    });
+                })
+            document.getElementById("first_name").placeholder = data.first_name
+            document.getElementById("last_name").placeholder = data.last_name
+            document.getElementById("phone_number").placeholder = data.phone_number
+            document.getElementById("email").placeholder = data.email
+            document.getElementById("city").placeholder = data.city
+            greeting_normal_user(data.first_name)
+        }
+    })
+}
+async function userDetailsUser() {
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            var data = "";
+            await database.collection("UserRoles").where("email", "==", user.email)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        data = doc.data();
+                        console.log(data)
+                    });
+                })
+            document.getElementById("first_name").placeholder = data.first_name
+            document.getElementById("last_name").placeholder = data.last_name
+            document.getElementById("phone_number").placeholder = data.phone_number
+            document.getElementById("email").placeholder = data.email
+            greeting_normal_user(data.first_name)
+        }
+    })
+}
+
+
+async function greeting_normal_user(name) {
+    document.getElementById('normal_user').innerHTML = "Hello " + name;
+}
+
+async function updateUserDetails() {
+    first_name_update = document.getElementById('first_name').value;
+    last_name_update = document.getElementById('last_name').value;
+    firebase.auth().onAuthStateChanged(async user => {
+        if (user) {
+            await database.collection("UserRoles").doc(user.uid).update({
+                first_name: first_name_update,
+                last_name: last_name_update,
+            }).then(alert("Your profile is updated successfully. Refresh the page"))
+        }
+    })
+}
+
+async function changeUserPassword() {
+    var new_password = document.getElementById("new_password").value
+    var retype_password = document.getElementById("retype_password").value
+    if (new_password != retype_password) {
+        alert("The passwords don't match")
+    } else {
+        var user = firebase.auth().currentUser;
+        user.updatePassword(new_password).then(function() {
+            alert("Password changed.")
+        }).catch(function(error) {
+            alert(error)
+        });
+    }
 }
 
 // Validate Functions
@@ -302,87 +395,4 @@ function validate_field(field) {
 function validate_phone_number(input_str) {
     var phoneno = /^\(?([0-9]{3})[-. ]?([0-9]{6})$/;
     return phoneno.test(input_str);
-}
-
-async function GetCurrentUserData() {
-    firebase.auth().onAuthStateChanged(async user => {
-        if (user) {
-            var data = "";
-            await database.collection("UserRoles").where("email", "==", user.email)
-                .get()
-                .then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        data = doc.data();
-                        console.log(data)
-                    });
-                })
-                .catch((error) => {
-                    console.log("Error getting documents: ", error);
-                });
-        }
-    })
-}
-
-async function userDetails() {
-    firebase.auth().onAuthStateChanged(async user => {
-        if (user) {
-            var data = "";
-            await database.collection("UserRoles").where("email", "==", user.email)
-                .get()
-                .then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        data = doc.data();
-                        console.log(data)
-                    });
-                })
-            document.getElementById("first_name").placeholder = data.first_name
-            document.getElementById("last_name").placeholder = data.last_name
-            document.getElementById("phone_number").placeholder = data.phone_number
-            document.getElementById("email").placeholder = data.email
-            document.getElementById("city").placeholder = data.city
-            greeting_normal_user(data.first_name)
-        }
-    })
-}
-
-
-async function greeting_normal_user(name) {
-    document.getElementById('normal_user').innerHTML = "Hello " + name;
-}
-
-async function updateUserDetails() {
-    first_name_update = document.getElementById('first_name').value;
-    last_name_update = document.getElementById('last_name').value;
-    phone_number_update = document.getElementById('phone_number').value;
-    if (validate_phone_number(phone_number_update) == false) {
-        alert('Something went wrong! You can only use a Belgian phone provider\nExample number:466xxxxxx')
-        return
-    }
-
-    firebase.auth().onAuthStateChanged(async user => {
-        if (user) {
-            await database.collection("UserRoles").doc(user.uid).update({
-                first_name: first_name_update,
-                last_name: last_name_update,
-                phone_number: phone_number_update
-            })
-            alert("Your profile is updated successfully. Refresh the page")
-        }
-    })
-}
-
-async function changeUserPassword() {
-    var new_password = document.getElementById("new_password").value
-    var retype_password = document.getElementById("retype_password").value
-    if (new_password != retype_password) {
-        alert("The passwords don't match")
-    }
-    if (new_password == retype_password) {
-        var user = firebase.auth().currentUser;
-        user.updatePassword(new_password).then(function() {
-            alert("Update successful.")
-        }).catch(function(error) {
-            alert(error)
-        });
-    }
 }
