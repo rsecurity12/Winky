@@ -196,6 +196,27 @@
     padding-top: 10px;
     padding-right: 40px;
 }
+#addNotBtn {
+  position:relative;
+  left:auto;
+  top: 90%;
+  width: 150px;
+  height: 70px;
+  font-size: 18px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #fcf4c7;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  z-index: 500;
+}
+
+#addNotBtn:hover {
+  background: #f7d616;
+  cursor: pointer;
+  color: white;
+}
 #logoNotfication{
   width: 70px;
     height: 70px;
