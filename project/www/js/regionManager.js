@@ -12,7 +12,7 @@ async function save_region() {
         lng: lng,
         radius: radius * 1000,
         city: city,
-        status: "danger",
+        status: "running",
         id: list.length
     }).then(async() => {
         await makeAllNotificationsStatusRight(city);

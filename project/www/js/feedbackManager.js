@@ -3,7 +3,6 @@ async function sendFeedback() {
     let subject = document.getElementById('subject').value
     let list = await getAllFeedback();
     var database_ref = database.collection('Feedback')
-    alert(list.length)
     database_ref.add({
         id: list.length,
         onderwerp: subject,
