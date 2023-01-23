@@ -5,6 +5,8 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
+    <link rel="icon" type="image/png" href="../../images/FullLogo.png" />
+
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <title>Update profile</title>
@@ -80,85 +82,46 @@
         <div class="login-container">
             <form action="#">
                 <div class="form-group">
-                    <label for="first_name">First Name: </label>
-                    <input style="width: 100px;" type="text" class="username" id="first_name" placeholder="First name" name="name" required="">
+                    <label for="first_name">First Name:</label>
+                    <input style="width: 200px;" type="text" class="username" id="first_name" placeholder="First name" name="name" required="">
                 </div>
                 <div class="form-group">
-                    <label for="last_name">Last Name: </label>
-                    <input style="width: 100px;" type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
+                    <label for="last_name">Last Name:</label>
+                    <input style="width: 200px;" type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email: </label>
-                    <input style="width: 100px;" type="email" class="email" id="email" placeholder="Email" name="email" disabled>
+                    <label for="email">Email:</label>
+                    <input style="width: 300px;" type="email" class="email" id="email" placeholder="Email" name="email" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone: </label>
-                    <input style="width: 100px;" type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" disabled>
+                    <label for="phone">Phone:</label>
+                    <input style="width: 200px;" type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number" disabled>
                 </div>
                 <div class="form-group">
                     <button type="button" class="addEmployeeButton" onclick="updateUserDetails()">Update</button>
                 </div>
             </form>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <form action="#">
                 <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input style="width: 100px;" type="password" class="password" id="new_password" placeholder="Password" name="password" required="">
+                    <label for="password">Password:</label>
+                    <input style=" width: 200px;" type="password " class="password " id="new_password " placeholder="Password " name="password " required=" ">
                 </div>
-                <div class="form-group">
-                    <label for="password">Retype password: </label>
-                    <input style="width: 100px;" type="password" class="username" id="retype_password" placeholder="Repeat password" name="retyped_password" required="">
+                <div class="form-group ">
+                    <label for="password ">Retype password:</label>
+                    <input style="width: 200px;" type="password " class="username " id="retype_password " placeholder="Repeat password " name="retyped_password " required=" ">
                 </div>
-                <div class="form-group">
-                    <button type="button" class="addEmployeeButton" onclick="changeUserPassword()">Update password</button>
+                <div class="form-group ">
+                    <button type="button " class="addEmployeeButton " onclick="changeUserPassword() ">Update password</button>
                 </div>
             </form>
         </div>
-        <div class="form-group">
-            <label for="last_name">Last Name: </label>
-            <input style="width: 100px;" type="text" class="username" id="last_name" placeholder="Last name" name="last_name" required="">
-        </div>
-        <div class="form-group">
-            <label for="email">Email: </label>
-            <input style="width: 100px;" type="email" class="email" id="email" placeholder="Email" name="email" disabled>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone: </label>
-            <input style="width: 100px;" type="phone" class="username" id="phone_number" placeholder="Belgian phone number: 4xxxxxxxx" name="phone_number">
-        </div>
-        <div class="form-group">
-            <button type="button" class="addEmployeeButton" onclick="updateUserDetails()">Update</button>
-        </div>
-        </form>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form action="#">
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input style="width: 100px;" type="password" class="password" id="new_password" placeholder="Password" name="password" required="">
-            </div>
-            <div class="form-group">
-                <label for="password">Retype password: </label>
-                <input style="width: 100px;" type="password" class="username" id="retype_password" placeholder="Repeat password" name="retyped_password" required="">
-            </div>
-            <div class="form-group">
-                <button type="button" class="addEmployeeButton" onclick="changeUserPassword()">Update password</button>
-            </div>
-        </form>
     </div>
 </body>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="../../js/connection.js"></script>
-<script src="../../js/userManager.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js "></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js "></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js "></script>
+<script src="../../js/connection.js "></script>
+<script src="../../js/userManager.js "></script>
 <script>
     userDetailsUser()
 </script>

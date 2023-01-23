@@ -14,5 +14,6 @@
     <access origin="*" />
     <allow-intent href="geo:*" />
     <allow-navigation origin="*" />
+    <icon src="www/images/FullLogo.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

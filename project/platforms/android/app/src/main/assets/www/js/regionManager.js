@@ -12,7 +12,7 @@ async function save_region() {
         lng: lng,
         radius: radius * 1000,
         city: city,
-        status: "running",
+        status: "danger",
         id: list.length
     }).then(async() => {
         await makeAllNotificationsStatusRight(city);
@@ -33,6 +33,9 @@ async function makeAllNotificationsStatusRight(city) {
                 point = { lat, lng };
                 if (await pointInCircles(point)) {
                     doc.ref.update({ status: "danger" });
+                } else {
+                    doc.ref.update({ status: "dangerOutOfRange" });
+
                 }
             });
         });
@@ -79,9 +82,10 @@ async function makeAllNotificationsStatusOuthOfRange(id, city) {
                 lat = doc.data().lat
                 lng = doc.data().long
                 point = { lat, lng };
-                alert(123)
                 if (await pointInCircle(region, point)) {
                     doc.ref.update({ status: "dangerOutOfRange" });
+                } else {
+                    doc.ref.update({ status: "danger" });
                 }
             });
         })

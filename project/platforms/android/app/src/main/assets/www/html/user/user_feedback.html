@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../../css/styleProfile.css">
     <link rel="stylesheet" type="text/css" href="../../css/styleAdmin.css">
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../images/FullLogo.png" />
+
     <script src="https://kit.fontawesome.com/423e533185.js" crossorigin="anonymous"></script>
     <script>
         function openNav() {
@@ -35,8 +37,9 @@
         })
     </script>
 </head>
+
 <body>
-    <div class="container">       
+    <div class="container">
         <div class="menushape1"></div>
         <div class="menushape2"></div>
         <ul class="menubar">
@@ -67,28 +70,27 @@
                 <li><a href="../user/user_addnotification.html">Add a notification</a></li>
                 <li><a href="../user/user_update_profile.html">Update profile</a></li>
                 <li><a href="../anonymousUser/ReadOnlyMap.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-            </ul
+            </ul </div>
         </div>
-    </div>
 
-    <br>
-    <br>
-    <br>
-    <div class="login-container">
-    <form action="#">
-        <div class="form-group">
-            <label for="first_name">Subject: </label>
-            <input style="width: 100px;" type="text" class="username" id="subject" placeholder="Subject" name="subject" required="">
+        <br>
+        <br>
+        <br>
+        <div class="login-container">
+            <form action="#">
+                <div class="form-group">
+                    <label for="first_name">Subject: </label>
+                    <input style="width: 100px;" type="text" class="username" id="subject" placeholder="Subject" name="subject" required="">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Feedback: </label>
+                    <textarea class="username" id="feedback" placeholder="Feedback..." name="feedback" required="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="addEmployeeButton" onclick="sendFeedback()">Send feedback</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="last_name">Feedback: </label>
-            <textarea class="username" id="feedback" placeholder="Feedback..." name="feedback" required="" cols="30" rows="10"></textarea>
-        </div>
-        <div class="form-group">
-            <button type="button" class="addEmployeeButton" onclick="sendFeedback()">Send feedback</button>
-        </div>
-    </form>
-    </div>
 </body>
 
 

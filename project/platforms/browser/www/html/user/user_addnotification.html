@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../../css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="icon" type="image/png" href="../../images/FullLogo.png" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
     <script>
@@ -23,7 +25,7 @@
 </head>
 
 <body>
-    <div class="container1">       
+    <div class="container1">
         <div class="menushape1"></div>
         <div class="menushape2"></div>
         <ul class="menubar">
@@ -56,7 +58,7 @@
                     <input type="radio" id="localPosition" name="mapState" onclick="my_function(localPosition)" required>
                     <label for="localPosition">Current location</label>
                     <input type="radio" id="mapChoice" name="mapState" onclick="my_function(mapChoice)" checked required>
-                    <label for="mapChoice">Map (Choose a position on the map.)</label>
+                    <label for="mapChoice">Map, click a place on the map.</label>
                 </div>
                 <!-- Dangerous state divs -->
                 <div class="form-group" id="radioButtons" required> <label for="description">How dangerous is this problem?: </label><br>
@@ -68,7 +70,7 @@
                     <label for="green" style="color:green;">Annoying</label>
                 </div>
             </form>
-            <button type="button" class="btn_normal" id="btn_saveNot" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
+            <button type="button" class="btn_normal" id="addNotBtn" style="display: none;" onclick="save_notification(Lat, Long)">Save notification</button>
             <div id="my_div">
                 <div id="map">
                 </div>
@@ -141,8 +143,9 @@
             document.getElementById('my_div').style.display = "block";
         }
     }
-    function showButton(){
-        document.getElementById('btn_saveNot').style.display = "block";
+
+    function showButton() {
+        document.getElementById('addNotBtn').style.display = "block";
     }
 </script>
 
